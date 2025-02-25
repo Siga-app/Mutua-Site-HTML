@@ -9,28 +9,20 @@
   <!-- Fontes: Montserrat (títulos) e Lato (texto) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link 
-    href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@700&display=swap" 
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
 
   <style>
     /* ---------------------------
        RESET E VARIÁVEIS
     --------------------------- */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     :root {
-      --azul-profundo: #1F3B5F;   /* textos e destaques */
-      --azul-degrade: #4A7BA7;    /* botões e fundo da seção Quem Somos */
-      --rosa-pessego: #F3B8A8;    /* fundos secundários e hover */
+      --azul-profundo: #1F3B5F;
+      --azul-degrade: #4A7BA7;
+      --rosa-pessego: #F3B8A8;
       --branco: #FFFFFF;
     }
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
     body {
       font-family: 'Lato', sans-serif;
       background: var(--branco);
@@ -41,14 +33,10 @@
       font-family: 'Montserrat', sans-serif;
       color: var(--azul-profundo);
     }
-    .container {
-      width: 90%;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
+    .container { width: 90%; max-width: 1200px; margin: 0 auto; }
 
     /* ---------------------------
-       HEADER + MENU + CTA
+       HEADER + MENU + CTA (Minimalista)
     --------------------------- */
     header {
       display: flex;
@@ -56,20 +44,11 @@
       justify-content: space-between;
       padding: 0.8rem 0;
     }
-    .logo-area {
-      display: flex;
-      align-items: center;
-    }
-    .logo {
-      width: 50px;
-      margin-right: 0.8rem;
-    }
-    .header-title {
-      font-size: 1.2rem; /* Estilo original */
-      font-weight: 700;
-    }
+    .logo-area { display: flex; align-items: center; }
+    .logo { width: 50px; margin-right: 0.8rem; }
+    .header-title { font-size: 1.2rem; font-weight: 700; }
     nav {
-      flex: 1; /* O menu ocupa o espaço central */
+      flex: 1;
       display: flex;
       justify-content: center;
     }
@@ -84,15 +63,10 @@
       font-weight: 700;
       color: var(--azul-profundo);
       transition: color 0.3s ease;
-      font-size: 0.9rem;   /* Tamanho menor */
+      font-size: 0.9rem;
     }
-    /* Muda para rosa-pêssego ao hover */
-    nav ul li a:hover {
-      color: var(--rosa-pessego);
-    }
-    .header-cta {
-      margin-left: auto;
-    }
+    nav ul li a:hover { color: var(--rosa-pessego); }
+    .header-cta { margin-left: auto; }
     .header-cta a {
       display: inline-block;
       padding: 0.7rem 1.3rem;
@@ -103,13 +77,11 @@
       color: var(--branco);
       text-decoration: none;
       text-transform: uppercase;
+      letter-spacing: 0.5px;
       transition: background-color 0.3s ease;
       font-size: 0.8rem;
-      letter-spacing: 0.5px;
     }
-    .header-cta a:hover {
-      background-color: #3b6f96;
-    }
+    .header-cta a:hover { background-color: #3b6f96; }
 
     /* ---------------------------
        HERO SECTION (Imagem de Fundo com Zoom)
@@ -178,26 +150,11 @@
       text-decoration: none;
       transition: background-color 0.3s ease;
     }
-    .btn-cta {
-      background-color: var(--azul-degrade);
-      color: var(--branco);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      font-size: 0.85rem;
-    }
-    .btn-cta:hover {
-      background-color: #3b6f96;
-    }
-    .btn-rosa {
-      background-color: var(--rosa-pessego);
-      color: #333;
-    }
-    .btn-rosa:hover {
-      background-color: #ebb0a0;
-    }
-    .pulse {
-      animation: pulse 1.5s infinite;
-    }
+    .btn-cta { background-color: var(--azul-degrade); color: var(--branco); text-transform: uppercase; letter-spacing: 0.5px; font-size: 0.85rem; }
+    .btn-cta:hover { background-color: #3b6f96; }
+    .btn-rosa { background-color: var(--rosa-pessego); color: #333; }
+    .btn-rosa:hover { background-color: #ebb0a0; }
+    .pulse { animation: pulse 1.5s infinite; }
     @keyframes pulse {
       0% { transform: scale(1); }
       50% { transform: scale(1.02); }
@@ -217,30 +174,15 @@
       text-transform: uppercase;
       letter-spacing: 0.8px;
     }
-    .section-text {
-      font-size: 1.1rem;
-      margin-bottom: 1rem;
-    }
+    .section-text { font-size: 1.1rem; margin-bottom: 1rem; }
 
     /* ---------------------------
        COMO ASSIM?
     --------------------------- */
-    #como-assim {
-      padding: 2rem 0;
-    }
-    .benefit-list {
-      list-style: none;
-      margin: 1rem 0;
-      line-height: 1.6;
-    }
-    .benefit-list li {
-      margin-bottom: 0.5rem;
-    }
-    .btn-center {
-      display: block;
-      margin: 1rem auto 0;
-      width: fit-content;
-    }
+    #como-assim { padding: 2rem 0; }
+    .benefit-list { list-style: none; margin: 1rem 0; line-height: 1.6; }
+    .benefit-list li { margin-bottom: 0.5rem; }
+    .btn-center { display: block; margin: 1rem auto 0; width: fit-content; }
 
     /* ---------------------------
        COMO FUNCIONA? (Timeline com Zoom de Fundo)
@@ -302,7 +244,7 @@
       border-radius: 50%;
       background: var(--branco);
       border: 4px solid var(--azul-profundo);
-      margin: 0 auto 0.5rem auto;
+      margin: 0 auto 0.5rem;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -313,32 +255,44 @@
       opacity: 0;
       transition: transform 0.5s ease-out, opacity 0.5s ease-out;
     }
-    .step-circle.in-view {
-      transform: scale(1);
-      opacity: 1;
-    }
+    .step-circle.in-view { transform: scale(1); opacity: 1; }
     .timeline-step h3 {
       margin-bottom: 0.3rem;
       font-size: 1rem;
-      text-transform: none;
-      letter-spacing: 0;
     }
-    .timeline-step p {
-      font-size: 0.9rem;
-      line-height: 1.3;
-    }
+    .timeline-step p { font-size: 0.9rem; line-height: 1.3; }
     @media (max-width: 767px) {
-      .timeline-container {
-        flex-direction: column;
-        align-items: center;
-      }
-      .timeline-line {
-        display: none;
-      }
-      .timeline-step {
-        width: auto;
-        margin-bottom: 2rem;
-      }
+      .timeline-container { flex-direction: column; align-items: center; }
+      .timeline-line { display: none; }
+      .timeline-step { width: auto; margin-bottom: 2rem; }
+    }
+
+    /* ---------------------------
+       RESULTADOS (Contadores Animados)
+    --------------------------- */
+    #resultados {
+      padding: 2rem 0;
+      background: var(--branco);
+      text-align: center;
+    }
+    .resultados-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      gap: 2rem;
+    }
+    .resultado-item {
+      flex: 1 1 200px;
+    }
+    .resultado-item .counter {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--azul-profundo);
+    }
+    .resultado-item p {
+      font-size: 1rem;
+      margin-top: 0.5rem;
+      color: #555;
     }
 
     /* ---------------------------
@@ -373,9 +327,7 @@
       margin: 1rem 0;
       line-height: 1.6;
     }
-    .quem-somos-text ul li {
-      margin-bottom: 0.5rem;
-    }
+    .quem-somos-text ul li { margin-bottom: 0.5rem; }
 
     /* ---------------------------
        QUANTO VOCÊ PODE RECEBER?
@@ -404,9 +356,7 @@
       border-radius: 8px;
       padding: 2rem;
     }
-    .form-group {
-      margin-bottom: 1.2rem;
-    }
+    .form-group { margin-bottom: 1.2rem; }
     .form-group label {
       display: block;
       margin-bottom: 0.4rem;
@@ -425,14 +375,8 @@
       display: flex;
       align-items: center;
     }
-    .form-check input {
-      margin-right: 0.5rem;
-    }
-    .btn-submit {
-      display: block;
-      width: 100%;
-      margin-top: 1rem;
-    }
+    .form-check input { margin-right: 0.5rem; }
+    .btn-submit { display: block; width: 100%; margin-top: 1rem; }
 
     /* ---------------------------
        FAQ (com imagem ao lado)
@@ -446,33 +390,19 @@
       gap: 2rem;
       align-items: flex-start;
     }
-    .faq-text {
-      flex: 1;
-    }
-    .faq-text .faq-item {
-      margin-bottom: 1.5rem;
-    }
-    .faq-text .faq-item h3 {
-      font-size: 1.2rem;
-      margin-bottom: 0.5rem;
-    }
-    .faq-image {
-      flex: 0 0 400px;
-      text-align: center;
-    }
+    .faq-text { flex: 1; }
+    .faq-text .faq-item { margin-bottom: 1.5rem; }
+    .faq-text .faq-item h3 { font-size: 1.2rem; margin-bottom: 0.5rem; }
+    .faq-image { flex: 0 0 400px; text-align: center; }
     .faq-image img {
       width: 100%;
       max-width: 400px;
       border-radius: 8px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
     @media (max-width: 767px) {
-      .faq-content {
-        flex-direction: column;
-      }
-      .faq-image {
-        flex: 1;
-      }
+      .faq-content { flex-direction: column; }
+      .faq-image { flex: 1; }
     }
 
     /* ---------------------------
@@ -484,30 +414,19 @@
       text-align: center;
       color: var(--branco);
     }
-    #last-call p {
-      margin: 1rem 0;
-    }
-    .contact-info p {
-      margin: 0.3rem 0;
-    }
+    #last-call p { margin: 1rem 0; }
+    .contact-info p { margin: 0.3rem 0; }
 
     /* ---------------------------
        FOOTER
     --------------------------- */
-    .footer {
-      background-color: #f5f5f5;
-      padding: 1rem 0;
-    }
-    .footer p {
-      text-align: center;
-      font-size: 0.9rem;
-      color: #333;
-    }
+    .footer { background-color: #f5f5f5; padding: 1rem 0; }
+    .footer p { text-align: center; font-size: 0.9rem; color: #333; }
   </style>
 </head>
 <body>
 
-  <!-- HEADER -->
+  <!-- HEADER + MENU + CTA -->
   <header class="header container">
     <div class="logo-area">
       <img class="logo" alt="Mútua – Assessoria Maternidade" src="https://i.ibb.co/Y4Mv8Ncb/mutua-logo-png.png">
@@ -593,6 +512,24 @@
       </div>
       <div style="margin-top:2rem;">
         <a href="#form-section" class="btn btn-cta" style="display: inline-block; margin: 0 auto;">QUERO RECEBER MEU BENEFÍCIO</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTADOS (Contadores Animados) -->
+  <section id="resultados">
+    <div class="container resultados-content">
+      <div class="resultado-item">
+        <div class="counter" data-target="100">0</div>
+        <p>Mães Ajudadas</p>
+      </div>
+      <div class="resultado-item">
+        <div class="counter" data-target="15">0</div>
+        <p>Minutos para Atendimento</p>
+      </div>
+      <div class="resultado-item">
+        <div class="counter" data-target="100">0</div>
+        <p>% Apoio Jurídico Especializado</p>
       </div>
     </div>
   </section>
@@ -707,10 +644,7 @@
           </div>
         </div>
         <div class="faq-image">
-          <img 
-            src="https://images.pexels.com/photos/9885401/pexels-photo-9885401.jpeg" 
-            alt="Dúvidas sobre maternidade"
-          >
+          <img src="https://images.pexels.com/photos/9885401/pexels-photo-9885401.jpeg" alt="Dúvidas sobre maternidade">
         </div>
       </div>
     </div>
@@ -753,7 +687,7 @@
           const contribuicao = document.getElementById('contribuicao').value;
           const analiseGratuita = document.getElementById('analiseGratuita').checked;
           if (nome && telefone && filho && contribuicao && analiseGratuita) {
-            alert(\`Obrigado, \${nome}! Recebemos seus dados e entraremos em contato em breve.\`);
+            alert(`Obrigado, ${nome}! Recebemos seus dados e entraremos em contato em breve.`);
             // Exemplo: redirecionar via WhatsApp
             // window.location.href = 'https://api.whatsapp.com/send?phone=[Seu Número]&text=Olá! Gostaria de verificar meu direito ao auxílio-maternidade.';
           } else {
@@ -778,22 +712,47 @@
         if (hero) {
           const rect = hero.getBoundingClientRect();
           let scale = 100;
-          if (rect.top < 0) {
-            scale = Math.min(120, 100 + Math.abs(rect.top) / 10);
-          }
+          if (rect.top < 0) { scale = Math.min(120, 100 + Math.abs(rect.top) / 10); }
           hero.style.backgroundSize = scale + '%';
         }
         const comoFunciona = document.getElementById('como-funciona');
         if (comoFunciona) {
           const rect = comoFunciona.getBoundingClientRect();
           let scale = 100;
-          if (rect.top < 0) {
-            scale = Math.min(120, 100 + Math.abs(rect.top) / 10);
-          }
+          if (rect.top < 0) { scale = Math.min(120, 100 + Math.abs(rect.top) / 10); }
           comoFunciona.style.backgroundSize = scale + '%';
         }
       }
       window.addEventListener('scroll', updateZoom);
+
+      // Contadores Animados
+      const counters = document.querySelectorAll('.counter');
+      const counterOptions = { root: null, rootMargin: '0px', threshold: 0.5 };
+      const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            animateCounter(entry.target);
+            counterObserver.unobserve(entry.target);
+          }
+        });
+      }, counterOptions);
+      counters.forEach(counter => { counterObserver.observe(counter); });
+      function animateCounter(element) {
+        const target = +element.getAttribute('data-target');
+        let count = 0;
+        const duration = 2000; // duração em ms
+        const increment = target / (duration / 50);
+        const updateCount = () => {
+          count += increment;
+          if (count < target) {
+            element.innerText = Math.floor(count);
+            setTimeout(updateCount, 50);
+          } else {
+            element.innerText = target;
+          }
+        };
+        updateCount();
+      }
     });
   </script>
 </body>
