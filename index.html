@@ -25,7 +25,7 @@
     :root {
       --azul-profundo: #1F3B5F;   /* textos e destaques */
       --azul-degrade: #4A7BA7;    /* botões e fundo da seção Quem Somos */
-      --rosa-pessego: #F3B8A8;    /* fundos secundários e novo botão rosa */
+      --rosa-pessego: #F3B8A8;    /* fundos secundários e botão rosa */
       --branco: #FFFFFF;
     }
     html {
@@ -150,7 +150,7 @@
     .btn-cta:hover {
       background-color: #3b6f96;
     }
-    /* Botão Rosa Personalizado */
+    /* Botão Rosa */
     .btn-rosa {
       background-color: var(--rosa-pessego);
       color: #333;
@@ -250,11 +250,11 @@
       margin: 0 auto 0.5rem auto;
       display: flex; align-items: center; justify-content: center;
       font-size: 1.2rem; font-weight: 700; color: var(--azul-profundo);
-      /* Animação de scale */
       transform: scale(0);
       opacity: 0;
       transition: transform 0.5s ease-out, opacity 0.5s ease-out;
     }
+    /* Quando a classe .in-view é adicionada, o círculo escala para 1 e aparece */
     .step-circle.in-view {
       transform: scale(1);
       opacity: 1;
@@ -302,7 +302,6 @@
       list-style: none; margin: 1rem 0; line-height: 1.6;
     }
     .quem-somos-text ul li { margin-bottom: 0.5rem; }
-    .quem-somos-text a { display: inline-block; margin-top: 1rem; }
 
     /* ---------------------------
        QUANTO VOCÊ PODE RECEBER?
@@ -371,7 +370,6 @@
       max-width: 100%;
       border-radius: 8px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      /* Ajuste para um efeito sutil */
     }
 
     /* ---------------------------
@@ -672,8 +670,8 @@
           const analiseGratuita = document.getElementById('analiseGratuita').checked;
 
           if (nome && telefone && filho && contribuicao && analiseGratuita) {
-            alert(`Obrigado, ${nome}! Recebemos seus dados e entraremos em contato em breve.`);
-            // Redirecionar via WhatsApp (exemplo):
+            alert(\`Obrigado, \${nome}! Recebemos seus dados e entraremos em contato em breve.\`);
+            // Exemplo: redirecionar via WhatsApp
             // window.location.href = 'https://api.whatsapp.com/send?phone=[Seu Número]&text=Olá! Gostaria de verificar meu direito ao auxílio-maternidade.';
           } else {
             alert('Por favor, preencha todos os campos obrigatórios antes de enviar.');
@@ -683,8 +681,11 @@
 
       // Animação dos círculos (Intersection Observer)
       const circles = document.querySelectorAll('.circle-animate');
+      // Ajuste threshold para 0.1 ou 0 para garantir que dispare
       const options = {
-        threshold: 0.3
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
       };
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
