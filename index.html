@@ -315,6 +315,37 @@
     }
   
     /* ---------------------------
+       A MÚTUA (Quem é a Mútua)
+    --------------------------- */
+    #quem-somos {
+      background-color: var(--azul-degrade);
+      padding: 3rem 0;
+      color: var(--branco);
+    }
+    .quem-somos-content {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 2rem;
+    }
+    .quem-somos-image { flex: 1 1 40%; text-align: center; }
+    .quem-somos-image img {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 8px;
+      filter: brightness(1.05) contrast(1.05);
+    }
+    .quem-somos-text { flex: 1 1 55%; }
+    .quem-somos-text ul {
+      list-style: none;
+      margin: 1rem 0;
+      line-height: 1.6;
+    }
+    .quem-somos-text ul li { margin-bottom: 0.5rem; }
+    /* Título alterado para "A Mútua" */
+    .quem-somos-text h2 { text-align: left; }
+  
+    /* ---------------------------
        QUANTO VOCÊ PODE RECEBER?
     --------------------------- */
     #quanto-receber {
@@ -514,6 +545,27 @@
       <div class="resultado-item">
         <div class="icon-juridico">⚖</div>
         <p>Apoio Jurídico Especializado</p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- A MÚTUA (Quem é a Mútua) -->
+  <section id="quem-somos">
+    <div class="container quem-somos-content">
+      <div class="quem-somos-image">
+        <img src="https://i.ibb.co/Y4Mv8Ncb/mutua-logo-png.png" alt="Mútua – Assessoria Maternidade">
+      </div>
+      <div class="quem-somos-text">
+        <h2 class="section-title" style="text-align:left;">A Mútua</h2>
+        <p>
+          A Mútua – Assessoria Maternidade foi criada para ajudar mães a receberem o auxílio-maternidade do INSS, sem burocracia e com total segurança. Nosso objetivo é garantir que você tenha acesso ao benefício que é seu por direito.
+        </p>
+        <ul>
+          <li>Especialistas em Previdência: Profissionais experientes em processos do INSS.</li>
+          <li>Atendimento Personalizado: Cuidamos de tudo para sua tranquilidade.</li>
+          <li>Transparência e Compromisso: Acompanhamos seu pedido do início ao fim.</li>
+        </ul>
+        <a href="#form-section" class="btn btn-rosa">ENTRAR EM CONTATO</a>
       </div>
     </div>
   </section>
