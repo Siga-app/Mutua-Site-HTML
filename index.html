@@ -162,7 +162,7 @@
     #hero {
       position: relative;
       width: 100%;
-      min-height: 100vh;
+      min-height: 100vh; 
       display: flex;
       align-items: center;
       justify-content: center;
@@ -175,8 +175,10 @@
     }
     .hero-overlay {
       position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
+      top: 0; 
+      left: 0;
+      width: 100%; 
+      height: 100%;
       background: linear-gradient(rgba(31,59,95,0.6), rgba(243,184,168,0.6));
       z-index: 1;
     }
@@ -269,25 +271,64 @@
     }
 
     /* ---------------------------
-       COMO ASSIM?
+       COMO ASSIM? (Melhorado)
     --------------------------- */
     #como-assim {
       padding: 2rem 0;
+      background: linear-gradient(135deg, #F3B8A8 0%, #FFF 100%);
     }
-    .benefit-list {
+    .como-assim-container {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 8px;
+      padding: 2rem;
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+    .como-assim-text {
+      flex: 1;
+    }
+    .como-assim-text h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+    }
+    .como-assim-text p {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+    .como-assim-highlight {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: var(--azul-degrade);
+      margin-top: 1rem;
+    }
+    .como-assim-list {
+      flex: 1;
       list-style: none;
-      margin: 1rem 0;
-      line-height: 1.6;
+      padding: 0;
     }
-    .benefit-list li { margin-bottom: 0.5rem; }
-    .btn-center {
-      display: block;
-      margin: 1rem auto 0;
-      width: fit-content;
+    .como-assim-list li {
+      font-size: 1.1rem;
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+    }
+    .como-assim-list li::before {
+      content: "✓";
+      color: var(--azul-degrade);
+      font-weight: bold;
+      margin-right: 0.5rem;
+    }
+    /* Mobile: Empilhar */
+    @media (max-width: 767px) {
+      .como-assim-container {
+        flex-direction: column;
+      }
     }
 
     /* ---------------------------
-       COMO FUNCIONA? (Caixas Iguais, sem linha, sem zoom)
+       COMO FUNCIONA? (Caixas Iguais, sem linha e sem zoom)
     --------------------------- */
     #como-funciona {
       position: relative;
@@ -320,11 +361,6 @@
       color: var(--branco);
       text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
     }
-    .como-funciona-content h2 {
-      color: var(--branco);
-      text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
-      margin-bottom: 2rem;
-    }
     .timeline-container {
       display: flex;
       justify-content: space-between;
@@ -337,8 +373,8 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.3);
       border-radius: 8px;
       padding: 1rem;
-      width: 180px;  /* Largura fixa */
-      height: 230px; /* Altura fixa p/ manter tamanho igual */
+      width: 180px;
+      height: 230px;
       text-align: center;
     }
     .step-circle {
@@ -622,15 +658,73 @@
         align-items: center;
       }
 
-      /* Timeline container em colunas, sem zoom */
+      /* Timeline: empilhar verticalmente */
       .timeline-container {
         flex-direction: column;
         align-items: center;
       }
       .timeline-step {
-        width: 220px; /* Ajuste p/ mobile */
-        height: 250px; /* Ajuste p/ mobile */
+        width: 220px;
+        height: 250px;
         margin-bottom: 2rem;
+      }
+    }
+
+    /* ---------------------------
+       NOVA SEÇÃO "COMO ASSIM?" MELHORADA
+    --------------------------- */
+    #como-assim {
+      padding: 2rem 0;
+      background: linear-gradient(135deg, #F3B8A8 0%, #FFF 100%);
+    }
+    .como-assim-container {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 8px;
+      padding: 2rem;
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .como-assim-text {
+      flex: 1;
+    }
+    .como-assim-text h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+    }
+    .como-assim-text p {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+    .como-assim-highlight {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: var(--azul-degrade);
+      margin-top: 1rem;
+    }
+    .como-assim-list {
+      flex: 1;
+      list-style: none;
+      padding: 0;
+    }
+    .como-assim-list li {
+      font-size: 1.1rem;
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+    }
+    .como-assim-list li::before {
+      content: "✓";
+      color: var(--azul-degrade);
+      font-weight: bold;
+      margin-right: 0.5rem;
+    }
+    @media (max-width: 767px) {
+      .como-assim-container {
+        flex-direction: column;
       }
     }
   </style>
@@ -675,7 +769,7 @@
     </div>
   </header>
 
-  <!-- HERO SECTION (sem zoom) -->
+  <!-- HERO SECTION (Sem Zoom) -->
   <section id="hero">
     <div class="hero-overlay"></div>
     <div class="hero-content">
@@ -690,23 +784,29 @@
     </div>
   </section>
 
-  <!-- COMO ASSIM? -->
+  <!-- COMO ASSIM? (Seção Melhorada) -->
   <section id="como-assim" class="container">
-    <h2 class="section-title">Como Assim? Eu Posso Receber Esse Benefício?</h2>
-    <p class="section-text">
-      SIM! Muitas mães não sabem que têm direito ao auxílio-maternidade e acabam perdendo milhares de reais simplesmente por não pedirem o benefício. Você pode receber esse valor mesmo que já tenha tido seu bebê há até 5 anos.
-    </p>
-    <ul class="benefit-list">
-      <li>Trabalhou com carteira assinada (CLT) nos últimos anos?</li>
-      <li>É MEI ou autônoma e contribuiu para o INSS?</li>
-      <li>Está desempregada, mas já trabalhou e contribuiu para o INSS antes?</li>
-      <li>Teve um bebê nos últimos 5 anos e nunca pediu esse dinheiro?</li>
-    </ul>
-    <p class="section-text">Esse valor pode ser solicitado AGORA e cair diretamente na sua conta!</p>
-    <a href="#form-section" class="btn btn-cta btn-center">VERIFICAR MEU DIREITO AGORA</a>
+    <div class="como-assim-container">
+      <div class="como-assim-text">
+        <h2>Como Assim? Eu Posso Receber Esse Benefício?</h2>
+        <p>
+          Muitas mães desconhecem seu direito ao auxílio-maternidade e acabam deixando de receber milhares de reais. Se você teve seu bebê nos últimos 5 anos, pode estar perdendo esse valor.
+        </p>
+        <p class="como-assim-highlight">
+          Esse valor pode ser solicitado AGORA e cair diretamente na sua conta!
+        </p>
+        <a href="#form-section" class="btn btn-cta">VERIFICAR MEU DIREITO AGORA</a>
+      </div>
+      <ul class="como-assim-list">
+        <li>Trabalhou com carteira assinada (CLT) nos últimos anos?</li>
+        <li>É MEI ou autônoma e contribuiu para o INSS?</li>
+        <li>Está desempregada, mas já trabalhou e contribuiu para o INSS antes?</li>
+        <li>Teve um bebê nos últimos 5 anos e nunca pediu esse dinheiro?</li>
+      </ul>
+    </div>
   </section>
 
-  <!-- COMO FUNCIONA? (Caixas Iguais, sem linha, sem zoom) -->
+  <!-- COMO FUNCIONA? (Caixas Iguais, Sem Zoom) -->
   <section id="como-funciona">
     <div class="como-funciona-content">
       <h2 class="section-title">Como Funciona? Veja o Passo a Passo Simples</h2>
@@ -905,7 +1005,6 @@
       const hamburgerBtn = document.getElementById('hamburgerBtn');
       const mobileNav = document.getElementById('mobileNav');
       const closeMobileNav = document.getElementById('closeMobileNav');
-
       if(hamburgerBtn) {
         hamburgerBtn.addEventListener('click', () => {
           mobileNav.classList.add('active');
@@ -927,11 +1026,8 @@
           const filho = document.getElementById('filho').value;
           const contribuicao = document.getElementById('contribuicao').value;
           const analiseGratuita = document.getElementById('analiseGratuita').checked;
-
           if (nome && telefone && filho && contribuicao && analiseGratuita) {
             alert(`Obrigado, ${nome}! Recebemos seus dados e entraremos em contato em breve.`);
-            // Exemplo: redirecionar via WhatsApp
-            // window.location.href = 'https://api.whatsapp.com/send?phone=[Seu Número]&text=Olá! Gostaria de verificar meu direito ao auxílio-maternidade.';
           } else {
             alert('Por favor, preencha todos os campos obrigatórios antes de enviar.');
           }
@@ -968,7 +1064,6 @@
         let count = 0;
         const duration = 2000;
         const increment = target / (duration / 50);
-
         const updateCount = () => {
           count += increment;
           if (count < target) {
