@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Mútua – Assessoria Maternidade</title>
+  <meta name="description" content="Descubra se você tem direito ao Auxílio-Maternidade do INSS e receba valores de até R$ 24.000,00. Mães MEI, CLT e autônomas podem ter direito!">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Fontes: Montserrat (títulos) e Lato (texto) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@700&display=swap" 
+    rel="stylesheet">
+
+  <style>
+    /* ------------------------------------------
+       RESET BÁSICO E VARIÁVEIS DE COR
+    ------------------------------------------ */
+    * {
+      margin: 0; 
+      padding: 0; 
+      box-sizing: border-box;
+    }
+    :root {
+      /* Cores da Identidade Visual */
+      --azul-profundo: #1F3B5F;   /* Textos principais e destaques */
+      --azul-degrade: #4A7BA7;    /* Botões e elementos gráficos */
+      --rosa-pessego: #F3B8A8;    /* Fundos suaves e áreas secundárias */
+      --branco: #FFFFFF;          /* Contraste e legibilidade */
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Lato', sans-serif;
+      background-color: var(--branco);
+      color: #333;
+      line-height: 1.6;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--azul-profundo);
+    }
+
+    /* Container padrão */
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* ------------------------------------------
+       HEADER
+    ------------------------------------------ */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 0;
+    }
+    .logo-area {
+      display: flex;
+      align-items: center;
+    }
+    .logo {
+      width: 60px;
+      margin-right: 1rem;
+    }
+    .header-title {
+      font-size: 1.2rem;
+    }
+
+    /* ------------------------------------------
+       HERO SECTION
+    ------------------------------------------ */
+    .hero-section {
+      background: linear-gradient(
+        135deg,
+        var(--azul-degrade) 40%,
+        var(--rosa-pessego) 100%
+      );
+      color: var(--branco);
+      padding: 3rem 0;
+    }
+    .hero-content {
+      display: flex;
+      flex-direction: column-reverse;
+      gap: 2rem;
+      align-items: center;
+    }
+    .hero-text {
+      flex: 1;
+    }
+    .hero-text h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .hero-list {
+      list-style: none;
+      margin: 1rem 0;
+      line-height: 1.4;
+    }
+    .hero-list li {
+      margin-bottom: 0.5rem;
+    }
+    .hero-image {
+      flex: 1;
+      text-align: center;
+    }
+    .hero-image img {
+      width: 100%;
+      max-width: 450px;
+      border-radius: 8px;
+    }
+
+    /* ------------------------------------------
+       BOTÕES E ANIMAÇÕES
+    ------------------------------------------ */
+    .btn {
+      display: inline-block;
+      padding: 0.9rem 1.5rem;
+      border: none;
+      border-radius: 4px;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      text-align: center;
+      transition: background-color 0.3s ease;
+    }
+    .btn-cta {
+      background-color: var(--azul-degrade);
+      color: var(--branco);
+    }
+    .btn-cta:hover {
+      background-color: #3b6f96; /* tom um pouco mais escuro */
+    }
+    .pulse {
+      animation: pulse 1.5s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.02); }
+      100% { transform: scale(1); }
+    }
+
+    /* Efeito de fade-in */
+    .fade-in {
+      opacity: 0;
+      animation: fadeIn 1s forwards;
+    }
+    .fade-in-delay {
+      opacity: 0;
+      animation: fadeIn 1s forwards 0.5s;
+    }
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* ------------------------------------------
+       SEÇÕES
+    ------------------------------------------ */
+    .section-title {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    .section-text {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      color: #333;
+    }
+
+    /* Seção "Como Assim?" */
+    .como-assim-section {
+      padding: 2rem 0;
+    }
+    .benefit-list {
+      list-style: none;
+      margin: 1rem 0;
+      line-height: 1.6;
+    }
+    .benefit-list li {
+      margin-bottom: 0.5rem;
+    }
+    .como-assim-section .btn-cta {
+      display: block;
+      margin: 1rem auto 0 auto;
+      text-align: center;
+      width: fit-content;
+    }
+
+    /* Seção "Como Funciona?" */
+    .como-funciona-section {
+      background-color: var(--rosa-pessego);
+      padding: 3rem 0;
+    }
+    .steps-container {
+      display: grid;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    @media (min-width: 768px) {
+      .steps-container {
+        grid-template-columns: repeat(5, 1fr);
+      }
+    }
+    .step-box {
+      background-color: var(--branco);
+      border-radius: 8px;
+      padding: 1rem;
+      text-align: center;
+    }
+    .step-icon {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      color: var(--azul-profundo);
+    }
+
+    /* Seção "Quanto Você Pode Receber?" */
+    .quanto-receber-section {
+      padding: 2rem 0;
+    }
+    .quanto-receber-section a {
+      display: block;
+      margin: 1rem auto 0 auto;
+      text-align: center;
+      width: fit-content;
+    }
+
+    /* Seção Formulário */
+    .form-section {
+      background-color: var(--rosa-pessego);
+      padding: 3rem 0;
+    }
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: var(--branco);
+      border-radius: 8px;
+      padding: 2rem;
+    }
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 0.4rem;
+      font-weight: 700;
+      color: var(--azul-profundo);
+    }
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .form-check {
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+    }
+    .form-check input {
+      margin-right: 0.5rem;
+    }
+    .btn-submit {
+      display: block;
+      width: 100%;
+      margin-top: 1rem;
+    }
+
+    /* Seção FAQ */
+    .faq-section {
+      padding: 2rem 0;
+    }
+    .faq-item {
+      margin-bottom: 1.5rem;
+    }
+    .faq-item h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Seção Última Chamada */
+    .last-call-section {
+      background-color: var(--azul-degrade);
+      color: var(--branco);
+      padding: 2rem 0;
+      text-align: center;
+    }
+    .last-call-section p {
+      margin: 1rem 0;
+    }
+    .contact-info p {
+      margin: 0.3rem 0;
+    }
+
+    /* Footer */
+    .footer {
+      background-color: #f5f5f5;
+      padding: 1rem 0;
+    }
+    .footer p {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #333;
+    }
+
+    /* Responsividade hero */
+    @media (min-width: 768px) {
+      .hero-content {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+      .hero-text {
+        max-width: 50%;
+      }
+      .hero-image {
+        max-width: 50%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header container">
+    <div class="logo-area">
+      <!-- Logo em Base64 (Logo fictícia da Mútua; substitua se desejar) -->
+      <img 
+        class="logo" 
+        alt="Mútua – Assessoria Maternidade" 
+        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIQAAACECAMAAAB3G7PtAAAAhFBMVEX///+ampqcnJzMzMz09PTV1dX4+Pjh4eGmpqaioqKUlJSmpqZcXFxRUVGtra3Pz8+4uLiSkpJqampBQUE1NTV/f38yMjI/Pz+oqKhCQkKsrKwkJCQRERGJiYlNTU1FRUWb29tY2Njp6el4eHh1dXWW8vCBAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAB6klEQVR4nO2Z3XLCIBCHAwcgcZKtr7n/V1H3ZrGTQc6taO1k0Wr49Z7gXunEFwmiJ3ZGLMZfLf+3+8dny++I7c5O84/x45OE1EWZ1aDsNBOu2Kh5TMNM5xN31PAGimSrK6FaEK6GchbFA1tyAswNqwhsgx4Ws4tQk8w/6EVFZ4hKyIVVYZh2zw7swgX0jkGFoyN2f30FZ8DXpJvGU8H1XgA/PfUeHnDtXwExig4m0NhG6weXRPxfZCqk2Fz9HEM3yGBrD3Yi2mIFPsn6dHnY4A6frK3bh+ZtdZGO74xV8KVuUFM1r0BYm3rH4u3a+ac28KM2qa2Z/d7p9zZDXafwE1m/Q7Ir2rxC3aPNBgBMppr3AUPz/BRALsldDM0YALkL8rFjUzYByl5CLwcAcNZkUb7jCLBgLG2kZzTgAx9i2F+LB+AK3EpArEpArEhRLloHwBqRJwUL4ONVOIFQkmhwKRHB4La7QTx2u8UJfbbg7Zmii9zXJYzwu5s0PhjuuBq1c+e3KrD/V7jSdBhZpPDB1uTGyP6lCLuUF2feEUd3zPBp98fW71Py4HLcwpaKpZ/GN5rW2zbrUd2f8COTMY0uUhtCjAAAAAElFTkSuQmCC" />
+
+      <h1 class="header-title">Mútua – Assessoria Maternidade</h1>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero-section">
+    <div class="container hero-content">
+      <div class="hero-text fade-in">
+        <h2>
+          💖 Descubra Agora Se Você Tem Direito ao Auxílio-Maternidade do INSS!
+        </h2>
+        <p class="fade-in-delay">
+          🔎 Você pode estar perdendo um benefício que pode mudar sua vida!
+        </p>
+        <ul class="hero-list fade-in-delay">
+          <li>📌 Receba valores a partir de <strong>R$ 5.648,00</strong> até <strong>R$ 24.000,00</strong>!</li>
+          <li>💡 Mesmo que já tenha tido seu bebê há alguns anos, você ainda pode solicitar!</li>
+          <li>🎯 Se você é MEI, autônoma, CLT ou está desempregada, confira agora se pode receber!</li>
+        </ul>
+        <a href="#form-section" class="btn btn-cta pulse">
+          QUERO SABER SE TENHO DIREITO
+        </a>
+      </div>
+      <div class="hero-image fade-in">
+        <!-- Hero Image em Base64 -->
+        <img 
+          alt="Mãe segurando bebê" 
+          src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxIREhUREhUVFhUVFhUVFRUVFhUVFRUVFRcWGBUVFRUYHSggGBolHRUVITEhJSkrLi4uFx8zODMtNygtLisBCgoKDg0OFxAQFy0fHR0tLS0tKy0rLS0tKzctLS0tLSstKy0tLS0rKy0tLS0tLS0tKystKy0tLS0tLS0tLf/AABEIALgBEAMBIgACEQEDEQH/xAAbAAEAAQUBAAAAAAAAAAAAAAAABQECBgMBAf/EADcQAAICAQMDAwEFBwUBAAAAAAABAgMRBBIhMQVBUQYiMmFxgaGxwRRCscHR8DJCUvAHFSNSYpKy/8QAGQEBAQEBAQEAAAAAAAAAAAAAAAECAwQF/8QAIhEBAQACAgIDAQAAAAAAAAAAAAECEQMhEjFBBTJR/9oADAMBAAIRAxEAPwDnUEUgeIEnMZPoPrUjuDJ79pU/dH2r9pFlCMFSQPUd6rd4iaay6/wBA+pPzTrE18fYvEL5UOm59qDsU05gEuox13B7a0OKpNABjINoAXfTq7kYAdOd2hRt5BN16Z/5lKnJpZecxeRZrjNKp+M8fmZt+5o13OjZjgHYn6UyT2bdXceGUdye9Lq6juOE4zI6gggi6n4im5XEiOQSd6N7ij2Pu2fG8udN9x56Pyn9a81m2NMcI30+knpUpFAjQEAjnigadS+0ysOH1qLW8Mr26a2D/AMZ/dNVNfc7E8t8Fj+1IK7StmP+gHvQ4Nnk26QvmM3QeAUP8AbHY++tc7yxw9+oF9RZ4I2DtQE1W2UBiyPH1p+ZyRz/pHWn7HrpuIuBe/nrVCrc9PdYnYsxySJB/qhB/wCM49v3rOlum2kRh49+1R4hC13/jU76ZGhB5QcEVe7h4zF5HfyD9qt0cjxHWpY2C0Ztoh81OR/Gh6q8AcADNU/ClZq6wN2e6Z/NRuJlAH7Wzjr76D/NT7cyz4m3/EUTTQ+VP6XnSrdN8Ytl46MVRIn/ALvTv/AH0qhpY0pUlQ0Bf/9k=" />
+      </div>
+    </div>
+  </section>
+
+  <!-- COMO ASSIM SECTION -->
+  <section class="como-assim-section container">
+    <h2 class="section-title">🤱 Como Assim? Eu Posso Receber Esse Benefício?</h2>
+    <p class="section-text">
+      <strong>SIM!</strong> Muitas mães não sabem que têm direito ao auxílio-maternidade e acabam perdendo milhares de reais simplesmente por não pedirem o benefício!  
+      Você pode receber esse valor mesmo que já tenha tido seu bebê há até 5 anos. Se você se enquadra em uma dessas situações, esse dinheiro pode estar esperando por você:
+    </p>
+    <ul class="benefit-list">
+      <li>✅ Trabalhou com carteira assinada (CLT) nos últimos anos?</li>
+      <li>✅ É MEI ou autônoma e contribuiu para o INSS?</li>
+      <li>✅ Está desempregada, mas já trabalhou e contribuiu para o INSS antes?</li>
+      <li>✅ Teve um bebê nos últimos 5 anos e nunca pediu esse dinheiro?</li>
+    </ul>
+    <p class="section-text">
+      🎯 Esse valor pode ser solicitado <strong>AGORA</strong> e cair diretamente na sua conta!
+    </p>
+    <a href="#form-section" class="btn btn-cta">VERIFICAR MEU DIREITO AGORA</a>
+  </section>
+
+  <!-- COMO FUNCIONA (Passo a Passo) -->
+  <section class="como-funciona-section">
+    <div class="container">
+      <h2 class="section-title">📌 Como Funciona? Veja o Passo a Passo Simples</h2>
+
+      <!-- Exemplo de imagem ilustrativa de mães (Base64) -->
+      <div style="text-align:center; margin-bottom:2rem;">
+        <img 
+          alt="Mães e bebês" 
+          style="max-width: 300px; border-radius: 8px;"
+          src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAZABkAAD/2wCEAAkGBxMREBUQEBIVFBUWFx0YGBcYFh8dHRscFx4dFx8YHx0aHCYgHRwhHhgfITEhJSktLi4uFyAzODMtNygtLisBCgoKDg0OFxAQGysfICUtKystLS0rLS0tKy0tKy0tKy0tKy0tLS0tKystLS0tLS0tLS0tLS0tLS0rLS0tK//AABEIACcAMAMBIgACEQEDEQH/xAAbAAACAwEBAQAAAAAAAAAAAAAEBQIDBgEAB//EADsQAAIBAwMCBAQDBgYCAwAAAAECAwAEEQUSITFBUQYTIoGRBzKhsRRCscHRFCNygpKiwuHh/8QAGgEBAQADAQEAAAAAAAAAAAAAAAECAwQFBv/EACcRAQEAAgIBAwMFAQAAAAAAAAABAhEDIRIxBCJBUQQycYGxscHR/9oADAMBAAIRAxEAPwCxKrAHjRs2eZVa2eQUrRHL/ISJsGkkz1IQBPt1NNcwWwqZ1RprYQ07RhIHjQ0A+kUkE5eSBoPw9fqDqzAUxan8C4A+F+qBgNT9UzW6wU7E1m6rOFYJicGPm69+DVZYzFTFHFpRJWSt4yL3At9Gm0kgzI21H/AD6ZrEaSmIEp5y80tbnOygSFPmw67+f7qJ3E4TTlpCFldZPHrB+H516HsH4Uff2H60GAyCEKNfWu3ztCGLTynVhiZYbciT26/9nSh0E1FLv4ZrN2zFQVPfQf0NVFIsg1cG7BpZQWViY3KTYT9DaKvw/OjiUroQ4otHZZT8iE7k6GOK+Xxbmt3NqWW5N8hIOM0f7IqRzE8pupPmrBGzDFHDGfSG8sxB8VqjT5S/ft1bZZfSLNEEqLq19B/WsK5zv5XZo7WwYpcEkjcs4tD+GpTuHk+nr6mqnDO5h+TNEB0z9/b0oSL7rx1fNCTr7iHehHEHWSeWOP39NVrxbk0hqq3HClTn9e4gE9aOnacHNG0pH3P1q4p0Sy2I4Tzw0jY08DgHFaoByb5z60t5HZvV1V71bBYpgEaNTI8T31rqzb2RZd2nDLN3PTcZ6/nWLteJJJmSYdVHYF/tNVY8sJ5BJpIGPPx9KNn4tPEEjIQoP+GvbOeuKp8KpC8LZxySZbL+U6+5T0quV62LEW4m7myLFvmS+3++uop2pOrCcyycbZQydPu1p+F8mY6f5dT7kQBxWk4Z//Z" />
+      </div>
+
+      <div class="steps-container">
+        <div class="step-box">
+          <div class="step-icon">1️⃣</div>
+          <h3>Entramos em Contato</h3>
+          <p>Basta clicar no botão e preencher um formulário rápido. Nossa equipe te ligará ou enviará mensagem para entender sua situação.</p>
+        </div>
+        <div class="step-box">
+          <div class="step-icon">2️⃣</div>
+          <h3>Análise Gratuita</h3>
+          <p>Avaliamos seu histórico no INSS e calculamos o valor estimado do seu auxílio-maternidade, sem custo algum!</p>
+        </div>
+        <div class="step-box">
+          <div class="step-icon">3️⃣</div>
+          <h3>Cuidamos de Tudo</h3>
+          <p>Preparamos a documentação e fazemos o pedido oficial no INSS, evitando erros e agilizando o processo.</p>
+        </div>
+        <div class="step-box">
+          <div class="step-icon">4️⃣</div>
+          <h3>Acompanhamos o Pedido</h3>
+          <p>Monitoramos cada etapa e te informamos sobre qualquer atualização até a aprovação.</p>
+        </div>
+        <div class="step-box">
+          <div class="step-icon">5️⃣</div>
+          <h3>Você Recebe!</h3>
+          <p>Assim que aprovado, o INSS deposita o valor diretamente na sua conta bancária. Simples e sem complicação!</p>
+        </div>
+      </div>
+
+      <div class="text-center" style="margin-top:2rem;">
+        <a href="#form-section" class="btn btn-cta">QUERO RECEBER MEU BENEFÍCIO</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUANTO PODE RECEBER -->
+  <section class="quanto-receber-section container">
+    <h2 class="section-title">💰 Quanto Você Pode Receber?</h2>
+    <p class="section-text">
+      <strong>Mães que contribuíram pelo mínimo (MEI, autônomas ou desempregadas):</strong><br>
+      ➡️ A partir de <strong>R$ 5.648,00</strong>.
+    </p>
+    <p class="section-text">
+      <strong>Mães que pagaram INSS com valores maiores:</strong><br>
+      ➡️ Podem receber até <strong>R$ 24.000,00</strong>!
+    </p>
+    <p class="section-text">
+      O valor depende das suas últimas contribuições ao INSS. Se você contribuiu nos últimos anos, pode ter direito a um benefício ainda maior!
+    </p>
+    <a href="#form-section" class="btn btn-cta">DESCUBRA O VALOR QUE VOCÊ PODE RECEBER</a>
+  </section>
+
+  <!-- FORMULÁRIO -->
+  <section id="form-section" class="form-section">
+    <div class="container">
+      <h2 class="section-title">📝 Formulário para Análise Gratuita</h2>
+      <p class="section-text" style="text-align:center;">
+        Preencha abaixo e descubra se você tem direito ao auxílio maternidade!
+      </p>
+      <form class="contact-form fade-in">
+        <div class="form-group">
+          <label for="nome">1️⃣ Nome Completo</label>
+          <input type="text" id="nome" placeholder="Digite seu nome completo" required>
+        </div>
+        <div class="form-group">
+          <label for="telefone">2️⃣ Telefone / WhatsApp</label>
+          <input type="tel" id="telefone" placeholder="(XX) XXXXX-XXXX" required>
+        </div>
+        <div class="form-group">
+          <label for="filho">3️⃣ Você teve um filho nos últimos 5 anos?</label>
+          <select id="filho" required>
+            <option value="">Selecione</option>
+            <option value="sim">Sim</option>
+            <option value="nao">Não</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="contribuicao">4️⃣ Já trabalhou CLT, foi MEI ou contribuiu para o INSS?</label>
+          <select id="contribuicao" required>
+            <option value="">Selecione</option>
+            <option value="sim">Sim</option>
+            <option value="nao">Não sei</option>
+          </select>
+        </div>
+        <div class="form-check">
+          <input type="checkbox" id="analiseGratuita" required>
+          <label for="analiseGratuita">5️⃣ Sim, quero saber se tenho direito!</label>
+        </div>
+        <button type="submit" class="btn btn-cta btn-submit">
+          ENVIAR MEUS DADOS
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section container">
+    <h2 class="section-title">🤔 Dúvidas Comuns Sobre o Auxílio-Maternidade</h2>
+    <div class="faq-item">
+      <h3>1. Se eu estiver desempregada, posso receber?</h3>
+      <p>✔️ Sim! Se você já trabalhou e contribuiu para o INSS, ainda pode ter direito ao auxílio-maternidade.</p>
+    </div>
+    <div class="faq-item">
+      <h3>2. O valor é pago de uma vez ou parcelado?</h3>
+      <p>✔️ Para mães que tiveram bebê nos últimos 5 anos e ainda não solicitaram, o valor é pago de uma só vez pelo INSS.</p>
+    </div>
+    <div class="faq-item">
+      <h3>3. E se eu perdi o bebê durante a gravidez?</h3>
+      <p>✔️ Em caso de natimorto (após 23 semanas), você tem direito ao benefício completo de 4 meses.</p>
+    </div>
+    <div class="faq-item">
+      <h3>4. Quanto tempo leva para receber?</h3>
+      <p>✔️ Normalmente de 30 a 45 dias, mas pode variar. Quanto antes você solicitar, mais rápido receberá!</p>
+    </div>
+    <div class="faq-item">
+      <h3>5. Como faço para solicitar?</h3>
+      <p>✔️ Nossa equipe cuida de todo o processo! Basta preencher o formulário acima que entraremos em contato.</p>
+    </div>
+    <div style="text-align:center;">
+      <a href="#form-section" class="btn btn-cta">QUERO SABER SE TENHO DIREITO</a>
+    </div>
+  </section>
+
+  <!-- ÚLTIMA CHAMADA -->
+  <section class="last-call-section">
+    <div class="container">
+      <h2 class="section-title">📢 Última Chamada – Não Perca Essa Chance!</h2>
+      <p>
+        🚀 Milhares de mães já receberam esse valor e você pode ser a próxima!
+        <br>Clique no botão abaixo e veja se tem direito ao benefício antes que seja tarde.
+      </p>
+      <a href="#form-section" class="btn btn-cta pulse">VERIFICAR MEU DIREITO AGORA</a>
+      <div class="contact-info mt-4">
+        <p>📞 Fale diretamente com a nossa equipe:</p>
+        <p>WhatsApp: <strong>[Seu Número]</strong></p>
+        <p>Email: <strong>[Seu Email]</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <p>© 2025 Mútua – Assessoria Maternidade. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script>
+    // script.js embutido
+    document.addEventListener('DOMContentLoaded', () => {
+      const form = document.querySelector('.contact-form');
+      if (form) {
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+
+          const nome = document.getElementById('nome').value.trim();
+          const telefone = document.getElementById('telefone').value.trim();
+          const filho = document.getElementById('filho').value;
+          const contribuicao = document.getElementById('contribuicao').value;
+          const analiseGratuita = document.getElementById('analiseGratuita').checked;
+
+          if (nome && telefone && filho && contribuicao && analiseGratuita) {
+            alert(\`Obrigado, \${nome}! Recebemos seus dados e entraremos em contato em breve.\`);
+            // Exemplo de redirecionamento para WhatsApp (substitua pelo seu número):
+            // window.location.href = 'https://api.whatsapp.com/send?phone=SEU_NUMERO&text=Olá! Gostaria de verificar meu direito ao auxílio-maternidade.';
+          } else {
+            alert('Por favor, preencha todos os campos obrigatórios antes de enviar.');
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>
