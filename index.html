@@ -9,7 +9,9 @@
   <!-- Fontes: Montserrat (títulos) e Lato (texto) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@700&display=swap" 
+    rel="stylesheet">
 
   <style>
     /* ---------------------------
@@ -36,7 +38,7 @@
     .container { width: 90%; max-width: 1200px; margin: 0 auto; }
 
     /* ---------------------------
-       HEADER + MENU
+       HEADER + MENU + CTA
     --------------------------- */
     header {
       display: flex;
@@ -61,7 +63,7 @@
     }
     nav a:hover { color: #2c4f75; }
     .header-cta { margin-left: auto; }
-    .header-cta a { /* Mantém o mesmo estilo dos CTAs */
+    .header-cta a {
       display: inline-block;
       padding: 0.9rem 1.5rem;
       border: none;
@@ -75,7 +77,7 @@
     .header-cta a:hover { background-color: #3b6f96; }
 
     /* ---------------------------
-       HERO SECTION (Imagem de Fundo)
+       HERO SECTION (Imagem de Fundo com Zoom)
     --------------------------- */
     #hero {
       position: relative;
@@ -85,17 +87,20 @@
       align-items: center;
       justify-content: center;
       background: url("https://images.pexels.com/photos/17525434/pexels-photo-17525434/free-photo-of-familia.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")
-                  center center / cover no-repeat;
+                  center center / 100% no-repeat;
       color: var(--branco);
+      transition: background-size 0.5s ease-out;
     }
     .hero-overlay {
-      position: absolute; top: 0; left: 0;
+      position: absolute;
+      top: 0; left: 0;
       width: 100%; height: 100%;
       background: linear-gradient(rgba(31,59,95,0.6), rgba(243,184,168,0.6));
       z-index: 1;
     }
     .hero-content {
-      position: relative; z-index: 2;
+      position: relative;
+      z-index: 2;
       max-width: 700px;
       text-align: center;
       margin: 0 1rem;
@@ -163,19 +168,20 @@
     .btn-center { display: block; margin: 1rem auto 0; width: fit-content; }
 
     /* ---------------------------
-       COMO FUNCIONA? (Timeline)
+       COMO FUNCIONA? (Timeline com Zoom de Fundo)
     --------------------------- */
     #como-funciona {
       position: relative;
       min-height: 60vh;
       background: url("https://images.pexels.com/photos/12801214/pexels-photo-12801214.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")
-                  center center / cover no-repeat;
+                  center center / 100% no-repeat;
       background-color: rgba(255,255,255,0.3);
       background-blend-mode: lighten;
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 3rem 0;
+      transition: background-size 0.5s ease-out;
     }
     #como-funciona::before {
       content: "";
@@ -414,7 +420,7 @@
     <a href="#form-section" class="btn btn-cta btn-center">VERIFICAR MEU DIREITO AGORA</a>
   </section>
 
-  <!-- COMO FUNCIONA? (Timeline) -->
+  <!-- COMO FUNCIONA? (Timeline com Zoom de Fundo) -->
   <section id="como-funciona">
     <div class="como-funciona-content">
       <h2 class="section-title">Como Funciona? Veja o Passo a Passo Simples</h2>
@@ -614,7 +620,7 @@
         });
       }
 
-      // Animação dos círculos da timeline
+      // Animação dos círculos da timeline com Intersection Observer
       const circles = document.querySelectorAll('.circle-animate');
       const options = { root: null, rootMargin: '0px', threshold: 0.1 };
       const observer = new IntersectionObserver((entries) => {
@@ -623,6 +629,25 @@
         });
       }, options);
       circles.forEach(circle => { observer.observe(circle); });
+
+      // Efeito de zoom no fundo das seções em tela inteira (Hero e Como Funciona)
+      function updateZoom() {
+        const hero = document.getElementById('hero');
+        if (hero) {
+          const rect = hero.getBoundingClientRect();
+          let scale = 100;
+          if (rect.top < 0) { scale = Math.min(120, 100 + Math.abs(rect.top) / 10); }
+          hero.style.backgroundSize = scale + '%';
+        }
+        const comoFunciona = document.getElementById('como-funciona');
+        if (comoFunciona) {
+          const rect = comoFunciona.getBoundingClientRect();
+          let scale = 100;
+          if (rect.top < 0) { scale = Math.min(120, 100 + Math.abs(rect.top) / 10); }
+          comoFunciona.style.backgroundSize = scale + '%';
+        }
+      }
+      window.addEventListener('scroll', updateZoom);
     });
   </script>
 </body>
