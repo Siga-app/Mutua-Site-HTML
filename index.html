@@ -10,19 +10,25 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
-  
+
   <style>
     /* ---------------------------
        RESET E VARIÁVEIS
     --------------------------- */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
     :root {
       --azul-profundo: #1F3B5F;
       --azul-degrade: #4A7BA7;
       --rosa-pessego: #F3B8A8;
       --branco: #FFFFFF;
     }
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
     body {
       font-family: 'Lato', sans-serif;
       background: var(--branco);
@@ -33,23 +39,40 @@
       font-family: 'Montserrat', sans-serif;
       color: var(--azul-profundo);
     }
-    .container { width: 90%; max-width: 1200px; margin: 0 auto; }
-  
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
     /* ---------------------------
-       HEADER + MENU + CTA (Minimalista)
+       HEADER + MENU + CTA
     --------------------------- */
     header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0.8rem 0;
+      padding: 1rem 0;
       position: relative;
       z-index: 1000;
     }
-    .logo-area { display: flex; align-items: center; }
-    .logo { width: 50px; margin-right: 0.8rem; }
-    .header-title { font-size: 1.2rem; font-weight: 700; }
-    nav { flex: 1; display: flex; justify-content: center; }
+    .logo-area {
+      display: flex;
+      align-items: center;
+    }
+    .logo {
+      width: 50px;
+      margin-right: 0.8rem;
+    }
+    .header-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+    nav {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
     nav ul {
       display: flex;
       list-style: none;
@@ -63,8 +86,12 @@
       transition: color 0.3s ease;
       font-size: 0.9rem;
     }
-    nav ul li a:hover { color: var(--rosa-pessego); }
-    .header-cta { margin-left: auto; }
+    nav ul li a:hover {
+      color: var(--rosa-pessego);
+    }
+    .header-cta {
+      margin-left: auto;
+    }
     .header-cta a {
       display: inline-block;
       padding: 0.7rem 1.3rem;
@@ -79,61 +106,65 @@
       transition: background-color 0.3s ease;
       font-size: 0.8rem;
     }
-    .header-cta a:hover { background-color: #3b6f96; }
-  
-    /* Mobile Menu Toggle */
-    .mobile-menu-toggle {
-      display: none;
-      font-size: 1.8rem;
-      cursor: pointer;
-      color: var(--azul-profundo);
+    .header-cta a:hover {
+      background-color: #3b6f96;
     }
-    /* Mobile Menu (Lateral) */
-    .mobile-menu {
+
+    /* Botão hamburger para mobile */
+    .hamburger {
+      display: none;
+      font-size: 2rem;
+      color: var(--azul-profundo);
+      cursor: pointer;
+    }
+    .mobile-nav {
+      display: none;
       position: fixed;
       top: 0;
-      left: -250px;
+      right: -250px;
       width: 250px;
       height: 100%;
       background: var(--branco);
-      box-shadow: 2px 0 5px rgba(0,0,0,0.3);
-      transition: left 0.3s ease;
-      z-index: 1100;
+      box-shadow: -2px 0 5px rgba(0,0,0,0.3);
+      transition: right 0.3s ease;
+      z-index: 2000;
       padding: 1rem;
     }
-    .mobile-menu.active { left: 0; }
-    .mobile-menu ul {
-      list-style: none;
-      padding: 0;
+    .mobile-nav.active {
+      right: 0;
     }
-    .mobile-menu ul li {
+    .mobile-nav ul {
+      list-style: none;
+      padding: 1rem 0;
+    }
+    .mobile-nav ul li {
       margin: 1rem 0;
     }
-    .mobile-menu ul li a {
+    .mobile-nav ul li a {
       text-decoration: none;
       font-weight: 700;
       color: var(--azul-profundo);
       font-size: 1rem;
     }
-    .mobile-menu .close-menu {
+    .close-mobile-nav {
+      text-align: right;
       font-size: 1.5rem;
       cursor: pointer;
       color: var(--azul-profundo);
-      text-align: right;
     }
-  
+
     /* ---------------------------
-       HERO SECTION (Imagem de Fundo com Zoom)
+       HERO SECTION
     --------------------------- */
     #hero {
       position: relative;
       width: 100%;
-      min-height: 80vh;
+      min-height: 100vh; /* Para cobrir tela inteira */
       display: flex;
       align-items: center;
       justify-content: center;
       background: url("https://images.pexels.com/photos/17525434/pexels-photo-17525434/free-photo-of-familia.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")
-                  center center / 100% no-repeat;
+                  center center / cover no-repeat;
       color: var(--branco);
       transition: background-size 0.5s ease-out;
     }
@@ -175,11 +206,7 @@
       color: #fff;
       text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
     }
-    /* CTA com fundo gradiente rosa nas laterais */
-    .hero-content .btn-cta {
-      background: linear-gradient(to right, var(--rosa-pessego), var(--azul-degrade), var(--rosa-pessego));
-    }
-  
+
     /* ---------------------------
        BOTÕES & ANIMAÇÕES
     --------------------------- */
@@ -193,11 +220,26 @@
       text-decoration: none;
       transition: background-color 0.3s ease;
     }
-    .btn-cta { background-color: var(--azul-degrade); color: var(--branco); text-transform: uppercase; letter-spacing: 0.5px; font-size: 0.85rem; }
-    .btn-cta:hover { background-color: #3b6f96; }
-    .btn-rosa { background-color: var(--rosa-pessego); color: #333; }
-    .btn-rosa:hover { background-color: #ebb0a0; }
-    .pulse { animation: pulse 1.5s infinite; }
+    .btn-cta {
+      background-color: var(--azul-degrade);
+      color: var(--branco);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-size: 0.85rem;
+    }
+    .btn-cta:hover {
+      background-color: #3b6f96;
+    }
+    .btn-rosa {
+      background-color: var(--rosa-pessego);
+      color: #333;
+    }
+    .btn-rosa:hover {
+      background-color: #ebb0a0;
+    }
+    .pulse {
+      animation: pulse 1.5s infinite;
+    }
     @keyframes pulse {
       0% { transform: scale(1); }
       50% { transform: scale(1.02); }
@@ -206,7 +248,7 @@
     .fade-in { opacity: 0; animation: fadeIn 1s forwards; }
     .fade-in-delay { opacity: 0; animation: fadeIn 1s forwards 0.5s; }
     @keyframes fadeIn { to { opacity: 1; } }
-  
+
     /* ---------------------------
        SEÇÕES GERAIS
     --------------------------- */
@@ -217,18 +259,33 @@
       text-transform: uppercase;
       letter-spacing: 0.8px;
     }
-    .section-text { font-size: 1.1rem; margin-bottom: 1rem; }
-  
+    .section-text {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+
     /* ---------------------------
        COMO ASSIM?
     --------------------------- */
-    #como-assim { padding: 2rem 0; }
-    .benefit-list { list-style: none; margin: 1rem 0; line-height: 1.6; }
-    .benefit-list li { margin-bottom: 0.5rem; }
-    .btn-center { display: block; margin: 1rem auto 0; width: fit-content; }
-  
+    #como-assim {
+      padding: 2rem 0;
+    }
+    .benefit-list {
+      list-style: none;
+      margin: 1rem 0;
+      line-height: 1.6;
+    }
+    .benefit-list li {
+      margin-bottom: 0.5rem;
+    }
+    .btn-center {
+      display: block;
+      margin: 1rem auto 0;
+      width: fit-content;
+    }
+
     /* ---------------------------
-       COMO FUNCIONA? (Timeline com Zoom de Fundo)
+       COMO FUNCIONA? (Timeline)
     --------------------------- */
     #como-funciona {
       position: relative;
@@ -298,18 +355,19 @@
       opacity: 0;
       transition: transform 0.5s ease-out, opacity 0.5s ease-out;
     }
-    .step-circle.in-view { transform: scale(1); opacity: 1; }
+    .step-circle.in-view {
+      transform: scale(1);
+      opacity: 1;
+    }
     .timeline-step h3 {
       margin-bottom: 0.3rem;
       font-size: 1rem;
     }
-    .timeline-step p { font-size: 0.9rem; line-height: 1.3; }
-    @media (max-width: 767px) {
-      .timeline-container { flex-direction: column; align-items: center; }
-      .timeline-line { display: none; }
-      .timeline-step { width: auto; margin-bottom: 2rem; }
+    .timeline-step p {
+      font-size: 0.9rem;
+      line-height: 1.3;
     }
-  
+
     /* ---------------------------
        RESULTADOS (Contadores e Blocos)
     --------------------------- */
@@ -356,7 +414,7 @@
       animation: pulseIcon 1.2s infinite;
       color: var(--azul-profundo);
     }
-  
+
     /* ---------------------------
        A MÚTUA (Quem é a Mútua)
     --------------------------- */
@@ -371,22 +429,31 @@
       align-items: center;
       gap: 2rem;
     }
-    .quem-somos-image { flex: 1 1 40%; text-align: center; }
+    .quem-somos-image {
+      flex: 1 1 40%;
+      text-align: center;
+    }
     .quem-somos-image img {
       width: 100%;
       max-width: 400px;
       border-radius: 8px;
       filter: brightness(1.05) contrast(1.05);
     }
-    .quem-somos-text { flex: 1 1 55%; }
+    .quem-somos-text {
+      flex: 1 1 55%;
+    }
     .quem-somos-text ul {
       list-style: none;
       margin: 1rem 0;
       line-height: 1.6;
     }
-    .quem-somos-text ul li { margin-bottom: 0.5rem; }
-    .quem-somos-text h2 { text-align: left; }
-  
+    .quem-somos-text ul li {
+      margin-bottom: 0.5rem;
+    }
+    .quem-somos-text h2 {
+      text-align: left;
+    }
+
     /* ---------------------------
        QUANTO VOCÊ PODE RECEBER?
     --------------------------- */
@@ -399,7 +466,7 @@
       margin: 1rem auto 0;
       width: fit-content;
     }
-  
+
     /* ---------------------------
        FORMULÁRIO
     --------------------------- */
@@ -414,7 +481,9 @@
       border-radius: 8px;
       padding: 2rem;
     }
-    .form-group { margin-bottom: 1.2rem; }
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
     .form-group label {
       display: block;
       margin-bottom: 0.4rem;
@@ -433,32 +502,40 @@
       display: flex;
       align-items: center;
     }
-    .form-check input { margin-right: 0.5rem; }
-    .btn-submit { display: block; width: 100%; margin-top: 1rem; }
-  
+    .form-check input {
+      margin-right: 0.5rem;
+    }
+    .btn-submit {
+      display: block;
+      width: 100%;
+      margin-top: 1rem;
+    }
+
     /* ---------------------------
-       FAQ (com fundo de imagem)
+       FAQ (com fundo e gradiente)
     --------------------------- */
     #faq {
-      padding: 2rem 0;
       position: relative;
+      min-height: 60vh;
       background: url("https://images.pexels.com/photos/9885401/pexels-photo-9885401.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2") center center / cover no-repeat;
+      color: var(--branco);
+      padding: 3rem 0;
     }
     #faq::before {
       content: "";
       position: absolute;
       top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.6);
+      width: 100%; height: 100%;
+      background: linear-gradient(rgba(31,59,95,0.6), rgba(243,184,168,0.6));
       z-index: 1;
     }
     .faq-content {
       position: relative;
       z-index: 2;
-      padding: 2rem;
+      max-width: 900px;
+      margin: 0 auto;
       text-align: center;
-      color: var(--branco);
+      padding: 1rem;
     }
     .faq-content .faq-item {
       margin-bottom: 1.5rem;
@@ -466,9 +543,16 @@
     .faq-content .faq-item h3 {
       font-size: 1.2rem;
       margin-bottom: 0.5rem;
+      color: var(--branco);
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
     }
-    .faq-content p { font-size: 1rem; }
-  
+    .faq-content p {
+      font-size: 1rem;
+      color: var(--branco);
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+      margin-bottom: 1rem;
+    }
+
     /* ---------------------------
        ÚLTIMA CHAMADA
     --------------------------- */
@@ -478,38 +562,67 @@
       text-align: center;
       color: var(--branco);
     }
-    #last-call p { margin: 1rem 0; }
-    .contact-info p { margin: 0.3rem 0; }
-  
+    #last-call p {
+      margin: 1rem 0;
+    }
+    .contact-info p {
+      margin: 0.3rem 0;
+    }
+
     /* ---------------------------
        FOOTER
     --------------------------- */
-    .footer { background-color: #f5f5f5; padding: 1rem 0; }
-    .footer p { text-align: center; font-size: 0.9rem; color: #333; }
-  
+    .footer {
+      background-color: #f5f5f5;
+      padding: 1rem 0;
+    }
+    .footer p {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #333;
+    }
+
     /* ---------------------------
        MEDIA QUERIES PARA MOBILE
     --------------------------- */
     @media (max-width: 767px) {
-      header { flex-direction: column; align-items: flex-start; }
-      nav { display: none; } /* Esconde menu horizontal */
-      .header-cta { display: none; } /* Esconde o botão "Fale Conosco Agora" */
-      .mobile-menu-toggle { display: block; }
-      /* Ajusta a timeline */
-      .timeline-container { flex-direction: column; align-items: center; }
-      .timeline-step { width: auto; margin-bottom: 2rem; }
-      /* FAQ: Centraliza o conteúdo */
-      .faq-content { padding: 2rem; }
+      /* Esconde menu desktop e CTA no mobile */
+      nav { display: none; }
+      .header-cta { display: none; }
+
+      /* Mostra hamburger no mobile */
+      .hamburger {
+        display: block;
+      }
+
+      header {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.5rem 1rem;
+      }
+      .logo-area {
+        display: flex;
+        align-items: center;
+      }
+
+      /* Ajusta timeline e FAQ */
+      .timeline-container {
+        flex-direction: column;
+        align-items: center;
+      }
+      .timeline-step {
+        width: auto;
+        margin-bottom: 2rem;
+      }
     }
   </style>
 </head>
 <body>
-  
-  <!-- Mobile Menu Toggle -->
-  <div class="mobile-menu-toggle" id="mobileMenuToggle">☰</div>
-  <!-- Mobile Menu -->
-  <div class="mobile-menu" id="mobileMenu">
-    <div class="close-menu" id="closeMenu">×</div>
+
+  <!-- Menu Mobile Lateral -->
+  <div class="mobile-nav" id="mobileNav">
+    <div class="close-mobile-nav" id="closeMobileNav">×</div>
     <ul>
       <li><a href="#como-assim">Quem Tem Direito?</a></li>
       <li><a href="#como-funciona">Como Funciona</a></li>
@@ -518,13 +631,17 @@
       <li><a href="#faq">FAQ</a></li>
     </ul>
   </div>
-  
-  <!-- HEADER + MENU + CTA -->
+
+  <!-- HEADER -->
   <header class="header container">
     <div class="logo-area">
       <img class="logo" alt="Mútua – Assessoria Maternidade" src="https://i.ibb.co/Y4Mv8Ncb/mutua-logo-png.png">
       <h1 class="header-title">Mútua – Assessoria Maternidade</h1>
     </div>
+    <!-- Botão hamburger no mobile -->
+    <div class="hamburger" id="hamburgerBtn">☰</div>
+
+    <!-- Menu Desktop -->
     <nav>
       <ul>
         <li><a href="#como-assim">Quem Tem Direito?</a></li>
@@ -534,11 +651,13 @@
         <li><a href="#faq">FAQ</a></li>
       </ul>
     </nav>
+
+    <!-- Botão CTA Desktop -->
     <div class="header-cta">
       <a href="#last-call">FALE CONOSCO AGORA</a>
     </div>
   </header>
-  
+
   <!-- HERO SECTION -->
   <section id="hero">
     <div class="hero-overlay"></div>
@@ -553,7 +672,7 @@
       <a href="#form-section" class="btn btn-cta pulse">QUERO SABER SE TENHO DIREITO</a>
     </div>
   </section>
-  
+
   <!-- COMO ASSIM? -->
   <section id="como-assim" class="container">
     <h2 class="section-title">Como Assim? Eu Posso Receber Esse Benefício?</h2>
@@ -569,8 +688,8 @@
     <p class="section-text">Esse valor pode ser solicitado AGORA e cair diretamente na sua conta!</p>
     <a href="#form-section" class="btn btn-cta btn-center">VERIFICAR MEU DIREITO AGORA</a>
   </section>
-  
-  <!-- COMO FUNCIONA? (Timeline com Zoom de Fundo) -->
+
+  <!-- COMO FUNCIONA? (Timeline) -->
   <section id="como-funciona">
     <div class="como-funciona-content">
       <h2 class="section-title">Como Funciona? Veja o Passo a Passo Simples</h2>
@@ -607,8 +726,8 @@
       </div>
     </div>
   </section>
-  
-  <!-- RESULTADOS (Contadores e Blocos) -->
+
+  <!-- RESULTADOS -->
   <section id="resultados">
     <div class="container resultados-content">
       <div class="resultado-item">
@@ -625,8 +744,8 @@
       </div>
     </div>
   </section>
-  
-  <!-- A MÚTUA (Quem é a Mútua) -->
+
+  <!-- A MÚTUA -->
   <section id="quem-somos">
     <div class="container quem-somos-content">
       <div class="quem-somos-image">
@@ -646,7 +765,7 @@
       </div>
     </div>
   </section>
-  
+
   <!-- QUANTO VOCÊ PODE RECEBER -->
   <section id="quanto-receber" class="container">
     <h2 class="section-title">Quanto Você Pode Receber?</h2>
@@ -663,7 +782,7 @@
     </p>
     <a href="#form-section" class="btn btn-cta">DESCUBRA O VALOR QUE VOCÊ PODE RECEBER</a>
   </section>
-  
+
   <!-- FORMULÁRIO -->
   <section id="form-section">
     <div class="container form-section">
@@ -704,41 +823,37 @@
       </form>
     </div>
   </section>
-  
-  <!-- FAQ (com fundo de imagem) -->
+
+  <!-- FAQ (com fundo e gradiente) -->
   <section id="faq">
-    <div class="container faq-section">
-      <div class="faq-content">
-        <div class="faq-text">
-          <h2 class="section-title">Dúvidas Comuns Sobre o Auxílio-Maternidade</h2>
-          <div class="faq-item">
-            <h3>1. Se eu estiver desempregada, posso receber?</h3>
-            <p>Sim! Se você já trabalhou e contribuiu para o INSS, ainda pode ter direito.</p>
-          </div>
-          <div class="faq-item">
-            <h3>2. O valor é pago de uma vez ou parcelado?</h3>
-            <p>Para mães que tiveram bebê e ainda não solicitaram, o valor é pago de uma só vez.</p>
-          </div>
-          <div class="faq-item">
-            <h3>3. E se eu perdi o bebê durante a gravidez?</h3>
-            <p>Em caso de natimorto (após 23 semanas), você tem direito ao benefício completo de 4 meses.</p>
-          </div>
-          <div class="faq-item">
-            <h3>4. Quanto tempo leva para receber?</h3>
-            <p>Normalmente de 30 a 45 dias, mas pode variar conforme o caso.</p>
-          </div>
-          <div class="faq-item">
-            <h3>5. Como faço para solicitar?</h3>
-            <p>Basta preencher o formulário acima e nossa equipe cuidará de todo o processo.</p>
-          </div>
-          <div style="text-align:center;">
-            <a href="#form-section" class="btn btn-cta">QUERO SABER SE TENHO DIREITO</a>
-          </div>
-        </div>
+    <div class="faq-content">
+      <h2 class="section-title">Dúvidas Comuns Sobre o Auxílio-Maternidade</h2>
+      <div class="faq-item">
+        <h3>1. Se eu estiver desempregada, posso receber?</h3>
+        <p>Sim! Se você já trabalhou e contribuiu para o INSS, ainda pode ter direito.</p>
+      </div>
+      <div class="faq-item">
+        <h3>2. O valor é pago de uma vez ou parcelado?</h3>
+        <p>Para mães que tiveram bebê e ainda não solicitaram, o valor é pago de uma só vez.</p>
+      </div>
+      <div class="faq-item">
+        <h3>3. E se eu perdi o bebê durante a gravidez?</h3>
+        <p>Em caso de natimorto (após 23 semanas), você tem direito ao benefício completo de 4 meses.</p>
+      </div>
+      <div class="faq-item">
+        <h3>4. Quanto tempo leva para receber?</h3>
+        <p>Normalmente de 30 a 45 dias, mas pode variar conforme o caso.</p>
+      </div>
+      <div class="faq-item">
+        <h3>5. Como faço para solicitar?</h3>
+        <p>Basta preencher o formulário acima e nossa equipe cuidará de todo o processo.</p>
+      </div>
+      <div style="margin-top:1.5rem;">
+        <a href="#form-section" class="btn btn-cta">QUERO SABER SE TENHO DIREITO</a>
       </div>
     </div>
   </section>
-  
+
   <!-- ÚLTIMA CHAMADA -->
   <section id="last-call">
     <div class="container last-call-section">
@@ -755,31 +870,32 @@
       </div>
     </div>
   </section>
-  
+
   <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
       <p>© 2025 Mútua – Assessoria Maternidade. Todos os direitos reservados.</p>
     </div>
   </footer>
-  
+
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      // Mobile Menu Toggle
-      const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-      const mobileMenu = document.getElementById('mobileMenu');
-      const closeMenu = document.getElementById('closeMenu');
-      if(mobileMenuToggle) {
-        mobileMenuToggle.addEventListener('click', () => {
-          mobileMenu.classList.add('active');
+      /* Botão hamburger e mobile nav */
+      const hamburgerBtn = document.getElementById('hamburgerBtn');
+      const mobileNav = document.getElementById('mobileNav');
+      const closeMobileNav = document.getElementById('closeMobileNav');
+
+      if(hamburgerBtn) {
+        hamburgerBtn.addEventListener('click', () => {
+          mobileNav.classList.add('active');
         });
       }
-      if(closeMenu) {
-        closeMenu.addEventListener('click', () => {
-          mobileMenu.classList.remove('active');
+      if(closeMobileNav) {
+        closeMobileNav.addEventListener('click', () => {
+          mobileNav.classList.remove('active');
         });
       }
-  
+
       // Formulário
       const form = document.querySelector('.contact-form');
       if (form) {
@@ -791,7 +907,7 @@
           const contribuicao = document.getElementById('contribuicao').value;
           const analiseGratuita = document.getElementById('analiseGratuita').checked;
           if (nome && telefone && filho && contribuicao && analiseGratuita) {
-            alert(`Obrigado, ${nome}! Recebemos seus dados e entraremos em contato em breve.`);
+            alert(\`Obrigado, \${nome}! Recebemos seus dados e entraremos em contato em breve.\`);
             // Exemplo: redirecionar via WhatsApp
             // window.location.href = 'https://api.whatsapp.com/send?phone=[Seu Número]&text=Olá! Gostaria de verificar meu direito ao auxílio-maternidade.';
           } else {
@@ -799,36 +915,44 @@
           }
         });
       }
-  
+
       // Animação dos círculos da timeline
       const circles = document.querySelectorAll('.circle-animate');
       const options = { root: null, rootMargin: '0px', threshold: 0.1 };
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-          if (entry.isIntersecting) { entry.target.classList.add('in-view'); }
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+          }
         });
       }, options);
-      circles.forEach(circle => { observer.observe(circle); });
-  
+      circles.forEach(circle => {
+        observer.observe(circle);
+      });
+
       // Efeito de zoom no fundo das seções (Hero e Como Funciona)
       function updateZoom() {
         const hero = document.getElementById('hero');
         if (hero) {
           const rect = hero.getBoundingClientRect();
           let scale = 100;
-          if (rect.top < 0) { scale = Math.min(120, 100 + Math.abs(rect.top) / 10); }
+          if (rect.top < 0) {
+            scale = Math.min(120, 100 + Math.abs(rect.top) / 10);
+          }
           hero.style.backgroundSize = scale + '%';
         }
         const comoFunciona = document.getElementById('como-funciona');
         if (comoFunciona) {
           const rect = comoFunciona.getBoundingClientRect();
           let scale = 100;
-          if (rect.top < 0) { scale = Math.min(120, 100 + Math.abs(rect.top) / 10); }
+          if (rect.top < 0) {
+            scale = Math.min(120, 100 + Math.abs(rect.top) / 10);
+          }
           comoFunciona.style.backgroundSize = scale + '%';
         }
       }
       window.addEventListener('scroll', updateZoom);
-  
+
       // Contadores Animados
       const counters = document.querySelectorAll('.counter');
       const counterOptions = { root: null, rootMargin: '0px', threshold: 0.5 };
@@ -840,7 +964,9 @@
           }
         });
       }, counterOptions);
-      counters.forEach(counter => { counterObserver.observe(counter); });
+      counters.forEach(counter => {
+        counterObserver.observe(counter);
+      });
       function animateCounter(element) {
         const target = +element.getAttribute('data-target');
         let count = 0;
