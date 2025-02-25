@@ -25,7 +25,7 @@
     :root {
       --azul-profundo: #1F3B5F;   /* textos e destaques */
       --azul-degrade: #4A7BA7;    /* botões e fundo da seção Quem Somos */
-      --rosa-pessego: #F3B8A8;    /* fundos secundários e botão rosa */
+      --rosa-pessego: #F3B8A8;    /* fundos secundários e hover */
       --branco: #FFFFFF;
     }
     html {
@@ -54,31 +54,29 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 1rem 0;
+      padding: 0.8rem 0;
     }
     .logo-area {
       display: flex;
       align-items: center;
     }
     .logo {
-      width: 60px;
-      margin-right: 1rem;
+      width: 50px;
+      margin-right: 0.8rem;
     }
     .header-title {
-      font-size: 1rem; /* tamanho menor */
-      text-transform: uppercase; /* maiúsculo */
-      letter-spacing: 0.8px; /* espaçamento */
+      font-size: 1.2rem; /* Estilo original */
       font-weight: 700;
     }
     nav {
-      flex: 1; /* faz o menu ocupar o espaço central */
+      flex: 1; /* O menu ocupa o espaço central */
       display: flex;
       justify-content: center;
     }
     nav ul {
       display: flex;
       list-style: none;
-      gap: 2rem;
+      gap: 1.5rem;
       align-items: center;
     }
     nav ul li a {
@@ -86,12 +84,11 @@
       font-weight: 700;
       color: var(--azul-profundo);
       transition: color 0.3s ease;
-      text-transform: uppercase; /* maiúsculo */
-      font-size: 0.85rem;        /* tamanho menor */
-      letter-spacing: 0.5px;     /* espaçamento */
+      font-size: 0.9rem;   /* Tamanho menor */
     }
+    /* Muda para rosa-pêssego ao hover */
     nav ul li a:hover {
-      color: #2c4f75; /* cor mais escura ao hover */
+      color: var(--rosa-pessego);
     }
     .header-cta {
       margin-left: auto;
@@ -106,9 +103,9 @@
       color: var(--branco);
       text-decoration: none;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
       transition: background-color 0.3s ease;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.5px;
     }
     .header-cta a:hover {
       background-color: #3b6f96;
@@ -206,17 +203,9 @@
       50% { transform: scale(1.02); }
       100% { transform: scale(1); }
     }
-    .fade-in {
-      opacity: 0;
-      animation: fadeIn 1s forwards;
-    }
-    .fade-in-delay {
-      opacity: 0;
-      animation: fadeIn 1s forwards 0.5s;
-    }
-    @keyframes fadeIn {
-      to { opacity: 1; }
-    }
+    .fade-in { opacity: 0; animation: fadeIn 1s forwards; }
+    .fade-in-delay { opacity: 0; animation: fadeIn 1s forwards 0.5s; }
+    @keyframes fadeIn { to { opacity: 1; } }
 
     /* ---------------------------
        SEÇÕES GERAIS
@@ -518,11 +507,11 @@
 </head>
 <body>
 
-  <!-- HEADER + MENU + CTA -->
+  <!-- HEADER -->
   <header class="header container">
     <div class="logo-area">
-      <img class="logo" alt="MÚTUA – ASSESSORIA MATERNIDADE" src="https://i.ibb.co/Y4Mv8Ncb/mutua-logo-png.png">
-      <h1 class="header-title">MÚTUA – ASSESSORIA MATERNIDADE</h1>
+      <img class="logo" alt="Mútua – Assessoria Maternidade" src="https://i.ibb.co/Y4Mv8Ncb/mutua-logo-png.png">
+      <h1 class="header-title">Mútua – Assessoria Maternidade</h1>
     </div>
     <nav>
       <ul>
@@ -773,7 +762,7 @@
         });
       }
 
-      // Animação dos círculos da timeline com Intersection Observer
+      // Animação dos círculos da timeline
       const circles = document.querySelectorAll('.circle-animate');
       const options = { root: null, rootMargin: '0px', threshold: 0.1 };
       const observer = new IntersectionObserver((entries) => {
@@ -783,7 +772,7 @@
       }, options);
       circles.forEach(circle => { observer.observe(circle); });
 
-      // Efeito de zoom no fundo das seções em tela inteira (Hero e Como Funciona)
+      // Efeito de zoom no fundo das seções (Hero e Como Funciona)
       function updateZoom() {
         const hero = document.getElementById('hero');
         if (hero) {
