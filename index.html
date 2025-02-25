@@ -72,27 +72,42 @@
     }
 
     /* ------------------------------------------
-       HERO SECTION
+       HERO SECTION (Método 1: Tela Cheia)
     ------------------------------------------ */
     .hero-section {
-      background: linear-gradient(
-        135deg,
-        var(--azul-degrade) 40%,
-        var(--rosa-pessego) 100%
-      );
-      color: var(--branco);
-      padding: 3rem 0;
-    }
-    .hero-content {
+      position: relative;
+      width: 100%;
+      min-height: 80vh; /* ocupa 80% da altura da tela, ajuste se quiser maior/menor */
       display: flex;
-      flex-direction: column-reverse;
-      gap: 2rem;
       align-items: center;
+      justify-content: center;
+      /* Imagem de fundo (ocupa toda a tela) */
+      background: url("https://images.pexels.com/photos/17525434/pexels-photo-17525434/free-photo-of-familia.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2") 
+                  center center / cover no-repeat;
+      color: #fff;
     }
-    .hero-text {
-      flex: 1;
+    /* Overlay degradê por cima da imagem */
+    .hero-overlay {
+      position: absolute;
+      top: 0; 
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        rgba(31, 59, 95, 0.6),
+        rgba(243, 184, 168, 0.6)
+      );
+      z-index: 1;
     }
-    .hero-text h2 {
+    /* Conteúdo do hero (texto, CTA) */
+    .hero-content {
+      position: relative; /* para ficar acima do overlay */
+      z-index: 2;
+      max-width: 700px;
+      text-align: center;
+      margin: 0 1rem;
+    }
+    .hero-content h2 {
       font-size: 2rem;
       margin-bottom: 1rem;
     }
@@ -103,15 +118,6 @@
     }
     .hero-list li {
       margin-bottom: 0.5rem;
-    }
-    .hero-image {
-      flex: 1;
-      text-align: center;
-    }
-    .hero-image img {
-      width: 100%;
-      max-width: 450px;
-      border-radius: 8px;
     }
 
     /* ------------------------------------------
@@ -133,7 +139,7 @@
       color: var(--branco);
     }
     .btn-cta:hover {
-      background-color: #3b6f96;
+      background-color: #3b6f96; /* um pouco mais escuro */
     }
     .pulse {
       animation: pulse 1.5s infinite;
@@ -306,20 +312,6 @@
       font-size: 0.9rem;
       color: #333;
     }
-
-    /* Responsividade hero */
-    @media (min-width: 768px) {
-      .hero-content {
-        flex-direction: row;
-        justify-content: space-between;
-      }
-      .hero-text {
-        max-width: 50%;
-      }
-      .hero-image {
-        max-width: 50%;
-      }
-    }
   </style>
 </head>
 <body>
@@ -327,7 +319,7 @@
   <!-- HEADER -->
   <header class="header container">
     <div class="logo-area">
-      <!-- Logo Mutua: utilizando o link fornecido -->
+      <!-- Logo Mutua -->
       <img 
         class="logo" 
         alt="Mútua – Assessoria Maternidade" 
@@ -336,35 +328,24 @@
     </div>
   </header>
 
-  <!-- HERO SECTION -->
+  <!-- HERO SECTION (Método 1) -->
   <section class="hero-section">
-    <div class="container hero-content">
-      <div class="hero-text fade-in">
-        <h2>
-          💖 Descubra Agora Se Você Tem Direito ao Auxílio-Maternidade do INSS!
-        </h2>
-        <p class="fade-in-delay">
-          🔎 Você pode estar perdendo um benefício que pode mudar sua vida!
-        </p>
-        <ul class="hero-list fade-in-delay">
-          <li>📌 Receba valores a partir de <strong>R$ 5.648,00</strong> até <strong>R$ 24.000,00</strong>!</li>
-          <li>💡 Mesmo que já tenha tido seu bebê há alguns anos, você ainda pode solicitar!</li>
-          <li>🎯 Se você é MEI, autônoma, CLT ou está desempregada, confira agora se pode receber!</li>
-        </ul>
-        <a href="#form-section" class="btn btn-cta pulse">
-          QUERO SABER SE TENHO DIREITO
-        </a>
-      </div>
-      <div class="hero-image fade-in">
-        <!-- Hero Image: utilizando o link fornecido -->
-        <img 
-          alt="Mãe segurando bebê" 
-          src="https://images.pexels.com/photos/17525434/pexels-photo-17525434/free-photo-of-familia.jpeg" />
-      </div>
+    <!-- Overlay Degradê -->
+    <div class="hero-overlay"></div>
+    <!-- Conteúdo da Hero -->
+    <div class="hero-content">
+      <h2>💖 Descubra Agora Se Você Tem Direito ao Auxílio-Maternidade do INSS!</h2>
+      <p>🔎 Você pode estar perdendo um benefício que pode mudar sua vida!</p>
+      <ul class="hero-list">
+        <li>📌 Receba valores a partir de <strong>R$ 5.648,00</strong> até <strong>R$ 24.000,00</strong>!</li>
+        <li>💡 Mesmo que já tenha tido seu bebê há alguns anos, você ainda pode solicitar!</li>
+        <li>🎯 Se você é MEI, autônoma, CLT ou está desempregada, confira agora se pode receber!</li>
+      </ul>
+      <a href="#form-section" class="btn btn-cta pulse">QUERO SABER SE TENHO DIREITO</a>
     </div>
   </section>
 
-  <!-- COMO ASSIM SECTION -->
+  <!-- SEÇÃO: Como Assim? -->
   <section class="como-assim-section container">
     <h2 class="section-title">🤱 Como Assim? Eu Posso Receber Esse Benefício?</h2>
     <p class="section-text">
@@ -383,11 +364,11 @@
     <a href="#form-section" class="btn btn-cta">VERIFICAR MEU DIREITO AGORA</a>
   </section>
 
-  <!-- COMO FUNCIONA SECTION -->
+  <!-- SEÇÃO: Como Funciona? -->
   <section class="como-funciona-section">
     <div class="container">
       <h2 class="section-title">📌 Como Funciona? Veja o Passo a Passo Simples</h2>
-      <!-- Ilustração Mães: utilizando o link fornecido -->
+      <!-- Ilustração Mães -->
       <div style="text-align:center; margin-bottom:2rem;">
         <img 
           alt="Ilustração de mães" 
@@ -427,7 +408,7 @@
     </div>
   </section>
 
-  <!-- QUANTO VOCÊ PODE RECEBER SECTION -->
+  <!-- SEÇÃO: Quanto Você Pode Receber? -->
   <section class="quanto-receber-section container">
     <h2 class="section-title">💰 Quanto Você Pode Receber?</h2>
     <p class="section-text">
@@ -444,7 +425,7 @@
     <a href="#form-section" class="btn btn-cta">DESCUBRA O VALOR QUE VOCÊ PODE RECEBER</a>
   </section>
 
-  <!-- FORMULÁRIO SECTION -->
+  <!-- SEÇÃO: Formulário -->
   <section id="form-section" class="form-section">
     <div class="container">
       <h2 class="section-title">📝 Formulário para Análise Gratuita</h2>
@@ -487,7 +468,7 @@
     </div>
   </section>
 
-  <!-- FAQ SECTION -->
+  <!-- SEÇÃO: Dúvidas Comuns (FAQ) -->
   <section class="faq-section container">
     <h2 class="section-title">🤔 Dúvidas Comuns Sobre o Auxílio-Maternidade</h2>
     <div class="faq-item">
@@ -515,7 +496,7 @@
     </div>
   </section>
 
-  <!-- ÚLTIMA CHAMADA SECTION -->
+  <!-- SEÇÃO: Última Chamada -->
   <section class="last-call-section">
     <div class="container">
       <h2 class="section-title">📢 Última Chamada – Não Perca Essa Chance!</h2>
@@ -555,7 +536,7 @@
 
           if (nome && telefone && filho && contribuicao && analiseGratuita) {
             alert(`Obrigado, ${nome}! Recebemos seus dados e entraremos em contato em breve.`);
-            // Para redirecionar via WhatsApp, descomente a linha abaixo e substitua [Seu Número]:
+            // Para redirecionar via WhatsApp, descomente e substitua [Seu Número]:
             // window.location.href = 'https://api.whatsapp.com/send?phone=[Seu Número]&text=Olá! Gostaria de verificar meu direito ao auxílio-maternidade.';
           } else {
             alert('Por favor, preencha todos os campos obrigatórios antes de enviar.');
