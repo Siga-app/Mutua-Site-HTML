@@ -269,18 +269,17 @@
        COMO ASSIM? (Sem fundo branco)
     --------------------------- */
     #como-assim {
+      width: 100%;         /* Ocupa 100% da tela */
       padding: 2rem 0;
       background: linear-gradient(135deg, #F3B8A8 0%, #FFF 100%);
     }
     .como-assim-container {
-      /* Removido o background e deixamos somente o gradiente do #como-assim */
-      border-radius: 8px;
-      padding: 2rem;
+      max-width: 1200px;   /* centraliza o conteúdo */
+      margin: 0 auto;
       display: flex;
       gap: 2rem;
       align-items: center;
-      max-width: 1000px;
-      margin: 0 auto;
+      padding: 2rem;       /* espaço interno */
     }
     .como-assim-text {
       flex: 1;
@@ -722,8 +721,8 @@
     </div>
   </section>
 
-  <!-- COMO ASSIM? (Sem fundo branco, usando gradiente total) -->
-  <section id="como-assim" class="container">
+  <!-- COMO ASSIM? (Fundo 100% gradiente, sem container branco) -->
+  <section id="como-assim">
     <div class="como-assim-container">
       <div class="como-assim-text">
         <h2>Como Assim? Eu Posso Receber Esse Benefício?</h2>
@@ -744,7 +743,7 @@
     </div>
   </section>
 
-  <!-- COMO FUNCIONA? (Caixas Iguais) -->
+  <!-- COMO FUNCIONA? (Caixas Iguais, sem linha) -->
   <section id="como-funciona">
     <div class="como-funciona-content">
       <h2 class="section-title">Como Funciona? Veja o Passo a Passo Simples</h2>
