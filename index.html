@@ -9,9 +9,7 @@
   <!-- Fontes: Montserrat (títulos) e Lato (texto) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link 
-    href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@700&display=swap" 
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
 
   <style>
     /* ---------------------------
@@ -41,55 +39,107 @@
        HEADER + MENU
     --------------------------- */
     header {
-      display: flex; align-items: center; justify-content: space-between; padding: 1rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 0;
     }
     .logo-area { display: flex; align-items: center; }
     .logo { width: 60px; margin-right: 1rem; }
     .header-title { font-size: 1.2rem; }
+    nav { flex: 1; }
     nav ul {
-      display: flex; list-style: none; gap: 1rem;
+      display: flex;
+      list-style: none;
+      gap: 1rem;
     }
     nav a {
-      text-decoration: none; font-weight: 700; color: var(--azul-profundo); transition: color 0.3s ease;
+      text-decoration: none;
+      font-weight: 700;
+      color: var(--azul-profundo);
+      transition: color 0.3s ease;
     }
     nav a:hover { color: #2c4f75; }
+    .header-cta { margin-left: auto; }
+    .header-cta a { /* Mantém o mesmo estilo dos CTAs */
+      display: inline-block;
+      padding: 0.9rem 1.5rem;
+      border: none;
+      border-radius: 4px;
+      font-weight: 700;
+      background-color: var(--azul-degrade);
+      color: var(--branco);
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+    .header-cta a:hover { background-color: #3b6f96; }
 
     /* ---------------------------
        HERO SECTION (Imagem de Fundo)
     --------------------------- */
     #hero {
-      position: relative; width: 100%; min-height: 80vh;
-      display: flex; align-items: center; justify-content: center;
+      position: relative;
+      width: 100%;
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       background: url("https://images.pexels.com/photos/17525434/pexels-photo-17525434/free-photo-of-familia.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")
                   center center / cover no-repeat;
       color: var(--branco);
     }
     .hero-overlay {
-      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      position: absolute; top: 0; left: 0;
+      width: 100%; height: 100%;
       background: linear-gradient(rgba(31,59,95,0.6), rgba(243,184,168,0.6));
       z-index: 1;
     }
     .hero-content {
-      position: relative; z-index: 2; max-width: 700px; text-align: center; margin: 0 1rem;
+      position: relative; z-index: 2;
+      max-width: 700px;
+      text-align: center;
+      margin: 0 1rem;
     }
     .hero-content h2 {
-      font-size: 2.5rem; margin-bottom: 1rem; text-transform: uppercase;
-      letter-spacing: 1px; color: #fff; text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #fff;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
     }
     .hero-content p {
-      font-size: 1.2rem; margin-bottom: 1rem; color: #fff; text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      color: #fff;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
     }
-    .hero-list { list-style: none; margin: 1rem 0; line-height: 1.4; }
-    .hero-list li { margin-bottom: 0.5rem; color: #fff; text-shadow: 1px 1px 3px rgba(0,0,0,0.4); }
+    .hero-list {
+      list-style: none;
+      margin: 1rem 0;
+      line-height: 1.4;
+    }
+    .hero-list li {
+      margin-bottom: 0.5rem;
+      color: #fff;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+    }
 
     /* ---------------------------
        BOTÕES & ANIMAÇÕES
     --------------------------- */
-    .btn { display: inline-block; padding: 0.9rem 1.5rem; border: none; border-radius: 4px;
-           font-weight: 700; cursor: pointer; text-decoration: none; transition: background-color 0.3s ease; }
+    .btn {
+      display: inline-block;
+      padding: 0.9rem 1.5rem;
+      border: none;
+      border-radius: 4px;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
     .btn-cta { background-color: var(--azul-degrade); color: var(--branco); }
     .btn-cta:hover { background-color: #3b6f96; }
-    /* Botão Rosa */
     .btn-rosa { background-color: var(--rosa-pessego); color: #333; }
     .btn-rosa:hover { background-color: #ebb0a0; }
     .pulse { animation: pulse 1.5s infinite; }
@@ -116,42 +166,70 @@
        COMO FUNCIONA? (Timeline)
     --------------------------- */
     #como-funciona {
-      position: relative; min-height: 60vh;
+      position: relative;
+      min-height: 60vh;
       background: url("https://images.pexels.com/photos/12801214/pexels-photo-12801214.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")
                   center center / cover no-repeat;
       background-color: rgba(255,255,255,0.3);
       background-blend-mode: lighten;
-      display: flex; align-items: center; justify-content: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       padding: 3rem 0;
     }
     #como-funciona::before {
       content: "";
-      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
       background: rgba(255,255,255,0.3);
       z-index: 1;
     }
     .como-funciona-content {
-      position: relative; z-index: 2; text-align: center;
-      max-width: 900px; margin: 0 1rem; color: var(--azul-profundo);
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 900px;
+      margin: 0 1rem;
+      color: var(--azul-profundo);
     }
     .timeline-container {
-      position: relative; margin-top: 3rem;
-      display: flex; justify-content: space-between; align-items: flex-start;
+      position: relative;
+      margin-top: 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
     }
     .timeline-line {
-      position: absolute; top: 50px; left: 0;
-      width: 100%; height: 4px; background: var(--azul-profundo); z-index: 1;
+      position: absolute;
+      top: 50px;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: var(--azul-profundo);
+      z-index: 1;
     }
     .timeline-step {
-      position: relative; z-index: 2; text-align: center;
+      position: relative;
+      z-index: 2;
+      text-align: center;
       width: 100px;
     }
     .step-circle {
-      width: 60px; height: 60px; border-radius: 50%;
-      background: var(--branco); border: 4px solid var(--azul-profundo);
-      margin: 0 auto 0.5rem; display: flex; align-items: center; justify-content: center;
-      font-size: 1.2rem; font-weight: 700; color: var(--azul-profundo);
-      transform: scale(0); opacity: 0;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: var(--branco);
+      border: 4px solid var(--azul-profundo);
+      margin: 0 auto 0.5rem auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--azul-profundo);
+      transform: scale(0);
+      opacity: 0;
       transition: transform 0.5s ease-out, opacity 0.5s ease-out;
     }
     .step-circle.in-view { transform: scale(1); opacity: 1; }
@@ -168,14 +246,20 @@
     --------------------------- */
     #quem-somos {
       background-color: var(--azul-degrade);
-      padding: 3rem 0; color: var(--branco);
+      padding: 3rem 0;
+      color: var(--branco);
     }
     .quem-somos-content {
-      display: flex; flex-wrap: wrap; align-items: center; gap: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 2rem;
     }
     .quem-somos-image { flex: 1 1 40%; text-align: center; }
     .quem-somos-image img {
-      width: 100%; max-width: 400px; border-radius: 8px;
+      width: 100%;
+      max-width: 400px;
+      border-radius: 8px;
       filter: brightness(1.05) contrast(1.05);
     }
     .quem-somos-text { flex: 1 1 55%; }
@@ -186,10 +270,13 @@
        QUANTO VOCÊ PODE RECEBER?
     --------------------------- */
     #quanto-receber {
-      padding: 2rem 0; text-align: center;
+      padding: 2rem 0;
+      text-align: center;
     }
     #quanto-receber a {
-      display: inline-block; margin: 1rem auto 0; width: fit-content;
+      display: inline-block;
+      margin: 1rem auto 0;
+      width: fit-content;
     }
 
     /* ---------------------------
@@ -200,17 +287,30 @@
       padding: 3rem 0;
     }
     .contact-form {
-      max-width: 600px; margin: 0 auto;
-      background-color: var(--branco); border-radius: 8px; padding: 2rem;
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: var(--branco);
+      border-radius: 8px;
+      padding: 2rem;
     }
     .form-group { margin-bottom: 1.2rem; }
     .form-group label {
-      display: block; margin-bottom: 0.4rem; font-weight: 700; color: var(--azul-profundo);
+      display: block;
+      margin-bottom: 0.4rem;
+      font-weight: 700;
+      color: var(--azul-profundo);
     }
     .form-group input, .form-group select {
-      width: 100%; padding: 0.8rem; border: 1px solid #ccc; border-radius: 4px;
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
     }
-    .form-check { margin-bottom: 1.2rem; display: flex; align-items: center; }
+    .form-check {
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+    }
     .form-check input { margin-right: 0.5rem; }
     .btn-submit { display: block; width: 100%; margin-top: 1rem; }
 
@@ -221,20 +321,21 @@
       padding: 2rem 0;
     }
     .faq-content {
-      display: flex; align-items: center; justify-content: space-between;
+      display: flex;
+      flex-wrap: wrap;
       gap: 2rem;
+      align-items: flex-start;
     }
     .faq-text { flex: 1; }
     .faq-text .faq-item { margin-bottom: 1.5rem; }
     .faq-text .faq-item h3 { font-size: 1.2rem; margin-bottom: 0.5rem; }
-    .faq-image {
-      flex: 0 0 400px; text-align: center;
-    }
+    .faq-image { flex: 0 0 400px; text-align: center; }
     .faq-image img {
-      width: 100%; max-width: 400px; border-radius: 8px;
+      width: 100%;
+      max-width: 400px;
+      border-radius: 8px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
-    /* Em telas menores, as colunas empilham */
     @media (max-width: 767px) {
       .faq-content { flex-direction: column; }
       .faq-image { flex: 1; }
@@ -245,7 +346,8 @@
     --------------------------- */
     #last-call {
       background-color: var(--azul-degrade);
-      padding: 2rem 0; text-align: center;
+      padding: 2rem 0;
+      text-align: center;
       color: var(--branco);
     }
     #last-call p { margin: 1rem 0; }
@@ -260,7 +362,7 @@
 </head>
 <body>
 
-  <!-- HEADER + MENU -->
+  <!-- HEADER + MENU + CTA -->
   <header class="header container">
     <div class="logo-area">
       <img class="logo" alt="Mútua – Assessoria Maternidade" src="https://i.ibb.co/Y4Mv8Ncb/mutua-logo-png.png">
@@ -274,9 +376,11 @@
         <li><a href="#quanto-receber">Valores</a></li>
         <li><a href="#form-section">Formulário</a></li>
         <li><a href="#faq">FAQ</a></li>
-        <li><a href="#last-call">Contato</a></li>
       </ul>
     </nav>
+    <div class="header-cta">
+      <a href="#last-call" class="btn btn-cta">Fale Conosco Agora</a>
+    </div>
   </header>
 
   <!-- HERO SECTION -->
@@ -316,31 +420,26 @@
       <h2 class="section-title">Como Funciona? Veja o Passo a Passo Simples</h2>
       <div class="timeline-container">
         <div class="timeline-line"></div>
-
         <div class="timeline-step">
           <div class="step-circle circle-animate">1</div>
           <h3>Entramos em Contato</h3>
           <p>Nossa equipe te liga ou envia mensagem para entender sua situação.</p>
         </div>
-
         <div class="timeline-step">
           <div class="step-circle circle-animate">2</div>
           <h3>Análise Gratuita</h3>
           <p>Avaliamos seu histórico no INSS e calculamos seu benefício, sem custo.</p>
         </div>
-
         <div class="timeline-step">
           <div class="step-circle circle-animate">3</div>
           <h3>Cuidamos de Tudo</h3>
           <p>Preparamos a documentação e fazemos o pedido no INSS.</p>
         </div>
-
         <div class="timeline-step">
           <div class="step-circle circle-animate">4</div>
           <h3>Acompanhamos</h3>
           <p>Monitoramos cada etapa até a aprovação.</p>
         </div>
-
         <div class="timeline-step">
           <div class="step-circle circle-animate">5</div>
           <h3>Você Recebe!</h3>
