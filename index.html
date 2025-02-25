@@ -25,7 +25,7 @@
     :root {
       --azul-profundo: #1F3B5F;   /* textos e destaques */
       --azul-degrade: #4A7BA7;    /* botões e fundo da seção Quem Somos */
-      --rosa-pessego: #F3B8A8;    /* fundos secundários */
+      --rosa-pessego: #F3B8A8;    /* fundos secundários e novo botão rosa */
       --branco: #FFFFFF;
     }
     html {
@@ -150,6 +150,14 @@
     .btn-cta:hover {
       background-color: #3b6f96;
     }
+    /* Botão Rosa Personalizado */
+    .btn-rosa {
+      background-color: var(--rosa-pessego);
+      color: #333;
+    }
+    .btn-rosa:hover {
+      background-color: #ebb0a0; /* tom levemente mais escuro */
+    }
     .pulse {
       animation: pulse 1.5s infinite;
     }
@@ -247,7 +255,6 @@
       opacity: 0;
       transition: transform 0.5s ease-out, opacity 0.5s ease-out;
     }
-    /* Quando entrar na tela, a classe .in-view será adicionada via JS */
     .step-circle.in-view {
       transform: scale(1);
       opacity: 1;
@@ -336,16 +343,35 @@
     }
 
     /* ---------------------------
-       FAQ
+       FAQ (com imagem ao lado)
     --------------------------- */
     #faq {
       padding: 2rem 0;
     }
-    .faq-item {
+    .faq-content {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: flex-start;
+    }
+    .faq-text {
+      flex: 1 1 60%;
+    }
+    .faq-text .faq-item {
       margin-bottom: 1.5rem;
     }
-    .faq-item h3 {
+    .faq-text .faq-item h3 {
       font-size: 1.2rem; margin-bottom: 0.5rem;
+    }
+    .faq-image {
+      flex: 1 1 40%;
+      text-align: center;
+    }
+    .faq-image img {
+      max-width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      /* Ajuste para um efeito sutil */
     }
 
     /* ---------------------------
@@ -500,7 +526,8 @@
           <li>🏢 <strong>Atendimento Personalizado:</strong> Cuidamos de tudo para sua tranquilidade.</li>
           <li>💼 <strong>Transparência e Compromisso:</strong> Acompanhamos seu pedido do início ao fim.</li>
         </ul>
-        <a href="#form-section" class="btn btn-cta">ENTRAR EM CONTATO</a>
+        <!-- Botão Rosa -->
+        <a href="#form-section" class="btn btn-rosa">ENTRAR EM CONTATO</a>
       </div>
     </div>
   </section>
@@ -563,31 +590,47 @@
     </div>
   </section>
 
-  <!-- FAQ -->
-  <section id="faq" class="container">
-    <h2 class="section-title">🤔 Dúvidas Comuns Sobre o Auxílio-Maternidade</h2>
-    <div class="faq-item">
-      <h3>1. Se eu estiver desempregada, posso receber?</h3>
-      <p>✔️ Sim! Se você já trabalhou e contribuiu para o INSS, ainda pode ter direito.</p>
-    </div>
-    <div class="faq-item">
-      <h3>2. O valor é pago de uma vez ou parcelado?</h3>
-      <p>✔️ Para mães que tiveram bebê e ainda não solicitaram, o valor é pago de uma só vez.</p>
-    </div>
-    <div class="faq-item">
-      <h3>3. E se eu perdi o bebê durante a gravidez?</h3>
-      <p>✔️ Em caso de natimorto (após 23 semanas), você tem direito ao benefício completo de 4 meses.</p>
-    </div>
-    <div class="faq-item">
-      <h3>4. Quanto tempo leva para receber?</h3>
-      <p>✔️ Normalmente de 30 a 45 dias, mas pode variar conforme o caso.</p>
-    </div>
-    <div class="faq-item">
-      <h3>5. Como faço para solicitar?</h3>
-      <p>✔️ Basta preencher o formulário acima e nossa equipe cuida de tudo.</p>
-    </div>
-    <div style="text-align:center;">
-      <a href="#form-section" class="btn btn-cta">QUERO SABER SE TENHO DIREITO</a>
+  <!-- FAQ (com imagem ao lado) -->
+  <section id="faq">
+    <div class="container faq-section">
+      <div class="faq-content">
+        <!-- Texto FAQ -->
+        <div class="faq-text">
+          <h2 class="section-title">🤔 Dúvidas Comuns Sobre o Auxílio-Maternidade</h2>
+
+          <div class="faq-item">
+            <h3>1. Se eu estiver desempregada, posso receber?</h3>
+            <p>✔️ Sim! Se você já trabalhou e contribuiu para o INSS, ainda pode ter direito.</p>
+          </div>
+          <div class="faq-item">
+            <h3>2. O valor é pago de uma vez ou parcelado?</h3>
+            <p>✔️ Para mães que tiveram bebê e ainda não solicitaram, o valor é pago de uma só vez.</p>
+          </div>
+          <div class="faq-item">
+            <h3>3. E se eu perdi o bebê durante a gravidez?</h3>
+            <p>✔️ Em caso de natimorto (após 23 semanas), você tem direito ao benefício completo de 4 meses.</p>
+          </div>
+          <div class="faq-item">
+            <h3>4. Quanto tempo leva para receber?</h3>
+            <p>✔️ Normalmente de 30 a 45 dias, mas pode variar conforme o caso.</p>
+          </div>
+          <div class="faq-item">
+            <h3>5. Como faço para solicitar?</h3>
+            <p>✔️ Basta preencher o formulário acima e nossa equipe cuida de tudo.</p>
+          </div>
+
+          <div style="text-align:center;">
+            <a href="#form-section" class="btn btn-cta">QUERO SABER SE TENHO DIREITO</a>
+          </div>
+        </div>
+        <!-- Imagem FAQ -->
+        <div class="faq-image">
+          <img 
+            src="https://images.pexels.com/photos/9885401/pexels-photo-9885401.jpeg" 
+            alt="Dúvidas sobre maternidade"
+          >
+        </div>
+      </div>
     </div>
   </section>
 
@@ -629,7 +672,7 @@
           const analiseGratuita = document.getElementById('analiseGratuita').checked;
 
           if (nome && telefone && filho && contribuicao && analiseGratuita) {
-            alert(\`Obrigado, \${nome}! Recebemos seus dados e entraremos em contato em breve.\`);
+            alert(`Obrigado, ${nome}! Recebemos seus dados e entraremos em contato em breve.`);
             // Redirecionar via WhatsApp (exemplo):
             // window.location.href = 'https://api.whatsapp.com/send?phone=[Seu Número]&text=Olá! Gostaria de verificar meu direito ao auxílio-maternidade.';
           } else {
