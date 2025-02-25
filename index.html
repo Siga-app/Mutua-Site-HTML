@@ -5,7 +5,7 @@
   <title>Mútua – Assessoria Maternidade</title>
   <meta name="description" content="Descubra se você tem direito ao Auxílio-Maternidade do INSS e receba valores de até R$ 24.000,00.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  
   <!-- Fontes: Montserrat (títulos) e Lato (texto) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -268,7 +268,7 @@
     }
 
     /* ---------------------------
-       RESULTADOS (Contadores Animados)
+       RESULTADOS (Contadores e Blocos)
     --------------------------- */
     #resultados {
       padding: 2rem 0;
@@ -283,51 +283,45 @@
     }
     .resultado-item {
       flex: 1 1 200px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
-    .resultado-item .counter {
+    /* Bloco 1: Contador com símbolo + */
+    .resultado-item .counter.plus {
       font-size: 2.5rem;
       font-weight: 700;
+      color: var(--azul-profundo);
+    }
+    /* Bloco 2: Ícone de atendimento rápido */
+    .icon-pulse {
+      font-size: 2.5rem;
+      animation: pulseIcon 1s infinite;
+      color: var(--azul-profundo);
+    }
+    @keyframes pulseIcon {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+    /* Bloco 3: Ícone para apoio jurídico */
+    .icon-juridico {
+      font-size: 2.5rem;
+      animation: pulseIcon 1.2s infinite;
       color: var(--azul-profundo);
     }
     .resultado-item p {
       font-size: 1rem;
       margin-top: 0.5rem;
       color: #555;
+      text-align: center;
     }
 
     /* ---------------------------
-       QUEM SOMOS (Fundo Azul)
+       REMOÇÃO DA SEÇÃO "QUEM SOMOS"
+       (Usaremos apenas a marca "Mútua" no cabeçalho)
     --------------------------- */
-    #quem-somos {
-      background-color: var(--azul-degrade);
-      padding: 3rem 0;
-      color: var(--branco);
-    }
-    .quem-somos-content {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 2rem;
-    }
-    .quem-somos-image {
-      flex: 1 1 40%;
-      text-align: center;
-    }
-    .quem-somos-image img {
-      width: 100%;
-      max-width: 400px;
-      border-radius: 8px;
-      filter: brightness(1.05) contrast(1.05);
-    }
-    .quem-somos-text {
-      flex: 1 1 55%;
-    }
-    .quem-somos-text ul {
-      list-style: none;
-      margin: 1rem 0;
-      line-height: 1.6;
-    }
-    .quem-somos-text ul li { margin-bottom: 0.5rem; }
+    /* A seção "Quem Somos" foi removida conforme solicitado */
 
     /* ---------------------------
        QUANTO VOCÊ PODE RECEBER?
@@ -436,7 +430,6 @@
       <ul>
         <li><a href="#como-assim">Quem Tem Direito?</a></li>
         <li><a href="#como-funciona">Como Funciona</a></li>
-        <li><a href="#quem-somos">Quem Somos</a></li>
         <li><a href="#quanto-receber">Valores</a></li>
         <li><a href="#form-section">Formulário</a></li>
         <li><a href="#faq">FAQ</a></li>
@@ -516,41 +509,23 @@
     </div>
   </section>
 
-  <!-- RESULTADOS (Contadores Animados) -->
+  <!-- RESULTADOS (Contadores e Blocos) -->
   <section id="resultados">
     <div class="container resultados-content">
+      <!-- Bloco 1: +100 Mães Ajudadas -->
       <div class="resultado-item">
-        <div class="counter" data-target="100">0</div>
+        <div class="counter plus" data-target="100">+0</div>
         <p>Mães Ajudadas</p>
       </div>
+      <!-- Bloco 2: Atendimento Rápido (ícone de raio) -->
       <div class="resultado-item">
-        <div class="counter" data-target="15">0</div>
-        <p>Minutos para Atendimento</p>
+        <div class="icon-pulse">⚡</div>
+        <p>Atendimento Rápido para que você não perca tempo</p>
       </div>
+      <!-- Bloco 3: Apoio Jurídico Especializado (ícone de balança) -->
       <div class="resultado-item">
-        <div class="counter" data-target="100">0</div>
-        <p>% Apoio Jurídico Especializado</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- QUEM SOMOS -->
-  <section id="quem-somos">
-    <div class="container quem-somos-content">
-      <div class="quem-somos-image">
-        <img src="https://i.ibb.co/Y4Mv8Ncb/mutua-logo-png.png" alt="Mútua – Assessoria Maternidade">
-      </div>
-      <div class="quem-somos-text">
-        <h2 class="section-title" style="text-align:left;">Quem Somos - A Mútua</h2>
-        <p>
-          A Mútua – Assessoria Maternidade foi criada para ajudar mães a receberem o auxílio-maternidade do INSS, sem burocracia e com total segurança. Nosso objetivo é garantir que você tenha acesso ao benefício que é seu por direito.
-        </p>
-        <ul>
-          <li>Especialistas em Previdência: Profissionais experientes em processos do INSS.</li>
-          <li>Atendimento Personalizado: Cuidamos de tudo para sua tranquilidade.</li>
-          <li>Transparência e Compromisso: Acompanhamos seu pedido do início ao fim.</li>
-        </ul>
-        <a href="#form-section" class="btn btn-rosa">ENTRAR EM CONTATO</a>
+        <div class="icon-juridico">⚖</div>
+        <p>Apoio Jurídico Especializado</p>
       </div>
     </div>
   </section>
@@ -740,15 +715,23 @@
       function animateCounter(element) {
         const target = +element.getAttribute('data-target');
         let count = 0;
-        const duration = 2000; // duração em ms
+        const duration = 2000;
         const increment = target / (duration / 50);
         const updateCount = () => {
           count += increment;
           if (count < target) {
-            element.innerText = Math.floor(count);
+            if(element.classList.contains("plus")) {
+              element.innerText = "+" + Math.floor(count);
+            } else {
+              element.innerText = Math.floor(count);
+            }
             setTimeout(updateCount, 50);
           } else {
-            element.innerText = target;
+            if(element.classList.contains("plus")) {
+              element.innerText = "+" + target;
+            } else {
+              element.innerText = target;
+            }
           }
         };
         updateCount();
