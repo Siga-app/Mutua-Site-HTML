@@ -113,7 +113,7 @@
       background-color: #3b6f96;
     }
 
-    /* Menu Mobile Lateral */
+    /* MENU MOBILE LATERAL */
     .mobile-nav {
       display: none;
       position: fixed;
@@ -309,7 +309,7 @@
       position: absolute;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      background: rgba(255,255,255,0.3);
+      background: rgba(0,0,0,0.5); /* Deixa mais escuro para melhor legibilidade */
       z-index: 1;
     }
     .como-funciona-content {
@@ -318,46 +318,55 @@
       text-align: center;
       max-width: 900px;
       margin: 0 1rem;
-      color: var(--azul-profundo);
+      color: var(--branco);
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    }
+    .como-funciona-content h2 {
+      color: var(--branco);
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
     }
     .timeline-container {
       position: relative;
       margin-top: 3rem;
       display: flex;
       justify-content: space-between;
-      align-items: flex-start;
+      align-items: center;
     }
-    .timeline-line {
+    .timeline-container::before {
+      content: "";
       position: absolute;
-      top: 50px;
+      top: 50%;
       left: 0;
-      width: 100%;
+      right: 0;
       height: 4px;
-      background: var(--azul-profundo);
-      z-index: 1;
+      background: var(--branco);
+      z-index: 2;
     }
     .timeline-step {
+      flex: 1;
       position: relative;
-      z-index: 2;
       text-align: center;
-      width: 100px;
+    }
+    .timeline-step:not(:last-child) {
+      margin-right: 1rem;
     }
     .step-circle {
       width: 60px;
       height: 60px;
       border-radius: 50%;
-      background: var(--branco);
-      border: 4px solid var(--azul-profundo);
-      margin: 0 auto 0.5rem;
+      background: var(--azul-degrade);
+      border: 4px solid var(--branco);
+      margin: 0 auto 1rem;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 1.2rem;
       font-weight: 700;
-      color: var(--azul-profundo);
+      color: var(--branco);
       transform: scale(0);
       opacity: 0;
       transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+      z-index: 3;
     }
     .step-circle.in-view {
       transform: scale(1);
@@ -366,10 +375,16 @@
     .timeline-step h3 {
       margin-bottom: 0.3rem;
       font-size: 1rem;
+      color: var(--branco);
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
     }
     .timeline-step p {
       font-size: 0.9rem;
       line-height: 1.3;
+      color: var(--branco);
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+      max-width: 150px;
+      margin: 0 auto;
     }
 
     /* ---------------------------
@@ -516,7 +531,7 @@
     }
 
     /* ---------------------------
-       FAQ (com fundo e gradiente)
+       FAQ (fundo e overlay)
     --------------------------- */
     #faq {
       position: relative;
@@ -542,6 +557,10 @@
       margin: 0 auto;
       text-align: center;
       padding: 1rem;
+    }
+    .faq-content .section-title {
+      color: var(--branco);
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
     }
     .faq-content .faq-item {
       margin-bottom: 1.5rem;
@@ -616,9 +635,20 @@
         flex-direction: column;
         align-items: center;
       }
+      .timeline-container::before {
+        top: auto;
+        bottom: auto;
+        width: 4px;
+        height: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+      }
       .timeline-step {
         width: auto;
-        margin-bottom: 2rem;
+        margin-bottom: 3rem;
+      }
+      .timeline-step:not(:last-child) {
+        margin-right: 0;
       }
     }
   </style>
@@ -694,12 +724,11 @@
     <a href="#form-section" class="btn btn-cta btn-center">VERIFICAR MEU DIREITO AGORA</a>
   </section>
 
-  <!-- COMO FUNCIONA? (Timeline) -->
+  <!-- COMO FUNCIONA? (Nova Timeline) -->
   <section id="como-funciona">
     <div class="como-funciona-content">
       <h2 class="section-title">Como Funciona? Veja o Passo a Passo Simples</h2>
       <div class="timeline-container">
-        <div class="timeline-line"></div>
         <div class="timeline-step">
           <div class="step-circle circle-animate">1</div>
           <h3>Entramos em Contato</h3>
@@ -708,7 +737,7 @@
         <div class="timeline-step">
           <div class="step-circle circle-animate">2</div>
           <h3>Análise Gratuita</h3>
-          <p>Avaliamos seu histórico no INSS e calculamos seu benefício, sem custo.</p>
+          <p>Avaliamos seu histórico no INSS e calculamos seu benefício.</p>
         </div>
         <div class="timeline-step">
           <div class="step-circle circle-animate">3</div>
@@ -723,7 +752,7 @@
         <div class="timeline-step">
           <div class="step-circle circle-animate">5</div>
           <h3>Você Recebe!</h3>
-          <p>O INSS deposita o valor diretamente na sua conta.</p>
+          <p>O INSS deposita o valor direto na sua conta.</p>
         </div>
       </div>
       <div style="margin-top:2rem;">
@@ -829,7 +858,7 @@
     </div>
   </section>
 
-  <!-- FAQ (fundo e gradiente overlay) -->
+  <!-- FAQ (com fundo e gradiente) -->
   <section id="faq">
     <div class="faq-content">
       <h2 class="section-title">Dúvidas Comuns Sobre o Auxílio-Maternidade</h2>
@@ -885,7 +914,7 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      /* Mobile Nav Toggle */
+      // Mobile Nav Toggle
       const hamburgerBtn = document.getElementById('hamburgerBtn');
       const mobileNav = document.getElementById('mobileNav');
       const closeMobileNav = document.getElementById('closeMobileNav');
@@ -913,7 +942,7 @@
           const analiseGratuita = document.getElementById('analiseGratuita').checked;
 
           if (nome && telefone && filho && contribuicao && analiseGratuita) {
-            alert(\`Obrigado, \${nome}! Recebemos seus dados e entraremos em contato em breve.\`);
+            alert(`Obrigado, ${nome}! Recebemos seus dados e entraremos em contato em breve.`);
             // Exemplo: redirecionar via WhatsApp
             // window.location.href = 'https://api.whatsapp.com/send?phone=[Seu Número]&text=Olá! Gostaria de verificar meu direito ao auxílio-maternidade.';
           } else {
@@ -924,15 +953,15 @@
 
       // Animação dos círculos (Como Funciona)
       const circles = document.querySelectorAll('.circle-animate');
-      const options = { root: null, rootMargin: '0px', threshold: 0 };
-      const observer = new IntersectionObserver((entries) => {
+      const circleOptions = { root: null, rootMargin: '0px', threshold: 0 };
+      const circleObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             entry.target.classList.add('in-view');
           }
         });
-      }, options);
-      circles.forEach(circle => observer.observe(circle));
+      }, circleOptions);
+      circles.forEach(circle => circleObserver.observe(circle));
 
       // Efeito de zoom no fundo das seções (Hero e Como Funciona)
       function updateZoom() {
