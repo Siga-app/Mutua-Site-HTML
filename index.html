@@ -162,14 +162,17 @@
     #hero {
       position: relative;
       width: 100%;
-      min-height: 100vh;
+      min-height: 100vh; 
       display: flex;
       align-items: center;
       justify-content: center;
-      background: url("https://images.pexels.com/photos/17525434/pexels-photo-17525434/free-photo-of-familia.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")
+      background: url("https://images.pexels.com/photos/17525434/pexels-photo-17525434/free-photo-of-familia.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2") 
                   center center / cover no-repeat;
       color: var(--branco);
       transition: background-size 0.5s ease-out;
+      background-position: center; 
+      background-repeat: no-repeat; 
+      background-size: cover; 
     }
     .hero-overlay {
       position: absolute;
@@ -298,7 +301,7 @@
     }
 
     /* ---------------------------
-       COMO FUNCIONA? (Infográfico, SEM LINHA)
+       COMO FUNCIONA? (Caixas Iguais, sem linha)
     --------------------------- */
     #como-funciona {
       position: relative;
@@ -310,6 +313,9 @@
       justify-content: center;
       padding: 3rem 0;
       transition: background-size 0.5s ease-out;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
     }
     #como-funciona::before {
       content: "";
@@ -630,7 +636,12 @@
         align-items: center;
       }
 
-      /* Timeline: remove linha e exibe vertical */
+      /* Remove ou limita o efeito de zoom no mobile (opcional) */
+      #hero, #como-funciona {
+        background-attachment: scroll;
+      }
+
+      /* timeline container em colunas */
       .timeline-container {
         flex-direction: column;
       }
