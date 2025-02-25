@@ -133,7 +133,7 @@
       color: var(--branco);
     }
     .btn-cta:hover {
-      background-color: #3b6f96; /* tom um pouco mais escuro */
+      background-color: #3b6f96;
     }
     .pulse {
       animation: pulse 1.5s infinite;
@@ -154,9 +154,7 @@
       animation: fadeIn 1s forwards 0.5s;
     }
     @keyframes fadeIn {
-      to {
-        opacity: 1;
-      }
+      to { opacity: 1; }
     }
 
     /* ------------------------------------------
@@ -329,12 +327,11 @@
   <!-- HEADER -->
   <header class="header container">
     <div class="logo-area">
-      <!-- Logo em Base64 (Logo fictícia da Mútua; substitua se desejar) -->
+      <!-- Logo Mutua: utilizando o link fornecido -->
       <img 
         class="logo" 
         alt="Mútua – Assessoria Maternidade" 
-        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIQAAACECAMAAAB3G7PtAAAAhFBMVEX///+ampqcnJzMzMz09PTV1dX4+Pjh4eGmpqaioqKUlJSmpqZcXFxRUVGtra3Pz8+4uLiSkpJqampBQUE1NTV/f38yMjI/Pz+oqKhCQkKsrKwkJCQRERGJiYlNTU1FRUWb29tY2Njp6el4eHh1dXWW8vCBAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAB6klEQVR4nO2Z3XLCIBCHAwcgcZKtr7n/V1H3ZrGTQc6taO1k0Wr49Z7gXunEFwmiJ3ZGLMZfLf+3+8dny++I7c5O84/x45OE1EWZ1aDsNBOu2Kh5TMNM5xN31PAGimSrK6FaEK6GchbFA1tyAswNqwhsgx4Ws4tQk8w/6EVFZ4hKyIVVYZh2zw7swgX0jkGFoyN2f30FZ8DXpJvGU8H1XgA/PfUeHnDtXwExig4m0NhG6weXRPxfZCqk2Fz9HEM3yGBrD3Yi2mIFPsn6dHnY4A6frK3bh+ZtdZGO74xV8KVuUFM1r0BYm3rH4u3a+ac28KM2qa2Z/d7p9zZDXafwE1m/Q7Ir2rxC3aPNBgBMppr3AUPz/BRALsldDM0YALkL8rFjUzYByl5CLwcAcNZkUb7jCLBgLG2kZzTgAx9i2F+LB+AK3EpArEpArEhRLloHwBqRJwUL4ONVOIFQkmhwKRHB4La7QTx2u8UJfbbg7Zmii9zXJYzwu5s0PhjuuBq1c+e3KrD/V7jSdBhZpPDB1uTGyP6lCLuUF2feEUd3zPBp98fW71Py4HLcwpaKpZ/GN5rW2zbrUd2f8COTMY0uUhtCjAAAAAElFTkSuQmCC" />
-
+        src="https://i.ibb.co/Y4Mv8Ncb/mutua-logo-png.png" />
       <h1 class="header-title">Mútua – Assessoria Maternidade</h1>
     </div>
   </header>
@@ -359,10 +356,10 @@
         </a>
       </div>
       <div class="hero-image fade-in">
-        <!-- Hero Image em Base64 -->
+        <!-- Hero Image: utilizando o link fornecido -->
         <img 
           alt="Mãe segurando bebê" 
-          src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxIREhUREhUVFhUVFhUVFRUVFhUVFRUVFRcWGBUVFRUYHSggGBolHRUVITEhJSkrLi4uFx8zODMtNygtLisBCgoKDg0OFxAQFy0fHR0tLS0tKy0rLS0tKzctLS0tLSstKy0tLS0rKy0tLS0tLS0tKystKy0tLS0tLS0tLf/AABEIALgBEAMBIgACEQEDEQH/xAAbAAEAAQUBAAAAAAAAAAAAAAAABQECBgMBAf/EADcQAAICAQMDAwEFBwUBAAAAAAABAgMRBBIhMQVBUQYiMmFxgaGxwRRCscHR8DJCUvAHFSNSYpKy/8QAGQEBAQEBAQEAAAAAAAAAAAAAAAECAwQF/8QAIhEBAQACAgIDAQAAAAAAAAAAAAECEQMhEjFBBTJR/9oADAMBAAIRAxEAPwDnUEUgeIEnMZPoPrUjuDJ79pU/dH2r9pFlCMFSQPUd6rd4iaay6/wBA+pPzTrE18fYvEL5UOm59qDsU05gEuox13B7a0OKpNABjINoAXfTq7kYAdOd2hRt5BN16Z/5lKnJpZecxeRZrjNKp+M8fmZt+5o13OjZjgHYn6UyT2bdXceGUdye9Lq6juOE4zI6gggi6n4im5XEiOQSd6N7ij2Pu2fG8udN9x56Pyn9a81m2NMcI30+knpUpFAjQEAjnigadS+0ysOH1qLW8Mr26a2D/AMZ/dNVNfc7E8t8Fj+1IK7StmP+gHvQ4Nnk26QvmM3QeAUP8AbHY++tc7yxw9+oF9RZ4I2DtQE1W2UBiyPH1p+ZyRz/pHWn7HrpuIuBe/nrVCrc9PdYnYsxySJB/qhB/wCM49v3rOlum2kRh49+1R4hC13/jU76ZGhB5QcEVe7h4zF5HfyD9qt0cjxHWpY2C0Ztoh81OR/Gh6q8AcADNU/ClZq6wN2e6Z/NRuJlAH7Wzjr76D/NT7cyz4m3/EUTTQ+VP6XnSrdN8Ytl46MVRIn/ALvTv/AH0qhpY0pUlQ0Bf/9k=" />
+          src="https://images.pexels.com/photos/17525434/pexels-photo-17525434/free-photo-of-familia.jpeg" />
       </div>
     </div>
   </section>
@@ -386,19 +383,17 @@
     <a href="#form-section" class="btn btn-cta">VERIFICAR MEU DIREITO AGORA</a>
   </section>
 
-  <!-- COMO FUNCIONA (Passo a Passo) -->
+  <!-- COMO FUNCIONA SECTION -->
   <section class="como-funciona-section">
     <div class="container">
       <h2 class="section-title">📌 Como Funciona? Veja o Passo a Passo Simples</h2>
-
-      <!-- Exemplo de imagem ilustrativa de mães (Base64) -->
+      <!-- Ilustração Mães: utilizando o link fornecido -->
       <div style="text-align:center; margin-bottom:2rem;">
         <img 
-          alt="Mães e bebês" 
+          alt="Ilustração de mães" 
           style="max-width: 300px; border-radius: 8px;"
-          src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAZABkAAD/2wCEAAkGBxMREBUQEBIVFBUWFx0YGBcYFh8dHRscFx4dFx8YHx0aHCYgHRwhHhgfITEhJSktLi4uFyAzODMtNygtLisBCgoKDg0OFxAQGysfICUtKystLS0rLS0tKy0tKy0tKy0tKy0tLS0tKystLS0tLS0tLS0tLS0tLS0rLS0tK//AABEIACcAMAMBIgACEQEDEQH/xAAbAAACAwEBAQAAAAAAAAAAAAAEBQIDBgEAB//EADsQAAIBAwMCBAQDBgYCAwAAAAECAwAEEQUSITFBUQYTIoGRBzKhsRRCscHRFCNygpKiwuHh/8QAGgEBAQADAQEAAAAAAAAAAAAAAAECAwQFBv/EACcRAQEAAgIBAwMFAQAAAAAAAAABAhEDIRIxBCJBUQQycYGxscHR/9oADAMBAAIRAxEAPwCxKrAHjRs2eZVa2eQUrRHL/ISJsGkkz1IQBPt1NNcwWwqZ1RprYQ07RhIHjQ0A+kUkE5eSBoPw9fqDqzAUxan8C4A+F+qBgNT9UzW6wU7E1m6rOFYJicGPm69+DVZYzFTFHFpRJWSt4yL3At9Gm0kgzI21H/AD6ZrEaSmIEp5y80tbnOygSFPmw67+f7qJ3E4TTlpCFldZPHrB+H516HsH4Uff2H60GAyCEKNfWu3ztCGLTynVhiZYbciT26/9nSh0E1FLv4ZrN2zFQVPfQf0NVFIsg1cG7BpZQWViY3KTYT9DaKvw/OjiUroQ4otHZZT8iE7k6GOK+Xxbmt3NqWW5N8hIOM0f7IqRzE8pupPmrBGzDFHDGfSG8sxB8VqjT5S/ft1bZZfSLNEEqLq19B/WsK5zv5XZo7WwYpcEkjcs4tD+GpTuHk+nr6mqnDO5h+TNEB0z9/b0oSL7rx1fNCTr7iHehHEHWSeWOP39NVrxbk0hqq3HClTn9e4gE9aOnacHNG0pH3P1q4p0Sy2I4Tzw0jY08DgHFaoByb5z60t5HZvV1V71bBYpgEaNTI8T31rqzb2RZd2nDLN3PTcZ6/nWLteJJJmSYdVHYF/tNVY8sJ5BJpIGPPx9KNn4tPEEjIQoP+GvbOeuKp8KpC8LZxySZbL+U6+5T0quV62LEW4m7myLFvmS+3++uop2pOrCcyycbZQydPu1p+F8mY6f5dT7kQBxWk4Z//Z" />
+          src="https://images.pexels.com/photos/12801214/pexels-photo-12801214.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" />
       </div>
-
       <div class="steps-container">
         <div class="step-box">
           <div class="step-icon">1️⃣</div>
@@ -426,14 +421,13 @@
           <p>Assim que aprovado, o INSS deposita o valor diretamente na sua conta bancária. Simples e sem complicação!</p>
         </div>
       </div>
-
       <div class="text-center" style="margin-top:2rem;">
         <a href="#form-section" class="btn btn-cta">QUERO RECEBER MEU BENEFÍCIO</a>
       </div>
     </div>
   </section>
 
-  <!-- QUANTO PODE RECEBER -->
+  <!-- QUANTO VOCÊ PODE RECEBER SECTION -->
   <section class="quanto-receber-section container">
     <h2 class="section-title">💰 Quanto Você Pode Receber?</h2>
     <p class="section-text">
@@ -450,7 +444,7 @@
     <a href="#form-section" class="btn btn-cta">DESCUBRA O VALOR QUE VOCÊ PODE RECEBER</a>
   </section>
 
-  <!-- FORMULÁRIO -->
+  <!-- FORMULÁRIO SECTION -->
   <section id="form-section" class="form-section">
     <div class="container">
       <h2 class="section-title">📝 Formulário para Análise Gratuita</h2>
@@ -493,7 +487,7 @@
     </div>
   </section>
 
-  <!-- FAQ -->
+  <!-- FAQ SECTION -->
   <section class="faq-section container">
     <h2 class="section-title">🤔 Dúvidas Comuns Sobre o Auxílio-Maternidade</h2>
     <div class="faq-item">
@@ -521,7 +515,7 @@
     </div>
   </section>
 
-  <!-- ÚLTIMA CHAMADA -->
+  <!-- ÚLTIMA CHAMADA SECTION -->
   <section class="last-call-section">
     <div class="container">
       <h2 class="section-title">📢 Última Chamada – Não Perca Essa Chance!</h2>
@@ -530,7 +524,7 @@
         <br>Clique no botão abaixo e veja se tem direito ao benefício antes que seja tarde.
       </p>
       <a href="#form-section" class="btn btn-cta pulse">VERIFICAR MEU DIREITO AGORA</a>
-      <div class="contact-info mt-4">
+      <div class="contact-info" style="margin-top:1rem;">
         <p>📞 Fale diretamente com a nossa equipe:</p>
         <p>WhatsApp: <strong>[Seu Número]</strong></p>
         <p>Email: <strong>[Seu Email]</strong></p>
@@ -546,7 +540,7 @@
   </footer>
 
   <script>
-    // script.js embutido
+    // Script embutido para manipulação do formulário
     document.addEventListener('DOMContentLoaded', () => {
       const form = document.querySelector('.contact-form');
       if (form) {
@@ -560,9 +554,9 @@
           const analiseGratuita = document.getElementById('analiseGratuita').checked;
 
           if (nome && telefone && filho && contribuicao && analiseGratuita) {
-            alert(\`Obrigado, \${nome}! Recebemos seus dados e entraremos em contato em breve.\`);
-            // Exemplo de redirecionamento para WhatsApp (substitua pelo seu número):
-            // window.location.href = 'https://api.whatsapp.com/send?phone=SEU_NUMERO&text=Olá! Gostaria de verificar meu direito ao auxílio-maternidade.';
+            alert(`Obrigado, ${nome}! Recebemos seus dados e entraremos em contato em breve.`);
+            // Para redirecionar via WhatsApp, descomente a linha abaixo e substitua [Seu Número]:
+            // window.location.href = 'https://api.whatsapp.com/send?phone=[Seu Número]&text=Olá! Gostaria de verificar meu direito ao auxílio-maternidade.';
           } else {
             alert('Por favor, preencha todos os campos obrigatórios antes de enviar.');
           }
