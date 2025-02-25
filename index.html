@@ -5,11 +5,14 @@
   <title>Mútua – Assessoria Maternidade</title>
   <meta name="description" content="Descubra se você tem direito ao Auxílio-Maternidade do INSS e receba valores de até R$ 24.000,00.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+
   <!-- Fontes: Montserrat (títulos) e Lato (texto) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@700&display=swap" 
+    rel="stylesheet"
+  >
 
   <style>
     /* ---------------------------
@@ -110,13 +113,7 @@
       background-color: #3b6f96;
     }
 
-    /* Botão hamburger para mobile */
-    .hamburger {
-      display: none;
-      font-size: 2rem;
-      color: var(--azul-profundo);
-      cursor: pointer;
-    }
+    /* Menu Mobile Lateral */
     .mobile-nav {
       display: none;
       position: fixed;
@@ -153,13 +150,20 @@
       color: var(--azul-profundo);
     }
 
+    .hamburger {
+      display: none;
+      font-size: 2rem;
+      color: var(--azul-profundo);
+      cursor: pointer;
+    }
+
     /* ---------------------------
        HERO SECTION
     --------------------------- */
     #hero {
       position: relative;
       width: 100%;
-      min-height: 100vh; /* Para cobrir tela inteira */
+      min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -290,7 +294,7 @@
     #como-funciona {
       position: relative;
       min-height: 70vh;
-      background: url("https://images.pexels.com/photos/12801214/pexels-photo-12801214.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")
+      background: url("https://images.pexels.com/photos/2801583/pexels-photo-2801583.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")
                   center center / cover no-repeat;
       background-color: rgba(255,255,255,0.3);
       background-blend-mode: lighten;
@@ -369,7 +373,7 @@
     }
 
     /* ---------------------------
-       RESULTADOS (Contadores e Blocos)
+       RESULTADOS
     --------------------------- */
     #resultados {
       padding: 2rem 0;
@@ -416,7 +420,7 @@
     }
 
     /* ---------------------------
-       A MÚTUA (Quem é a Mútua)
+       A MÚTUA
     --------------------------- */
     #quem-somos {
       background-color: var(--azul-degrade);
@@ -517,7 +521,8 @@
     #faq {
       position: relative;
       min-height: 60vh;
-      background: url("https://images.pexels.com/photos/9885401/pexels-photo-9885401.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2") center center / cover no-repeat;
+      background: url("https://images.pexels.com/photos/9885401/pexels-photo-9885401.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")
+                  center center / cover no-repeat;
       color: var(--branco);
       padding: 3rem 0;
     }
@@ -525,8 +530,9 @@
       content: "";
       position: absolute;
       top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: linear-gradient(rgba(31,59,95,0.6), rgba(243,184,168,0.6));
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7));
       z-index: 1;
     }
     .faq-content {
@@ -544,12 +550,12 @@
       font-size: 1.2rem;
       margin-bottom: 0.5rem;
       color: var(--branco);
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
     }
     .faq-content p {
       font-size: 1rem;
       color: var(--branco);
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
       margin-bottom: 1rem;
     }
 
@@ -606,7 +612,6 @@
         align-items: center;
       }
 
-      /* Ajusta timeline e FAQ */
       .timeline-container {
         flex-direction: column;
         align-items: center;
@@ -620,7 +625,7 @@
 </head>
 <body>
 
-  <!-- Menu Mobile Lateral -->
+  <!-- MENU MOBILE LATERAL -->
   <div class="mobile-nav" id="mobileNav">
     <div class="close-mobile-nav" id="closeMobileNav">×</div>
     <ul>
@@ -641,7 +646,7 @@
     <!-- Botão hamburger no mobile -->
     <div class="hamburger" id="hamburgerBtn">☰</div>
 
-    <!-- Menu Desktop -->
+    <!-- MENU DESKTOP -->
     <nav>
       <ul>
         <li><a href="#como-assim">Quem Tem Direito?</a></li>
@@ -824,7 +829,7 @@
     </div>
   </section>
 
-  <!-- FAQ (com fundo e gradiente) -->
+  <!-- FAQ (fundo e gradiente overlay) -->
   <section id="faq">
     <div class="faq-content">
       <h2 class="section-title">Dúvidas Comuns Sobre o Auxílio-Maternidade</h2>
@@ -880,7 +885,7 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      /* Botão hamburger e mobile nav */
+      /* Mobile Nav Toggle */
       const hamburgerBtn = document.getElementById('hamburgerBtn');
       const mobileNav = document.getElementById('mobileNav');
       const closeMobileNav = document.getElementById('closeMobileNav');
@@ -906,6 +911,7 @@
           const filho = document.getElementById('filho').value;
           const contribuicao = document.getElementById('contribuicao').value;
           const analiseGratuita = document.getElementById('analiseGratuita').checked;
+
           if (nome && telefone && filho && contribuicao && analiseGratuita) {
             alert(\`Obrigado, \${nome}! Recebemos seus dados e entraremos em contato em breve.\`);
             // Exemplo: redirecionar via WhatsApp
@@ -916,9 +922,9 @@
         });
       }
 
-      // Animação dos círculos da timeline
+      // Animação dos círculos (Como Funciona)
       const circles = document.querySelectorAll('.circle-animate');
-      const options = { root: null, rootMargin: '0px', threshold: 0.1 };
+      const options = { root: null, rootMargin: '0px', threshold: 0 };
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
@@ -926,9 +932,7 @@
           }
         });
       }, options);
-      circles.forEach(circle => {
-        observer.observe(circle);
-      });
+      circles.forEach(circle => observer.observe(circle));
 
       // Efeito de zoom no fundo das seções (Hero e Como Funciona)
       function updateZoom() {
@@ -953,9 +957,9 @@
       }
       window.addEventListener('scroll', updateZoom);
 
-      // Contadores Animados
+      // Contadores Animados (Resultados)
       const counters = document.querySelectorAll('.counter');
-      const counterOptions = { root: null, rootMargin: '0px', threshold: 0.5 };
+      const counterOptions = { root: null, rootMargin: '0px', threshold: 0 };
       const counterObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
@@ -964,14 +968,15 @@
           }
         });
       }, counterOptions);
-      counters.forEach(counter => {
-        counterObserver.observe(counter);
-      });
+
+      counters.forEach(counter => counterObserver.observe(counter));
+
       function animateCounter(element) {
         const target = +element.getAttribute('data-target');
         let count = 0;
         const duration = 2000;
         const increment = target / (duration / 50);
+
         const updateCount = () => {
           count += increment;
           if (count < target) {
