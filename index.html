@@ -19,8 +19,8 @@
        RESET E VARIÁVEIS
     --------------------------- */
     * {
-      margin: 0; 
-      padding: 0; 
+      margin: 0;
+      padding: 0;
       box-sizing: border-box;
     }
     :root {
@@ -60,33 +60,33 @@
       z-index: 1000;
     }
     .logo-area {
-      display: flex; 
+      display: flex;
       align-items: center;
     }
     .logo {
-      width: 50px; 
+      width: 50px;
       margin-right: 0.8rem;
     }
     .header-title {
-      font-size: 1.2rem; 
+      font-size: 1.2rem;
       font-weight: 700;
     }
     nav {
-      flex: 1; 
-      display: flex; 
+      flex: 1;
+      display: flex;
       justify-content: center;
     }
     nav ul {
-      display: flex; 
-      list-style: none; 
-      gap: 1.5rem; 
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
       align-items: center;
     }
     nav ul li a {
-      text-decoration: none; 
-      font-weight: 700; 
-      color: var(--azul-profundo); 
-      transition: color 0.3s ease; 
+      text-decoration: none;
+      font-weight: 700;
+      color: var(--azul-profundo);
+      transition: color 0.3s ease;
       font-size: 0.9rem;
     }
     nav ul li a:hover {
@@ -157,29 +157,26 @@
     }
 
     /* ---------------------------
-       HERO SECTION
+       HERO SECTION (SEM ZOOM)
     --------------------------- */
     #hero {
       position: relative;
       width: 100%;
-      min-height: 100vh; 
+      min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: url("https://images.pexels.com/photos/17525434/pexels-photo-17525434/free-photo-of-familia.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2") 
+      background: url("https://images.pexels.com/photos/17525434/pexels-photo-17525434/free-photo-of-familia.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")
                   center center / cover no-repeat;
       color: var(--branco);
-      transition: background-size 0.5s ease-out;
-      background-position: center; 
-      background-repeat: no-repeat; 
-      background-size: cover; 
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
     }
     .hero-overlay {
       position: absolute;
-      top: 0; 
-      left: 0;
-      width: 100%; 
-      height: 100%;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
       background: linear-gradient(rgba(31,59,95,0.6), rgba(243,184,168,0.6));
       z-index: 1;
     }
@@ -253,17 +250,9 @@
       50% { transform: scale(1.02); }
       100% { transform: scale(1); }
     }
-    .fade-in {
-      opacity: 0; 
-      animation: fadeIn 1s forwards;
-    }
-    .fade-in-delay {
-      opacity: 0; 
-      animation: fadeIn 1s forwards 0.5s;
-    }
-    @keyframes fadeIn {
-      to { opacity: 1; }
-    }
+    .fade-in { opacity: 0; animation: fadeIn 1s forwards; }
+    .fade-in-delay { opacity: 0; animation: fadeIn 1s forwards 0.5s; }
+    @keyframes fadeIn { to { opacity: 1; } }
 
     /* ---------------------------
        SEÇÕES GERAIS
@@ -301,7 +290,7 @@
     }
 
     /* ---------------------------
-       COMO FUNCIONA? (Caixas Iguais, sem linha)
+       COMO FUNCIONA? (SEM ZOOM, CAIXAS IGUAIS)
     --------------------------- */
     #como-funciona {
       position: relative;
@@ -312,7 +301,6 @@
       align-items: center;
       justify-content: center;
       padding: 3rem 0;
-      transition: background-size 0.5s ease-out;
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
@@ -322,14 +310,14 @@
       position: absolute;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      background: rgba(0,0,0,0.5); /* Escurece para melhor leitura */
+      background: rgba(0,0,0,0.5);
       z-index: 1;
     }
     .como-funciona-content {
       position: relative;
       z-index: 2;
       text-align: center;
-      max-width: 1000px; /* Para acomodar 5 passos */
+      max-width: 1000px;
       margin: 0 1rem;
       color: var(--branco);
       text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
@@ -344,16 +332,17 @@
       justify-content: space-between;
       align-items: center;
       gap: 1rem;
-      flex-wrap: wrap; /* Para evitar overflow em telas menores */
+      flex-wrap: wrap;
     }
     .timeline-step {
       background: rgba(255,255,255,0.1);
       box-shadow: 0 2px 8px rgba(0,0,0,0.3);
       border-radius: 8px;
       padding: 1rem;
-      max-width: 180px; /* Mesmo tamanho para todas as caixas */
+      max-width: 180px;
       flex: 1 1 180px;
       text-align: center;
+      min-height: 220px; /* Tamanho fixo para todas as caixas */
     }
     .step-circle {
       width: 50px;
@@ -547,10 +536,8 @@
     #faq::before {
       content: "";
       position: absolute;
-      top: 0; 
-      left: 0;
-      width: 100%; 
-      height: 100%;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
       background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7));
       z-index: 1;
     }
@@ -636,11 +623,6 @@
         align-items: center;
       }
 
-      /* Remove ou limita o efeito de zoom no mobile (opcional) */
-      #hero, #como-funciona {
-        background-attachment: scroll;
-      }
-
       /* timeline container em colunas */
       .timeline-container {
         flex-direction: column;
@@ -648,6 +630,7 @@
       .timeline-step {
         max-width: 220px; 
         margin-bottom: 2rem;
+        min-height: 220px; /* mesmo tamanho fixo */
       }
     }
   </style>
@@ -907,128 +890,3 @@
         <p>Email: <strong>[Seu Email]</strong></p>
       </div>
     </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container">
-      <p>© 2025 Mútua – Assessoria Maternidade. Todos os direitos reservados.</p>
-    </div>
-  </footer>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      // Mobile Nav Toggle
-      const hamburgerBtn = document.getElementById('hamburgerBtn');
-      const mobileNav = document.getElementById('mobileNav');
-      const closeMobileNav = document.getElementById('closeMobileNav');
-
-      if(hamburgerBtn) {
-        hamburgerBtn.addEventListener('click', () => {
-          mobileNav.classList.add('active');
-        });
-      }
-      if(closeMobileNav) {
-        closeMobileNav.addEventListener('click', () => {
-          mobileNav.classList.remove('active');
-        });
-      }
-
-      // Formulário
-      const form = document.querySelector('.contact-form');
-      if (form) {
-        form.addEventListener('submit', (e) => {
-          e.preventDefault();
-          const nome = document.getElementById('nome').value.trim();
-          const telefone = document.getElementById('telefone').value.trim();
-          const filho = document.getElementById('filho').value;
-          const contribuicao = document.getElementById('contribuicao').value;
-          const analiseGratuita = document.getElementById('analiseGratuita').checked;
-
-          if (nome && telefone && filho && contribuicao && analiseGratuita) {
-            alert(`Obrigado, ${nome}! Recebemos seus dados e entraremos em contato em breve.`);
-            // Exemplo: redirecionar via WhatsApp
-            // window.location.href = 'https://api.whatsapp.com/send?phone=[Seu Número]&text=Olá! Gostaria de verificar meu direito ao auxílio-maternidade.';
-          } else {
-            alert('Por favor, preencha todos os campos obrigatórios antes de enviar.');
-          }
-        });
-      }
-
-      // Animação dos círculos (Como Funciona)
-      const circles = document.querySelectorAll('.circle-animate');
-      const circleOptions = { root: null, rootMargin: '0px', threshold: 0 };
-      const circleObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('in-view');
-          }
-        });
-      }, circleOptions);
-      circles.forEach(circle => circleObserver.observe(circle));
-
-      // Efeito de zoom no fundo (Hero e Como Funciona)
-      function updateZoom() {
-        const hero = document.getElementById('hero');
-        if (hero) {
-          const rect = hero.getBoundingClientRect();
-          let scale = 100;
-          if (rect.top < 0) {
-            scale = Math.min(120, 100 + Math.abs(rect.top) / 10);
-          }
-          hero.style.backgroundSize = scale + '%';
-        }
-        const comoFunciona = document.getElementById('como-funciona');
-        if (comoFunciona) {
-          const rect = comoFunciona.getBoundingClientRect();
-          let scale = 100;
-          if (rect.top < 0) {
-            scale = Math.min(120, 100 + Math.abs(rect.top) / 10);
-          }
-          comoFunciona.style.backgroundSize = scale + '%';
-        }
-      }
-      window.addEventListener('scroll', updateZoom);
-
-      // Contadores Animados (Resultados)
-      const counters = document.querySelectorAll('.counter');
-      const counterOptions = { root: null, rootMargin: '0px', threshold: 0 };
-      const counterObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            animateCounter(entry.target);
-            counterObserver.unobserve(entry.target);
-          }
-        });
-      }, counterOptions);
-      counters.forEach(counter => counterObserver.observe(counter));
-
-      function animateCounter(element) {
-        const target = +element.getAttribute('data-target');
-        let count = 0;
-        const duration = 2000;
-        const increment = target / (duration / 50);
-
-        const updateCount = () => {
-          count += increment;
-          if (count < target) {
-            if(element.classList.contains("plus")) {
-              element.innerText = "+" + Math.floor(count);
-            } else {
-              element.innerText = Math.floor(count);
-            }
-            setTimeout(updateCount, 50);
-          } else {
-            if(element.classList.contains("plus")) {
-              element.innerText = "+" + target;
-            } else {
-              element.innerText = target;
-            }
-          }
-        };
-        updateCount();
-      }
-    });
-  </script>
-</body>
-</html>
