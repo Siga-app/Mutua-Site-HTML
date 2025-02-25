@@ -17,14 +17,20 @@
     /* ---------------------------
        RESET E VARIÁVEIS
     --------------------------- */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0; 
+      padding: 0; 
+      box-sizing: border-box;
+    }
     :root {
       --azul-profundo: #1F3B5F;   /* textos e destaques */
       --azul-degrade: #4A7BA7;    /* botões e fundo da seção Quem Somos */
       --rosa-pessego: #F3B8A8;    /* fundos secundários */
       --branco: #FFFFFF;
     }
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
     body {
       font-family: 'Lato', sans-serif;
       background: var(--branco);
@@ -42,7 +48,7 @@
     }
 
     /* ---------------------------
-       HEADER
+       HEADER + MENU
     --------------------------- */
     header {
       display: flex;
@@ -61,11 +67,25 @@
     .header-title {
       font-size: 1.2rem;
     }
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1rem;
+    }
+    nav a {
+      text-decoration: none;
+      font-weight: 700;
+      color: var(--azul-profundo);
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #2c4f75;
+    }
 
     /* ---------------------------
        HERO SECTION (Imagem de Fundo)
     --------------------------- */
-    .hero-section {
+    #hero {
       position: relative;
       width: 100%;
       min-height: 80vh;
@@ -88,22 +108,40 @@
       margin: 0 1rem;
     }
     .hero-content h2 {
-      font-size: 2rem; margin-bottom: 1rem;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #fff;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+    }
+    .hero-content p {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      color: #fff;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
     }
     .hero-list {
       list-style: none; margin: 1rem 0; line-height: 1.4;
     }
     .hero-list li {
       margin-bottom: 0.5rem;
+      color: #fff;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
     }
 
     /* ---------------------------
        BOTÕES & ANIMAÇÕES
     --------------------------- */
     .btn {
-      display: inline-block; padding: 0.9rem 1.5rem; border: none;
-      border-radius: 4px; font-weight: 700; cursor: pointer;
-      text-decoration: none; transition: background-color 0.3s ease;
+      display: inline-block;
+      padding: 0.9rem 1.5rem;
+      border: none;
+      border-radius: 4px;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
     }
     .btn-cta {
       background-color: var(--azul-degrade);
@@ -140,26 +178,25 @@
     /* ---------------------------
        COMO ASSIM?
     --------------------------- */
-    .como-assim-section {
+    #como-assim {
       padding: 2rem 0;
     }
     .benefit-list {
       list-style: none; margin: 1rem 0; line-height: 1.6;
     }
     .benefit-list li { margin-bottom: 0.5rem; }
-    .como-assim-section .btn-cta {
-      display: block; margin: 1rem auto 0; text-align: center; width: fit-content;
+    .btn-center {
+      display: block; margin: 1rem auto 0; width: fit-content;
     }
 
     /* ---------------------------
        COMO FUNCIONA? (Timeline)
     --------------------------- */
-    .como-funciona-section {
+    #como-funciona {
       position: relative;
       min-height: 60vh;
       background: url("https://images.pexels.com/photos/12801214/pexels-photo-12801214.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")
                   center center / cover no-repeat;
-      /* Overlay leve */
       background-color: rgba(255,255,255,0.3);
       background-blend-mode: lighten;
       display: flex;
@@ -167,7 +204,7 @@
       justify-content: center;
       padding: 3rem 0;
     }
-    .como-funciona-section::before {
+    #como-funciona::before {
       content: "";
       position: absolute; top: 0; left: 0;
       width: 100%; height: 100%;
@@ -187,17 +224,15 @@
       align-items: flex-start;
     }
     .timeline-line {
-      position: absolute;
-      top: 50px; /* Alinha com o centro dos círculos */
-      left: 0;
-      width: 100%;
-      height: 4px;
+      position: absolute; top: 50px;
+      left: 0; width: 100%; height: 4px;
       background: var(--azul-profundo);
       z-index: 1;
     }
     .timeline-step {
-      position: relative; z-index: 2; text-align: center;
-      width: 100px; /* Ajuste conforme desejar */
+      position: relative; z-index: 2;
+      text-align: center;
+      width: 100px;
     }
     .step-circle {
       width: 60px; height: 60px;
@@ -207,6 +242,15 @@
       margin: 0 auto 0.5rem auto;
       display: flex; align-items: center; justify-content: center;
       font-size: 1.2rem; font-weight: 700; color: var(--azul-profundo);
+      /* Animação de scale */
+      transform: scale(0);
+      opacity: 0;
+      transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+    }
+    /* Quando entrar na tela, a classe .in-view será adicionada via JS */
+    .step-circle.in-view {
+      transform: scale(1);
+      opacity: 1;
     }
     .timeline-step h3 {
       margin-bottom: 0.3rem; font-size: 1rem;
@@ -214,13 +258,12 @@
     .timeline-step p {
       font-size: 0.9rem; line-height: 1.3;
     }
-    /* Responsivo: em telas menores, vira vertical */
     @media (max-width: 767px) {
       .timeline-container {
         flex-direction: column; align-items: center;
       }
       .timeline-line {
-        display: none; /* Esconde a linha horizontal */
+        display: none;
       }
       .timeline-step {
         width: auto; margin-bottom: 2rem;
@@ -230,7 +273,7 @@
     /* ---------------------------
        QUEM SOMOS (Fundo Azul)
     --------------------------- */
-    .quem-somos-section {
+    #quem-somos {
       background-color: var(--azul-degrade);
       padding: 3rem 0;
       color: var(--branco);
@@ -257,17 +300,17 @@
     /* ---------------------------
        QUANTO VOCÊ PODE RECEBER?
     --------------------------- */
-    .quanto-receber-section {
+    #quanto-receber {
       padding: 2rem 0; text-align: center;
     }
-    .quanto-receber-section a {
+    #quanto-receber a {
       display: inline-block; margin: 1rem auto 0; text-align: center; width: fit-content;
     }
 
     /* ---------------------------
        FORMULÁRIO
     --------------------------- */
-    .form-section {
+    #form-section {
       background-color: var(--rosa-pessego);
       padding: 3rem 0;
     }
@@ -295,7 +338,7 @@
     /* ---------------------------
        FAQ
     --------------------------- */
-    .faq-section {
+    #faq {
       padding: 2rem 0;
     }
     .faq-item {
@@ -308,12 +351,12 @@
     /* ---------------------------
        ÚLTIMA CHAMADA
     --------------------------- */
-    .last-call-section {
+    #last-call {
       background-color: var(--azul-degrade);
       padding: 2rem 0; text-align: center;
       color: var(--branco);
     }
-    .last-call-section p {
+    #last-call p {
       margin: 1rem 0;
     }
     .contact-info p {
@@ -333,7 +376,7 @@
 </head>
 <body>
 
-  <!-- HEADER -->
+  <!-- HEADER + MENU -->
   <header class="header container">
     <div class="logo-area">
       <img 
@@ -343,14 +386,26 @@
       >
       <h1 class="header-title">Mútua – Assessoria Maternidade</h1>
     </div>
+    <!-- Menu de Navegação -->
+    <nav>
+      <ul>
+        <li><a href="#como-assim">Quem Tem Direito?</a></li>
+        <li><a href="#como-funciona">Como Funciona</a></li>
+        <li><a href="#quem-somos">Quem Somos</a></li>
+        <li><a href="#quanto-receber">Valores</a></li>
+        <li><a href="#form-section">Formulário</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#last-call">Contato</a></li>
+      </ul>
+    </nav>
   </header>
 
   <!-- HERO SECTION -->
-  <section class="hero-section">
+  <section id="hero">
     <div class="hero-overlay"></div>
     <div class="hero-content">
-      <h2>💖 Descubra Agora Se Você Tem Direito ao Auxílio-Maternidade do INSS!</h2>
-      <p>🔎 Você pode estar perdendo um benefício que pode mudar sua vida!</p>
+      <h2>DESCUBRA AGORA SE VOCÊ TEM DIREITO AO AUXÍLIO-MATERNIDADE DO INSS!</h2>
+      <p>VOCÊ PODE ESTAR PERDENDO UM BENEFÍCIO QUE PODE MUDAR SUA VIDA!</p>
       <ul class="hero-list">
         <li>📌 Receba valores a partir de <strong>R$ 5.648,00</strong> até <strong>R$ 24.000,00</strong>!</li>
         <li>💡 Mesmo que já tenha tido seu bebê há alguns anos, você ainda pode solicitar!</li>
@@ -361,7 +416,7 @@
   </section>
 
   <!-- COMO ASSIM? -->
-  <section class="como-assim-section container">
+  <section id="como-assim" class="container">
     <h2 class="section-title">🤱 Como Assim? Eu Posso Receber Esse Benefício?</h2>
     <p class="section-text">
       <strong>SIM!</strong> Muitas mães não sabem que têm direito ao auxílio-maternidade e acabam perdendo milhares de reais simplesmente por não pedirem o benefício! 
@@ -376,43 +431,42 @@
     <p class="section-text">
       🎯 Esse valor pode ser solicitado <strong>AGORA</strong> e cair diretamente na sua conta!
     </p>
-    <a href="#form-section" class="btn btn-cta">VERIFICAR MEU DIREITO AGORA</a>
+    <a href="#form-section" class="btn btn-cta btn-center">VERIFICAR MEU DIREITO AGORA</a>
   </section>
 
   <!-- COMO FUNCIONA? (Timeline) -->
-  <section class="como-funciona-section">
+  <section id="como-funciona">
     <div class="como-funciona-content">
       <h2 class="section-title">📌 Como Funciona? Veja o Passo a Passo Simples</h2>
-      
       <div class="timeline-container">
         <div class="timeline-line"></div>
 
         <div class="timeline-step">
-          <div class="step-circle">1</div>
+          <div class="step-circle circle-animate">1</div>
           <h3>Entramos em Contato</h3>
           <p>Nossa equipe te liga ou envia mensagem para entender sua situação.</p>
         </div>
 
         <div class="timeline-step">
-          <div class="step-circle">2</div>
+          <div class="step-circle circle-animate">2</div>
           <h3>Análise Gratuita</h3>
           <p>Avaliamos seu histórico no INSS e calculamos seu benefício, sem custo.</p>
         </div>
 
         <div class="timeline-step">
-          <div class="step-circle">3</div>
+          <div class="step-circle circle-animate">3</div>
           <h3>Cuidamos de Tudo</h3>
           <p>Preparamos a documentação e fazemos o pedido no INSS.</p>
         </div>
 
         <div class="timeline-step">
-          <div class="step-circle">4</div>
+          <div class="step-circle circle-animate">4</div>
           <h3>Acompanhamos</h3>
           <p>Monitoramos cada etapa até a aprovação.</p>
         </div>
 
         <div class="timeline-step">
-          <div class="step-circle">5</div>
+          <div class="step-circle circle-animate">5</div>
           <h3>Você Recebe!</h3>
           <p>O INSS deposita o valor diretamente na sua conta.</p>
         </div>
@@ -427,7 +481,7 @@
   </section>
 
   <!-- QUEM SOMOS (Fundo Azul) -->
-  <section class="quem-somos-section">
+  <section id="quem-somos">
     <div class="container quem-somos-content">
       <div class="quem-somos-image">
         <img 
@@ -452,7 +506,7 @@
   </section>
 
   <!-- QUANTO VOCÊ PODE RECEBER? -->
-  <section class="quanto-receber-section container">
+  <section id="quanto-receber" class="container">
     <h2 class="section-title">💰 Quanto Você Pode Receber?</h2>
     <p class="section-text">
       <strong>Mães que contribuíram pelo mínimo (MEI, autônomas ou desempregadas):</strong><br>
@@ -469,8 +523,8 @@
   </section>
 
   <!-- FORMULÁRIO -->
-  <section id="form-section" class="form-section">
-    <div class="container">
+  <section id="form-section">
+    <div class="container form-section">
       <h2 class="section-title">📝 Formulário para Análise Gratuita</h2>
       <p class="section-text" style="text-align:center;">
         Preencha abaixo e descubra se você tem direito ao auxílio maternidade!
@@ -510,7 +564,7 @@
   </section>
 
   <!-- FAQ -->
-  <section class="faq-section container">
+  <section id="faq" class="container">
     <h2 class="section-title">🤔 Dúvidas Comuns Sobre o Auxílio-Maternidade</h2>
     <div class="faq-item">
       <h3>1. Se eu estiver desempregada, posso receber?</h3>
@@ -538,8 +592,8 @@
   </section>
 
   <!-- ÚLTIMA CHAMADA -->
-  <section class="last-call-section">
-    <div class="container">
+  <section id="last-call">
+    <div class="container last-call-section">
       <h2 class="section-title">📢 Última Chamada – Não Perca Essa Chance!</h2>
       <p>
         🚀 Milhares de mães já receberam esse valor e você pode ser a próxima!<br>
@@ -563,6 +617,7 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
+      // Formulário
       const form = document.querySelector('.contact-form');
       if (form) {
         form.addEventListener('submit', (e) => {
@@ -574,7 +629,7 @@
           const analiseGratuita = document.getElementById('analiseGratuita').checked;
 
           if (nome && telefone && filho && contribuicao && analiseGratuita) {
-            alert(`Obrigado, ${nome}! Recebemos seus dados e entraremos em contato em breve.`);
+            alert(\`Obrigado, \${nome}! Recebemos seus dados e entraremos em contato em breve.\`);
             // Redirecionar via WhatsApp (exemplo):
             // window.location.href = 'https://api.whatsapp.com/send?phone=[Seu Número]&text=Olá! Gostaria de verificar meu direito ao auxílio-maternidade.';
           } else {
@@ -582,6 +637,23 @@
           }
         });
       }
+
+      // Animação dos círculos (Intersection Observer)
+      const circles = document.querySelectorAll('.circle-animate');
+      const options = {
+        threshold: 0.3
+      };
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+          }
+        });
+      }, options);
+
+      circles.forEach(circle => {
+        observer.observe(circle);
+      });
     });
   </script>
 </body>
