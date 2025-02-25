@@ -298,15 +298,13 @@
     }
 
     /* ---------------------------
-       COMO FUNCIONA? (Infográfico)
+       COMO FUNCIONA? (Infográfico, SEM LINHA)
     --------------------------- */
     #como-funciona {
       position: relative;
       min-height: 70vh;
       background: url("https://images.pexels.com/photos/2801583/pexels-photo-2801583.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")
                   center center / cover no-repeat;
-      background-color: rgba(255,255,255,0.3);
-      background-blend-mode: lighten;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -325,7 +323,7 @@
       position: relative;
       z-index: 2;
       text-align: center;
-      max-width: 1000px; /* Mais largo para acomodar 5 passos */
+      max-width: 1000px; /* Para acomodar 5 passos */
       margin: 0 1rem;
       color: var(--branco);
       text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
@@ -336,40 +334,20 @@
       margin-bottom: 2rem;
     }
     .timeline-container {
-      position: relative;
       display: flex;
       justify-content: space-between;
       align-items: center;
-    }
-    /* Linha principal */
-    .timeline-container::before {
-      content: "";
-      position: absolute;
-      top: 50%;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: var(--branco);
-      z-index: 2;
-      transform: translateY(-50%);
+      gap: 1rem;
+      flex-wrap: wrap; /* Para evitar overflow em telas menores */
     }
     .timeline-step {
-      flex: 1; 
-      position: relative;
-      text-align: center;
-    }
-    .timeline-step:not(:last-child) {
-      margin-right: 1rem;
-    }
-    /* Caixa que envolve cada passo */
-    .step-box {
-      position: relative;
       background: rgba(255,255,255,0.1);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
       border-radius: 8px;
       padding: 1rem;
-      max-width: 160px;
-      margin: 0 auto;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      max-width: 180px; /* Mesmo tamanho para todas as caixas */
+      flex: 1 1 180px;
+      text-align: center;
     }
     .step-circle {
       width: 50px;
@@ -387,7 +365,6 @@
       transform: scale(0);
       opacity: 0;
       transition: transform 0.5s ease-out, opacity 0.5s ease-out;
-      z-index: 3;
     }
     .step-circle.in-view {
       transform: scale(1);
@@ -653,29 +630,13 @@
         align-items: center;
       }
 
-      /* Timeline vertical no mobile */
+      /* Timeline: remove linha e exibe vertical */
       .timeline-container {
         flex-direction: column;
-        align-items: center;
-        position: relative;
-      }
-      .timeline-container::before {
-        top: 0; 
-        bottom: 0; 
-        left: 50%;
-        transform: translateX(-50%);
-        width: 4px;
-        height: 100%;
       }
       .timeline-step {
-        width: auto;
-        margin-bottom: 3rem;
-      }
-      .timeline-step:not(:last-child) {
-        margin-right: 0;
-      }
-      .step-box {
-        max-width: 220px;
+        max-width: 220px; 
+        margin-bottom: 2rem;
       }
     }
   </style>
@@ -751,50 +712,40 @@
     <a href="#form-section" class="btn btn-cta btn-center">VERIFICAR MEU DIREITO AGORA</a>
   </section>
 
-  <!-- COMO FUNCIONA? (Infográfico 5 Passos) -->
+  <!-- COMO FUNCIONA? (Caixas Iguais, sem linha) -->
   <section id="como-funciona">
     <div class="como-funciona-content">
       <h2 class="section-title">Como Funciona? Veja o Passo a Passo Simples</h2>
       <div class="timeline-container">
         <!-- Passo 1 -->
         <div class="timeline-step">
-          <div class="step-box">
-            <div class="step-circle circle-animate">1</div>
-            <h3>Entramos em Contato</h3>
-            <p>Nossa equipe te liga ou envia mensagem para entender sua situação.</p>
-          </div>
+          <div class="step-circle circle-animate">1</div>
+          <h3>Entramos em Contato</h3>
+          <p>Nossa equipe te liga ou envia mensagem para entender sua situação.</p>
         </div>
         <!-- Passo 2 -->
         <div class="timeline-step">
-          <div class="step-box">
-            <div class="step-circle circle-animate">2</div>
-            <h3>Análise Gratuita</h3>
-            <p>Avaliamos seu histórico no INSS e calculamos seu benefício.</p>
-          </div>
+          <div class="step-circle circle-animate">2</div>
+          <h3>Análise Gratuita</h3>
+          <p>Avaliamos seu histórico no INSS e calculamos seu benefício.</p>
         </div>
         <!-- Passo 3 -->
         <div class="timeline-step">
-          <div class="step-box">
-            <div class="step-circle circle-animate">3</div>
-            <h3>Cuidamos de Tudo</h3>
-            <p>Preparamos a documentação e fazemos o pedido no INSS.</p>
-          </div>
+          <div class="step-circle circle-animate">3</div>
+          <h3>Cuidamos de Tudo</h3>
+          <p>Preparamos a documentação e fazemos o pedido no INSS.</p>
         </div>
         <!-- Passo 4 -->
         <div class="timeline-step">
-          <div class="step-box">
-            <div class="step-circle circle-animate">4</div>
-            <h3>Acompanhamos</h3>
-            <p>Monitoramos cada etapa até a aprovação.</p>
-          </div>
+          <div class="step-circle circle-animate">4</div>
+          <h3>Acompanhamos</h3>
+          <p>Monitoramos cada etapa até a aprovação.</p>
         </div>
         <!-- Passo 5 -->
         <div class="timeline-step">
-          <div class="step-box">
-            <div class="step-circle circle-animate">5</div>
-            <h3>Você Recebe!</h3>
-            <p>O INSS deposita o valor direto na sua conta.</p>
-          </div>
+          <div class="step-circle circle-animate">5</div>
+          <h3>Você Recebe!</h3>
+          <p>O INSS deposita o valor direto na sua conta.</p>
         </div>
       </div>
       <div style="margin-top:2rem;">
