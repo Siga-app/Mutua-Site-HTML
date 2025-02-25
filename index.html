@@ -157,7 +157,7 @@
     }
 
     /* ---------------------------
-       HERO SECTION (SEM ZOOM)
+       HERO SECTION (Sem Zoom)
     --------------------------- */
     #hero {
       position: relative;
@@ -170,8 +170,8 @@
                   center center / cover no-repeat;
       color: var(--branco);
       background-position: center;
-      background-repeat: no-repeat;
       background-size: cover;
+      background-repeat: no-repeat;
     }
     .hero-overlay {
       position: absolute;
@@ -251,7 +251,6 @@
       100% { transform: scale(1); }
     }
     .fade-in { opacity: 0; animation: fadeIn 1s forwards; }
-    .fade-in-delay { opacity: 0; animation: fadeIn 1s forwards 0.5s; }
     @keyframes fadeIn { to { opacity: 1; } }
 
     /* ---------------------------
@@ -280,9 +279,7 @@
       margin: 1rem 0;
       line-height: 1.6;
     }
-    .benefit-list li {
-      margin-bottom: 0.5rem;
-    }
+    .benefit-list li { margin-bottom: 0.5rem; }
     .btn-center {
       display: block;
       margin: 1rem auto 0;
@@ -290,20 +287,21 @@
     }
 
     /* ---------------------------
-       COMO FUNCIONA? (SEM ZOOM, CAIXAS IGUAIS)
+       COMO FUNCIONA? (Caixas Iguais, sem linha, sem zoom)
     --------------------------- */
     #como-funciona {
       position: relative;
+      width: 100%;
       min-height: 70vh;
       background: url("https://images.pexels.com/photos/2801583/pexels-photo-2801583.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")
                   center center / cover no-repeat;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 3rem 0;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
     }
     #como-funciona::before {
       content: "";
@@ -330,7 +328,7 @@
     .timeline-container {
       display: flex;
       justify-content: space-between;
-      align-items: center;
+      align-items: flex-start;
       gap: 1rem;
       flex-wrap: wrap;
     }
@@ -339,10 +337,9 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.3);
       border-radius: 8px;
       padding: 1rem;
-      max-width: 180px;
-      flex: 1 1 180px;
+      width: 180px;  /* Largura fixa */
+      height: 230px; /* Altura fixa p/ manter tamanho igual */
       text-align: center;
-      min-height: 220px; /* Tamanho fixo para todas as caixas */
     }
     .step-circle {
       width: 50px;
@@ -536,8 +533,10 @@
     #faq::before {
       content: "";
       position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
+      top: 0; 
+      left: 0;
+      width: 100%; 
+      height: 100%;
       background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7));
       z-index: 1;
     }
@@ -623,14 +622,15 @@
         align-items: center;
       }
 
-      /* timeline container em colunas */
+      /* Timeline container em colunas, sem zoom */
       .timeline-container {
         flex-direction: column;
+        align-items: center;
       }
       .timeline-step {
-        max-width: 220px; 
+        width: 220px; /* Ajuste p/ mobile */
+        height: 250px; /* Ajuste p/ mobile */
         margin-bottom: 2rem;
-        min-height: 220px; /* mesmo tamanho fixo */
       }
     }
   </style>
@@ -675,7 +675,7 @@
     </div>
   </header>
 
-  <!-- HERO SECTION -->
+  <!-- HERO SECTION (sem zoom) -->
   <section id="hero">
     <div class="hero-overlay"></div>
     <div class="hero-content">
@@ -706,7 +706,7 @@
     <a href="#form-section" class="btn btn-cta btn-center">VERIFICAR MEU DIREITO AGORA</a>
   </section>
 
-  <!-- COMO FUNCIONA? (Caixas Iguais, sem linha) -->
+  <!-- COMO FUNCIONA? (Caixas Iguais, sem linha, sem zoom) -->
   <section id="como-funciona">
     <div class="como-funciona-content">
       <h2 class="section-title">Como Funciona? Veja o Passo a Passo Simples</h2>
@@ -890,3 +890,105 @@
         <p>Email: <strong>[Seu Email]</strong></p>
       </div>
     </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <p>© 2025 Mútua – Assessoria Maternidade. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Mobile Nav Toggle
+      const hamburgerBtn = document.getElementById('hamburgerBtn');
+      const mobileNav = document.getElementById('mobileNav');
+      const closeMobileNav = document.getElementById('closeMobileNav');
+
+      if(hamburgerBtn) {
+        hamburgerBtn.addEventListener('click', () => {
+          mobileNav.classList.add('active');
+        });
+      }
+      if(closeMobileNav) {
+        closeMobileNav.addEventListener('click', () => {
+          mobileNav.classList.remove('active');
+        });
+      }
+
+      // Formulário
+      const form = document.querySelector('.contact-form');
+      if (form) {
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const nome = document.getElementById('nome').value.trim();
+          const telefone = document.getElementById('telefone').value.trim();
+          const filho = document.getElementById('filho').value;
+          const contribuicao = document.getElementById('contribuicao').value;
+          const analiseGratuita = document.getElementById('analiseGratuita').checked;
+
+          if (nome && telefone && filho && contribuicao && analiseGratuita) {
+            alert(`Obrigado, ${nome}! Recebemos seus dados e entraremos em contato em breve.`);
+            // Exemplo: redirecionar via WhatsApp
+            // window.location.href = 'https://api.whatsapp.com/send?phone=[Seu Número]&text=Olá! Gostaria de verificar meu direito ao auxílio-maternidade.';
+          } else {
+            alert('Por favor, preencha todos os campos obrigatórios antes de enviar.');
+          }
+        });
+      }
+
+      // Animação dos círculos (Como Funciona)
+      const circles = document.querySelectorAll('.circle-animate');
+      const circleOptions = { root: null, rootMargin: '0px', threshold: 0 };
+      const circleObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+          }
+        });
+      }, circleOptions);
+      circles.forEach(circle => circleObserver.observe(circle));
+
+      // Contadores Animados (Resultados)
+      const counters = document.querySelectorAll('.counter');
+      const counterOptions = { root: null, rootMargin: '0px', threshold: 0 };
+      const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            animateCounter(entry.target);
+            counterObserver.unobserve(entry.target);
+          }
+        });
+      }, counterOptions);
+      counters.forEach(counter => counterObserver.observe(counter));
+
+      function animateCounter(element) {
+        const target = +element.getAttribute('data-target');
+        let count = 0;
+        const duration = 2000;
+        const increment = target / (duration / 50);
+
+        const updateCount = () => {
+          count += increment;
+          if (count < target) {
+            if(element.classList.contains("plus")) {
+              element.innerText = "+" + Math.floor(count);
+            } else {
+              element.innerText = Math.floor(count);
+            }
+            setTimeout(updateCount, 50);
+          } else {
+            if(element.classList.contains("plus")) {
+              element.innerText = "+" + target;
+            } else {
+              element.innerText = target;
+            }
+          }
+        };
+        updateCount();
+      }
+    });
+  </script>
+</body>
+</html>
