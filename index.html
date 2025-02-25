@@ -15,11 +15,7 @@
     /* ---------------------------
        RESET E VARIÁVEIS
     --------------------------- */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     :root {
       --azul-profundo: #1F3B5F;
       --azul-degrade: #4A7BA7;
@@ -47,18 +43,13 @@
       align-items: center;
       justify-content: space-between;
       padding: 0.8rem 0;
+      position: relative;
+      z-index: 1000;
     }
-    .logo-area {
-      display: flex;
-      align-items: center;
-    }
+    .logo-area { display: flex; align-items: center; }
     .logo { width: 50px; margin-right: 0.8rem; }
     .header-title { font-size: 1.2rem; font-weight: 700; }
-    nav {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-    }
+    nav { flex: 1; display: flex; justify-content: center; }
     nav ul {
       display: flex;
       list-style: none;
@@ -90,6 +81,47 @@
     }
     .header-cta a:hover { background-color: #3b6f96; }
   
+    /* Mobile Menu Toggle */
+    .mobile-menu-toggle {
+      display: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: var(--azul-profundo);
+    }
+    /* Mobile Menu (Lateral) */
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      left: -250px;
+      width: 250px;
+      height: 100%;
+      background: var(--branco);
+      box-shadow: 2px 0 5px rgba(0,0,0,0.3);
+      transition: left 0.3s ease;
+      z-index: 1100;
+      padding: 1rem;
+    }
+    .mobile-menu.active { left: 0; }
+    .mobile-menu ul {
+      list-style: none;
+      padding: 0;
+    }
+    .mobile-menu ul li {
+      margin: 1rem 0;
+    }
+    .mobile-menu ul li a {
+      text-decoration: none;
+      font-weight: 700;
+      color: var(--azul-profundo);
+      font-size: 1rem;
+    }
+    .mobile-menu .close-menu {
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--azul-profundo);
+      text-align: right;
+    }
+  
     /* ---------------------------
        HERO SECTION (Imagem de Fundo com Zoom)
     --------------------------- */
@@ -107,10 +139,8 @@
     }
     .hero-overlay {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
       background: linear-gradient(rgba(31,59,95,0.6), rgba(243,184,168,0.6));
       z-index: 1;
     }
@@ -144,6 +174,10 @@
       margin-bottom: 0.5rem;
       color: #fff;
       text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+    }
+    /* CTA com fundo gradiente rosa nas laterais */
+    .hero-content .btn-cta {
+      background: linear-gradient(to right, var(--rosa-pessego), var(--azul-degrade), var(--rosa-pessego));
     }
   
     /* ---------------------------
@@ -198,9 +232,9 @@
     --------------------------- */
     #como-funciona {
       position: relative;
-      min-height: 60vh;
+      min-height: 70vh;
       background: url("https://images.pexels.com/photos/12801214/pexels-photo-12801214.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")
-                  center center / 100% no-repeat;
+                  center center / cover no-repeat;
       background-color: rgba(255,255,255,0.3);
       background-blend-mode: lighten;
       display: flex;
@@ -351,7 +385,6 @@
       line-height: 1.6;
     }
     .quem-somos-text ul li { margin-bottom: 0.5rem; }
-    /* Título alterado para "A Mútua" */
     .quem-somos-text h2 { text-align: left; }
   
     /* ---------------------------
@@ -404,31 +437,37 @@
     .btn-submit { display: block; width: 100%; margin-top: 1rem; }
   
     /* ---------------------------
-       FAQ (com imagem ao lado)
+       FAQ (com fundo de imagem)
     --------------------------- */
     #faq {
       padding: 2rem 0;
+      position: relative;
+      background: url("https://images.pexels.com/photos/9885401/pexels-photo-9885401.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2") center center / cover no-repeat;
+    }
+    #faq::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6);
+      z-index: 1;
     }
     .faq-content {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      align-items: flex-start;
+      position: relative;
+      z-index: 2;
+      padding: 2rem;
+      text-align: center;
+      color: var(--branco);
     }
-    .faq-text { flex: 1; }
-    .faq-text .faq-item { margin-bottom: 1.5rem; }
-    .faq-text .faq-item h3 { font-size: 1.2rem; margin-bottom: 0.5rem; }
-    .faq-image { flex: 0 0 400px; text-align: center; }
-    .faq-image img {
-      width: 100%;
-      max-width: 400px;
-      border-radius: 8px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    .faq-content .faq-item {
+      margin-bottom: 1.5rem;
     }
-    @media (max-width: 767px) {
-      .faq-content { flex-direction: column; }
-      .faq-image { flex: 1; }
+    .faq-content .faq-item h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
     }
+    .faq-content p { font-size: 1rem; }
   
     /* ---------------------------
        ÚLTIMA CHAMADA
@@ -452,15 +491,33 @@
        MEDIA QUERIES PARA MOBILE
     --------------------------- */
     @media (max-width: 767px) {
-      header { flex-direction: column; text-align: center; }
-      nav ul { flex-direction: column; gap: 1rem; }
-      .header-cta { margin-top: 1rem; }
+      header { flex-direction: column; align-items: flex-start; }
+      nav { display: none; } /* Esconde menu horizontal */
+      .header-cta { display: none; } /* Esconde o botão "Fale Conosco Agora" */
+      .mobile-menu-toggle { display: block; }
+      /* Ajusta a timeline */
       .timeline-container { flex-direction: column; align-items: center; }
       .timeline-step { width: auto; margin-bottom: 2rem; }
+      /* FAQ: Centraliza o conteúdo */
+      .faq-content { padding: 2rem; }
     }
   </style>
 </head>
 <body>
+  
+  <!-- Mobile Menu Toggle -->
+  <div class="mobile-menu-toggle" id="mobileMenuToggle">☰</div>
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="close-menu" id="closeMenu">×</div>
+    <ul>
+      <li><a href="#como-assim">Quem Tem Direito?</a></li>
+      <li><a href="#como-funciona">Como Funciona</a></li>
+      <li><a href="#quanto-receber">Valores</a></li>
+      <li><a href="#form-section">Formulário</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+  </div>
   
   <!-- HEADER + MENU + CTA -->
   <header class="header container">
@@ -648,7 +705,7 @@
     </div>
   </section>
   
-  <!-- FAQ (com imagem ao lado) -->
+  <!-- FAQ (com fundo de imagem) -->
   <section id="faq">
     <div class="container faq-section">
       <div class="faq-content">
@@ -677,9 +734,6 @@
           <div style="text-align:center;">
             <a href="#form-section" class="btn btn-cta">QUERO SABER SE TENHO DIREITO</a>
           </div>
-        </div>
-        <div class="faq-image">
-          <img src="https://images.pexels.com/photos/9885401/pexels-photo-9885401.jpeg" alt="Dúvidas sobre maternidade">
         </div>
       </div>
     </div>
@@ -711,6 +765,21 @@
   
   <script>
     document.addEventListener('DOMContentLoaded', () => {
+      // Mobile Menu Toggle
+      const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const closeMenu = document.getElementById('closeMenu');
+      if(mobileMenuToggle) {
+        mobileMenuToggle.addEventListener('click', () => {
+          mobileMenu.classList.add('active');
+        });
+      }
+      if(closeMenu) {
+        closeMenu.addEventListener('click', () => {
+          mobileMenu.classList.remove('active');
+        });
+      }
+  
       // Formulário
       const form = document.querySelector('.contact-form');
       if (form) {
