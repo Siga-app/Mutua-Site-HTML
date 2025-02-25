@@ -17,20 +17,14 @@
     /* ---------------------------
        RESET E VARIÁVEIS
     --------------------------- */
-    * {
-      margin: 0; 
-      padding: 0; 
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     :root {
       --azul-profundo: #1F3B5F;   /* textos e destaques */
       --azul-degrade: #4A7BA7;    /* botões e fundo da seção Quem Somos */
       --rosa-pessego: #F3B8A8;    /* fundos secundários e botão rosa */
       --branco: #FFFFFF;
     }
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
     body {
       font-family: 'Lato', sans-serif;
       background: var(--branco);
@@ -41,131 +35,65 @@
       font-family: 'Montserrat', sans-serif;
       color: var(--azul-profundo);
     }
-    .container {
-      width: 90%;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
+    .container { width: 90%; max-width: 1200px; margin: 0 auto; }
 
     /* ---------------------------
        HEADER + MENU
     --------------------------- */
     header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1rem 0;
+      display: flex; align-items: center; justify-content: space-between; padding: 1rem 0;
     }
-    .logo-area {
-      display: flex;
-      align-items: center;
-    }
-    .logo {
-      width: 60px;
-      margin-right: 1rem;
-    }
-    .header-title {
-      font-size: 1.2rem;
-    }
+    .logo-area { display: flex; align-items: center; }
+    .logo { width: 60px; margin-right: 1rem; }
+    .header-title { font-size: 1.2rem; }
     nav ul {
-      display: flex;
-      list-style: none;
-      gap: 1rem;
+      display: flex; list-style: none; gap: 1rem;
     }
     nav a {
-      text-decoration: none;
-      font-weight: 700;
-      color: var(--azul-profundo);
-      transition: color 0.3s ease;
+      text-decoration: none; font-weight: 700; color: var(--azul-profundo); transition: color 0.3s ease;
     }
-    nav a:hover {
-      color: #2c4f75;
-    }
+    nav a:hover { color: #2c4f75; }
 
     /* ---------------------------
        HERO SECTION (Imagem de Fundo)
     --------------------------- */
     #hero {
-      position: relative;
-      width: 100%;
-      min-height: 80vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      position: relative; width: 100%; min-height: 80vh;
+      display: flex; align-items: center; justify-content: center;
       background: url("https://images.pexels.com/photos/17525434/pexels-photo-17525434/free-photo-of-familia.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")
                   center center / cover no-repeat;
       color: var(--branco);
     }
     .hero-overlay {
-      position: absolute; top: 0; left: 0;
-      width: 100%; height: 100%;
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
       background: linear-gradient(rgba(31,59,95,0.6), rgba(243,184,168,0.6));
       z-index: 1;
     }
     .hero-content {
-      position: relative; z-index: 2;
-      max-width: 700px; text-align: center;
-      margin: 0 1rem;
+      position: relative; z-index: 2; max-width: 700px; text-align: center; margin: 0 1rem;
     }
     .hero-content h2 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: #fff;
-      text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+      font-size: 2.5rem; margin-bottom: 1rem; text-transform: uppercase;
+      letter-spacing: 1px; color: #fff; text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
     }
     .hero-content p {
-      font-size: 1.2rem;
-      margin-bottom: 1rem;
-      color: #fff;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+      font-size: 1.2rem; margin-bottom: 1rem; color: #fff; text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
     }
-    .hero-list {
-      list-style: none; margin: 1rem 0; line-height: 1.4;
-    }
-    .hero-list li {
-      margin-bottom: 0.5rem;
-      color: #fff;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
-    }
+    .hero-list { list-style: none; margin: 1rem 0; line-height: 1.4; }
+    .hero-list li { margin-bottom: 0.5rem; color: #fff; text-shadow: 1px 1px 3px rgba(0,0,0,0.4); }
 
     /* ---------------------------
        BOTÕES & ANIMAÇÕES
     --------------------------- */
-    .btn {
-      display: inline-block;
-      padding: 0.9rem 1.5rem;
-      border: none;
-      border-radius: 4px;
-      font-weight: 700;
-      cursor: pointer;
-      text-decoration: none;
-      transition: background-color 0.3s ease;
-    }
-    .btn-cta {
-      background-color: var(--azul-degrade);
-      color: var(--branco);
-    }
-    .btn-cta:hover {
-      background-color: #3b6f96;
-    }
+    .btn { display: inline-block; padding: 0.9rem 1.5rem; border: none; border-radius: 4px;
+           font-weight: 700; cursor: pointer; text-decoration: none; transition: background-color 0.3s ease; }
+    .btn-cta { background-color: var(--azul-degrade); color: var(--branco); }
+    .btn-cta:hover { background-color: #3b6f96; }
     /* Botão Rosa */
-    .btn-rosa {
-      background-color: var(--rosa-pessego);
-      color: #333;
-    }
-    .btn-rosa:hover {
-      background-color: #ebb0a0; /* tom levemente mais escuro */
-    }
-    .pulse {
-      animation: pulse 1.5s infinite;
-    }
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.02); }
-      100% { transform: scale(1); }
-    }
+    .btn-rosa { background-color: var(--rosa-pessego); color: #333; }
+    .btn-rosa:hover { background-color: #ebb0a0; }
+    .pulse { animation: pulse 1.5s infinite; }
+    @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.02); } 100% { transform: scale(1); } }
     .fade-in { opacity: 0; animation: fadeIn 1s forwards; }
     .fade-in-delay { opacity: 0; animation: fadeIn 1s forwards 0.5s; }
     @keyframes fadeIn { to { opacity: 1; } }
@@ -173,108 +101,66 @@
     /* ---------------------------
        SEÇÕES GERAIS
     --------------------------- */
-    .section-title {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-      text-align: center;
-    }
-    .section-text {
-      font-size: 1.1rem;
-      margin-bottom: 1rem;
-    }
+    .section-title { font-size: 1.8rem; margin-bottom: 1rem; text-align: center; }
+    .section-text { font-size: 1.1rem; margin-bottom: 1rem; }
 
     /* ---------------------------
        COMO ASSIM?
     --------------------------- */
-    #como-assim {
-      padding: 2rem 0;
-    }
-    .benefit-list {
-      list-style: none; margin: 1rem 0; line-height: 1.6;
-    }
+    #como-assim { padding: 2rem 0; }
+    .benefit-list { list-style: none; margin: 1rem 0; line-height: 1.6; }
     .benefit-list li { margin-bottom: 0.5rem; }
-    .btn-center {
-      display: block; margin: 1rem auto 0; width: fit-content;
-    }
+    .btn-center { display: block; margin: 1rem auto 0; width: fit-content; }
 
     /* ---------------------------
        COMO FUNCIONA? (Timeline)
     --------------------------- */
     #como-funciona {
-      position: relative;
-      min-height: 60vh;
+      position: relative; min-height: 60vh;
       background: url("https://images.pexels.com/photos/12801214/pexels-photo-12801214.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")
                   center center / cover no-repeat;
       background-color: rgba(255,255,255,0.3);
       background-blend-mode: lighten;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: flex; align-items: center; justify-content: center;
       padding: 3rem 0;
     }
     #como-funciona::before {
       content: "";
-      position: absolute; top: 0; left: 0;
-      width: 100%; height: 100%;
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
       background: rgba(255,255,255,0.3);
       z-index: 1;
     }
     .como-funciona-content {
       position: relative; z-index: 2; text-align: center;
-      max-width: 900px; margin: 0 1rem;
-      color: var(--azul-profundo);
+      max-width: 900px; margin: 0 1rem; color: var(--azul-profundo);
     }
     .timeline-container {
-      position: relative;
-      margin-top: 3rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
+      position: relative; margin-top: 3rem;
+      display: flex; justify-content: space-between; align-items: flex-start;
     }
     .timeline-line {
-      position: absolute; top: 50px;
-      left: 0; width: 100%; height: 4px;
-      background: var(--azul-profundo);
-      z-index: 1;
+      position: absolute; top: 50px; left: 0;
+      width: 100%; height: 4px; background: var(--azul-profundo); z-index: 1;
     }
     .timeline-step {
-      position: relative; z-index: 2;
-      text-align: center;
+      position: relative; z-index: 2; text-align: center;
       width: 100px;
     }
     .step-circle {
-      width: 60px; height: 60px;
-      border-radius: 50%;
-      background: var(--branco);
-      border: 4px solid var(--azul-profundo);
-      margin: 0 auto 0.5rem auto;
-      display: flex; align-items: center; justify-content: center;
+      width: 60px; height: 60px; border-radius: 50%;
+      background: var(--branco); border: 4px solid var(--azul-profundo);
+      margin: 0 auto 0.5rem; display: flex; align-items: center; justify-content: center;
       font-size: 1.2rem; font-weight: 700; color: var(--azul-profundo);
-      transform: scale(0);
-      opacity: 0;
+      transform: scale(0); opacity: 0;
       transition: transform 0.5s ease-out, opacity 0.5s ease-out;
     }
-    /* Quando a classe .in-view é adicionada, o círculo escala para 1 e aparece */
-    .step-circle.in-view {
-      transform: scale(1);
-      opacity: 1;
-    }
-    .timeline-step h3 {
-      margin-bottom: 0.3rem; font-size: 1rem;
-    }
-    .timeline-step p {
-      font-size: 0.9rem; line-height: 1.3;
-    }
+    .step-circle.in-view { transform: scale(1); opacity: 1; }
+    .timeline-step h3 { margin-bottom: 0.3rem; font-size: 1rem; }
+    .timeline-step p { font-size: 0.9rem; line-height: 1.3; }
     @media (max-width: 767px) {
-      .timeline-container {
-        flex-direction: column; align-items: center;
-      }
-      .timeline-line {
-        display: none;
-      }
-      .timeline-step {
-        width: auto; margin-bottom: 2rem;
-      }
+      .timeline-container { flex-direction: column; align-items: center; }
+      .timeline-line { display: none; }
+      .timeline-step { width: auto; margin-bottom: 2rem; }
     }
 
     /* ---------------------------
@@ -282,25 +168,18 @@
     --------------------------- */
     #quem-somos {
       background-color: var(--azul-degrade);
-      padding: 3rem 0;
-      color: var(--branco);
+      padding: 3rem 0; color: var(--branco);
     }
     .quem-somos-content {
       display: flex; flex-wrap: wrap; align-items: center; gap: 2rem;
     }
-    .quem-somos-image {
-      flex: 1 1 40%; text-align: center;
-    }
+    .quem-somos-image { flex: 1 1 40%; text-align: center; }
     .quem-somos-image img {
       width: 100%; max-width: 400px; border-radius: 8px;
       filter: brightness(1.05) contrast(1.05);
     }
-    .quem-somos-text {
-      flex: 1 1 55%;
-    }
-    .quem-somos-text ul {
-      list-style: none; margin: 1rem 0; line-height: 1.6;
-    }
+    .quem-somos-text { flex: 1 1 55%; }
+    .quem-somos-text ul { list-style: none; margin: 1rem 0; line-height: 1.6; }
     .quem-somos-text ul li { margin-bottom: 0.5rem; }
 
     /* ---------------------------
@@ -310,7 +189,7 @@
       padding: 2rem 0; text-align: center;
     }
     #quanto-receber a {
-      display: inline-block; margin: 1rem auto 0; text-align: center; width: fit-content;
+      display: inline-block; margin: 1rem auto 0; width: fit-content;
     }
 
     /* ---------------------------
@@ -331,15 +210,9 @@
     .form-group input, .form-group select {
       width: 100%; padding: 0.8rem; border: 1px solid #ccc; border-radius: 4px;
     }
-    .form-check {
-      margin-bottom: 1.2rem; display: flex; align-items: center;
-    }
-    .form-check input {
-      margin-right: 0.5rem;
-    }
-    .btn-submit {
-      display: block; width: 100%; margin-top: 1rem;
-    }
+    .form-check { margin-bottom: 1.2rem; display: flex; align-items: center; }
+    .form-check input { margin-right: 0.5rem; }
+    .btn-submit { display: block; width: 100%; margin-top: 1rem; }
 
     /* ---------------------------
        FAQ (com imagem ao lado)
@@ -348,28 +221,23 @@
       padding: 2rem 0;
     }
     .faq-content {
-      display: flex;
-      flex-wrap: wrap;
+      display: flex; align-items: center; justify-content: space-between;
       gap: 2rem;
-      align-items: flex-start;
     }
-    .faq-text {
-      flex: 1 1 60%;
-    }
-    .faq-text .faq-item {
-      margin-bottom: 1.5rem;
-    }
-    .faq-text .faq-item h3 {
-      font-size: 1.2rem; margin-bottom: 0.5rem;
-    }
+    .faq-text { flex: 1; }
+    .faq-text .faq-item { margin-bottom: 1.5rem; }
+    .faq-text .faq-item h3 { font-size: 1.2rem; margin-bottom: 0.5rem; }
     .faq-image {
-      flex: 1 1 40%;
-      text-align: center;
+      flex: 0 0 400px; text-align: center;
     }
     .faq-image img {
-      max-width: 100%;
-      border-radius: 8px;
+      width: 100%; max-width: 400px; border-radius: 8px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    /* Em telas menores, as colunas empilham */
+    @media (max-width: 767px) {
+      .faq-content { flex-direction: column; }
+      .faq-image { flex: 1; }
     }
 
     /* ---------------------------
@@ -380,22 +248,14 @@
       padding: 2rem 0; text-align: center;
       color: var(--branco);
     }
-    #last-call p {
-      margin: 1rem 0;
-    }
-    .contact-info p {
-      margin: 0.3rem 0;
-    }
+    #last-call p { margin: 1rem 0; }
+    .contact-info p { margin: 0.3rem 0; }
 
     /* ---------------------------
        FOOTER
     --------------------------- */
-    .footer {
-      background-color: #f5f5f5; padding: 1rem 0;
-    }
-    .footer p {
-      text-align: center; font-size: 0.9rem; color: #333;
-    }
+    .footer { background-color: #f5f5f5; padding: 1rem 0; }
+    .footer p { text-align: center; font-size: 0.9rem; color: #333; }
   </style>
 </head>
 <body>
@@ -403,14 +263,9 @@
   <!-- HEADER + MENU -->
   <header class="header container">
     <div class="logo-area">
-      <img 
-        class="logo" 
-        alt="Mútua – Assessoria Maternidade" 
-        src="https://i.ibb.co/Y4Mv8Ncb/mutua-logo-png.png"
-      >
+      <img class="logo" alt="Mútua – Assessoria Maternidade" src="https://i.ibb.co/Y4Mv8Ncb/mutua-logo-png.png">
       <h1 class="header-title">Mútua – Assessoria Maternidade</h1>
     </div>
-    <!-- Menu de Navegação -->
     <nav>
       <ul>
         <li><a href="#como-assim">Quem Tem Direito?</a></li>
@@ -431,9 +286,9 @@
       <h2>DESCUBRA AGORA SE VOCÊ TEM DIREITO AO AUXÍLIO-MATERNIDADE DO INSS!</h2>
       <p>VOCÊ PODE ESTAR PERDENDO UM BENEFÍCIO QUE PODE MUDAR SUA VIDA!</p>
       <ul class="hero-list">
-        <li>📌 Receba valores a partir de <strong>R$ 5.648,00</strong> até <strong>R$ 24.000,00</strong>!</li>
-        <li>💡 Mesmo que já tenha tido seu bebê há alguns anos, você ainda pode solicitar!</li>
-        <li>🎯 Se você é MEI, autônoma, CLT ou está desempregada, confira agora se pode receber!</li>
+        <li>Receba valores a partir de <strong>R$ 5.648,00</strong> até <strong>R$ 24.000,00</strong>!</li>
+        <li>Mesmo que já tenha tido seu bebê há alguns anos, você ainda pode solicitar!</li>
+        <li>Se você é MEI, autônoma, CLT ou está desempregada, confira agora se pode receber!</li>
       </ul>
       <a href="#form-section" class="btn btn-cta pulse">QUERO SABER SE TENHO DIREITO</a>
     </div>
@@ -441,27 +296,24 @@
 
   <!-- COMO ASSIM? -->
   <section id="como-assim" class="container">
-    <h2 class="section-title">🤱 Como Assim? Eu Posso Receber Esse Benefício?</h2>
+    <h2 class="section-title">Como Assim? Eu Posso Receber Esse Benefício?</h2>
     <p class="section-text">
-      <strong>SIM!</strong> Muitas mães não sabem que têm direito ao auxílio-maternidade e acabam perdendo milhares de reais simplesmente por não pedirem o benefício! 
-      Você pode receber esse valor mesmo que já tenha tido seu bebê há até 5 anos.
+      SIM! Muitas mães não sabem que têm direito ao auxílio-maternidade e acabam perdendo milhares de reais simplesmente por não pedirem o benefício. Você pode receber esse valor mesmo que já tenha tido seu bebê há até 5 anos.
     </p>
     <ul class="benefit-list">
-      <li>✅ Trabalhou com carteira assinada (CLT) nos últimos anos?</li>
-      <li>✅ É MEI ou autônoma e contribuiu para o INSS?</li>
-      <li>✅ Está desempregada, mas já trabalhou e contribuiu para o INSS antes?</li>
-      <li>✅ Teve um bebê nos últimos 5 anos e nunca pediu esse dinheiro?</li>
+      <li>Trabalhou com carteira assinada (CLT) nos últimos anos?</li>
+      <li>É MEI ou autônoma e contribuiu para o INSS?</li>
+      <li>Está desempregada, mas já trabalhou e contribuiu para o INSS antes?</li>
+      <li>Teve um bebê nos últimos 5 anos e nunca pediu esse dinheiro?</li>
     </ul>
-    <p class="section-text">
-      🎯 Esse valor pode ser solicitado <strong>AGORA</strong> e cair diretamente na sua conta!
-    </p>
+    <p class="section-text">Esse valor pode ser solicitado AGORA e cair diretamente na sua conta!</p>
     <a href="#form-section" class="btn btn-cta btn-center">VERIFICAR MEU DIREITO AGORA</a>
   </section>
 
   <!-- COMO FUNCIONA? (Timeline) -->
   <section id="como-funciona">
     <div class="como-funciona-content">
-      <h2 class="section-title">📌 Como Funciona? Veja o Passo a Passo Simples</h2>
+      <h2 class="section-title">Como Funciona? Veja o Passo a Passo Simples</h2>
       <div class="timeline-container">
         <div class="timeline-line"></div>
 
@@ -495,51 +347,43 @@
           <p>O INSS deposita o valor diretamente na sua conta.</p>
         </div>
       </div>
-
       <div style="margin-top:2rem;">
-        <a href="#form-section" class="btn btn-cta" style="display: inline-block; margin: 0 auto;">
-          QUERO RECEBER MEU BENEFÍCIO
-        </a>
+        <a href="#form-section" class="btn btn-cta" style="display: inline-block; margin: 0 auto;">QUERO RECEBER MEU BENEFÍCIO</a>
       </div>
     </div>
   </section>
 
-  <!-- QUEM SOMOS (Fundo Azul) -->
+  <!-- QUEM SOMOS -->
   <section id="quem-somos">
     <div class="container quem-somos-content">
       <div class="quem-somos-image">
-        <img 
-          src="https://i.ibb.co/Y4Mv8Ncb/mutua-logo-png.png" 
-          alt="Mútua – Assessoria Maternidade"
-        >
+        <img src="https://i.ibb.co/Y4Mv8Ncb/mutua-logo-png.png" alt="Mútua – Assessoria Maternidade">
       </div>
       <div class="quem-somos-text">
-        <h2 class="section-title" style="text-align:left;">🌟 Quem Somos - A Mútua</h2>
+        <h2 class="section-title" style="text-align:left;">Quem Somos - A Mútua</h2>
         <p>
-          A <strong>Mútua – Assessoria Maternidade</strong> foi criada para ajudar mães a receberem o auxílio-maternidade do INSS, 
-          sem burocracia e com total segurança. Nosso objetivo é garantir que você tenha acesso ao benefício que é seu por direito.
+          A Mútua – Assessoria Maternidade foi criada para ajudar mães a receberem o auxílio-maternidade do INSS, sem burocracia e com total segurança. Nosso objetivo é garantir que você tenha acesso ao benefício que é seu por direito.
         </p>
         <ul>
-          <li>💡 <strong>Especialistas em Previdência:</strong> Profissionais experientes em processos do INSS.</li>
-          <li>🏢 <strong>Atendimento Personalizado:</strong> Cuidamos de tudo para sua tranquilidade.</li>
-          <li>💼 <strong>Transparência e Compromisso:</strong> Acompanhamos seu pedido do início ao fim.</li>
+          <li>Especialistas em Previdência: Profissionais experientes em processos do INSS.</li>
+          <li>Atendimento Personalizado: Cuidamos de tudo para sua tranquilidade.</li>
+          <li>Transparência e Compromisso: Acompanhamos seu pedido do início ao fim.</li>
         </ul>
-        <!-- Botão Rosa -->
         <a href="#form-section" class="btn btn-rosa">ENTRAR EM CONTATO</a>
       </div>
     </div>
   </section>
 
-  <!-- QUANTO VOCÊ PODE RECEBER? -->
+  <!-- QUANTO VOCÊ PODE RECEBER -->
   <section id="quanto-receber" class="container">
-    <h2 class="section-title">💰 Quanto Você Pode Receber?</h2>
+    <h2 class="section-title">Quanto Você Pode Receber?</h2>
     <p class="section-text">
-      <strong>Mães que contribuíram pelo mínimo (MEI, autônomas ou desempregadas):</strong><br>
-      ➡️ A partir de <strong>R$ 5.648,00</strong>.
+      Mães que contribuíram pelo mínimo (MEI, autônomas ou desempregadas):<br>
+      A partir de <strong>R$ 5.648,00</strong>.
     </p>
     <p class="section-text">
-      <strong>Mães que pagaram INSS com valores maiores:</strong><br>
-      ➡️ Podem receber até <strong>R$ 24.000,00</strong>!
+      Mães que pagaram INSS com valores maiores:<br>
+      Podem receber até <strong>R$ 24.000,00</strong>!
     </p>
     <p class="section-text">
       O valor depende das suas últimas contribuições ao INSS.
@@ -550,21 +394,21 @@
   <!-- FORMULÁRIO -->
   <section id="form-section">
     <div class="container form-section">
-      <h2 class="section-title">📝 Formulário para Análise Gratuita</h2>
+      <h2 class="section-title">Formulário para Análise Gratuita</h2>
       <p class="section-text" style="text-align:center;">
         Preencha abaixo e descubra se você tem direito ao auxílio maternidade!
       </p>
       <form class="contact-form fade-in">
         <div class="form-group">
-          <label for="nome">1️⃣ Nome Completo</label>
+          <label for="nome">Nome Completo</label>
           <input type="text" id="nome" placeholder="Digite seu nome completo" required>
         </div>
         <div class="form-group">
-          <label for="telefone">2️⃣ Telefone / WhatsApp</label>
+          <label for="telefone">Telefone / WhatsApp</label>
           <input type="tel" id="telefone" placeholder="(XX) XXXXX-XXXX" required>
         </div>
         <div class="form-group">
-          <label for="filho">3️⃣ Você teve um filho nos últimos 5 anos?</label>
+          <label for="filho">Você teve um filho nos últimos 5 anos?</label>
           <select id="filho" required>
             <option value="">Selecione</option>
             <option value="sim">Sim</option>
@@ -572,7 +416,7 @@
           </select>
         </div>
         <div class="form-group">
-          <label for="contribuicao">4️⃣ Já trabalhou CLT, foi MEI ou contribuiu para o INSS?</label>
+          <label for="contribuicao">Já trabalhou CLT, foi MEI ou contribuiu para o INSS?</label>
           <select id="contribuicao" required>
             <option value="">Selecione</option>
             <option value="sim">Sim</option>
@@ -581,7 +425,7 @@
         </div>
         <div class="form-check">
           <input type="checkbox" id="analiseGratuita" required>
-          <label for="analiseGratuita">5️⃣ Sim, quero saber se tenho direito!</label>
+          <label for="analiseGratuita">Sim, quero saber se tenho direito!</label>
         </div>
         <button type="submit" class="btn btn-cta btn-submit">ENVIAR MEUS DADOS</button>
       </form>
@@ -592,41 +436,34 @@
   <section id="faq">
     <div class="container faq-section">
       <div class="faq-content">
-        <!-- Texto FAQ -->
         <div class="faq-text">
-          <h2 class="section-title">🤔 Dúvidas Comuns Sobre o Auxílio-Maternidade</h2>
-
+          <h2 class="section-title">Dúvidas Comuns Sobre o Auxílio-Maternidade</h2>
           <div class="faq-item">
             <h3>1. Se eu estiver desempregada, posso receber?</h3>
-            <p>✔️ Sim! Se você já trabalhou e contribuiu para o INSS, ainda pode ter direito.</p>
+            <p>Sim! Se você já trabalhou e contribuiu para o INSS, ainda pode ter direito.</p>
           </div>
           <div class="faq-item">
             <h3>2. O valor é pago de uma vez ou parcelado?</h3>
-            <p>✔️ Para mães que tiveram bebê e ainda não solicitaram, o valor é pago de uma só vez.</p>
+            <p>Para mães que tiveram bebê e ainda não solicitaram, o valor é pago de uma só vez.</p>
           </div>
           <div class="faq-item">
             <h3>3. E se eu perdi o bebê durante a gravidez?</h3>
-            <p>✔️ Em caso de natimorto (após 23 semanas), você tem direito ao benefício completo de 4 meses.</p>
+            <p>Em caso de natimorto (após 23 semanas), você tem direito ao benefício completo de 4 meses.</p>
           </div>
           <div class="faq-item">
             <h3>4. Quanto tempo leva para receber?</h3>
-            <p>✔️ Normalmente de 30 a 45 dias, mas pode variar conforme o caso.</p>
+            <p>Normalmente de 30 a 45 dias, mas pode variar conforme o caso.</p>
           </div>
           <div class="faq-item">
             <h3>5. Como faço para solicitar?</h3>
-            <p>✔️ Basta preencher o formulário acima e nossa equipe cuida de tudo.</p>
+            <p>Basta preencher o formulário acima e nossa equipe cuidará de todo o processo.</p>
           </div>
-
           <div style="text-align:center;">
             <a href="#form-section" class="btn btn-cta">QUERO SABER SE TENHO DIREITO</a>
           </div>
         </div>
-        <!-- Imagem FAQ -->
         <div class="faq-image">
-          <img 
-            src="https://images.pexels.com/photos/9885401/pexels-photo-9885401.jpeg" 
-            alt="Dúvidas sobre maternidade"
-          >
+          <img src="https://images.pexels.com/photos/9885401/pexels-photo-9885401.jpeg" alt="Dúvidas sobre maternidade">
         </div>
       </div>
     </div>
@@ -635,14 +472,14 @@
   <!-- ÚLTIMA CHAMADA -->
   <section id="last-call">
     <div class="container last-call-section">
-      <h2 class="section-title">📢 Última Chamada – Não Perca Essa Chance!</h2>
+      <h2 class="section-title">Última Chamada – Não Perca Essa Chance!</h2>
       <p>
-        🚀 Milhares de mães já receberam esse valor e você pode ser a próxima!<br>
+        Milhares de mães já receberam esse valor e você pode ser a próxima!<br>
         Clique no botão abaixo e veja se tem direito ao benefício antes que seja tarde.
       </p>
       <a href="#form-section" class="btn btn-cta pulse">VERIFICAR MEU DIREITO AGORA</a>
       <div class="contact-info" style="margin-top:1rem;">
-        <p>📞 Fale diretamente com a nossa equipe:</p>
+        <p>Fale diretamente com a nossa equipe:</p>
         <p>WhatsApp: <strong>[Seu Número]</strong></p>
         <p>Email: <strong>[Seu Email]</strong></p>
       </div>
@@ -668,9 +505,8 @@
           const filho = document.getElementById('filho').value;
           const contribuicao = document.getElementById('contribuicao').value;
           const analiseGratuita = document.getElementById('analiseGratuita').checked;
-
           if (nome && telefone && filho && contribuicao && analiseGratuita) {
-            alert(\`Obrigado, \${nome}! Recebemos seus dados e entraremos em contato em breve.\`);
+            alert(`Obrigado, ${nome}! Recebemos seus dados e entraremos em contato em breve.`);
             // Exemplo: redirecionar via WhatsApp
             // window.location.href = 'https://api.whatsapp.com/send?phone=[Seu Número]&text=Olá! Gostaria de verificar meu direito ao auxílio-maternidade.';
           } else {
@@ -679,25 +515,15 @@
         });
       }
 
-      // Animação dos círculos (Intersection Observer)
+      // Animação dos círculos da timeline
       const circles = document.querySelectorAll('.circle-animate');
-      // Ajuste threshold para 0.1 ou 0 para garantir que dispare
-      const options = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1
-      };
+      const options = { root: null, rootMargin: '0px', threshold: 0.1 };
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('in-view');
-          }
+          if (entry.isIntersecting) { entry.target.classList.add('in-view'); }
         });
       }, options);
-
-      circles.forEach(circle => {
-        observer.observe(circle);
-      });
+      circles.forEach(circle => { observer.observe(circle); });
     });
   </script>
 </body>
