@@ -169,16 +169,11 @@
       background: url("https://images.pexels.com/photos/17525434/pexels-photo-17525434/free-photo-of-familia.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")
                   center center / cover no-repeat;
       color: var(--branco);
-      background-position: center;
-      background-size: cover;
-      background-repeat: no-repeat;
     }
     .hero-overlay {
       position: absolute;
-      top: 0; 
-      left: 0;
-      width: 100%; 
-      height: 100%;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
       background: linear-gradient(rgba(31,59,95,0.6), rgba(243,184,168,0.6));
       z-index: 1;
     }
@@ -271,19 +266,21 @@
     }
 
     /* ---------------------------
-       COMO ASSIM? (Melhorado)
+       COMO ASSIM? (Sem fundo branco)
     --------------------------- */
     #como-assim {
       padding: 2rem 0;
       background: linear-gradient(135deg, #F3B8A8 0%, #FFF 100%);
     }
     .como-assim-container {
-      background: rgba(255, 255, 255, 0.9);
+      /* Removido o background e deixamos somente o gradiente do #como-assim */
       border-radius: 8px;
       padding: 2rem;
       display: flex;
       gap: 2rem;
       align-items: center;
+      max-width: 1000px;
+      margin: 0 auto;
     }
     .como-assim-text {
       flex: 1;
@@ -320,7 +317,6 @@
       font-weight: bold;
       margin-right: 0.5rem;
     }
-    /* Mobile: Empilhar */
     @media (max-width: 767px) {
       .como-assim-container {
         flex-direction: column;
@@ -328,7 +324,7 @@
     }
 
     /* ---------------------------
-       COMO FUNCIONA? (Caixas Iguais, sem linha e sem zoom)
+       COMO FUNCIONA? (Caixas Iguais, sem linha)
     --------------------------- */
     #como-funciona {
       position: relative;
@@ -658,7 +654,7 @@
         align-items: center;
       }
 
-      /* Timeline: empilhar verticalmente */
+      /* Timeline: empilhar verticalmente no mobile */
       .timeline-container {
         flex-direction: column;
         align-items: center;
@@ -667,64 +663,6 @@
         width: 220px;
         height: 250px;
         margin-bottom: 2rem;
-      }
-    }
-
-    /* ---------------------------
-       NOVA SEÇÃO "COMO ASSIM?" MELHORADA
-    --------------------------- */
-    #como-assim {
-      padding: 2rem 0;
-      background: linear-gradient(135deg, #F3B8A8 0%, #FFF 100%);
-    }
-    .como-assim-container {
-      background: rgba(255, 255, 255, 0.9);
-      border-radius: 8px;
-      padding: 2rem;
-      display: flex;
-      gap: 2rem;
-      align-items: center;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-    .como-assim-text {
-      flex: 1;
-    }
-    .como-assim-text h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      text-transform: uppercase;
-    }
-    .como-assim-text p {
-      font-size: 1.1rem;
-      margin-bottom: 1rem;
-    }
-    .como-assim-highlight {
-      font-size: 1.2rem;
-      font-weight: bold;
-      color: var(--azul-degrade);
-      margin-top: 1rem;
-    }
-    .como-assim-list {
-      flex: 1;
-      list-style: none;
-      padding: 0;
-    }
-    .como-assim-list li {
-      font-size: 1.1rem;
-      margin-bottom: 0.8rem;
-      display: flex;
-      align-items: center;
-    }
-    .como-assim-list li::before {
-      content: "✓";
-      color: var(--azul-degrade);
-      font-weight: bold;
-      margin-right: 0.5rem;
-    }
-    @media (max-width: 767px) {
-      .como-assim-container {
-        flex-direction: column;
       }
     }
   </style>
@@ -769,7 +707,7 @@
     </div>
   </header>
 
-  <!-- HERO SECTION (Sem Zoom) -->
+  <!-- HERO SECTION -->
   <section id="hero">
     <div class="hero-overlay"></div>
     <div class="hero-content">
@@ -784,7 +722,7 @@
     </div>
   </section>
 
-  <!-- COMO ASSIM? (Seção Melhorada) -->
+  <!-- COMO ASSIM? (Sem fundo branco, usando gradiente total) -->
   <section id="como-assim" class="container">
     <div class="como-assim-container">
       <div class="como-assim-text">
@@ -795,7 +733,7 @@
         <p class="como-assim-highlight">
           Esse valor pode ser solicitado AGORA e cair diretamente na sua conta!
         </p>
-        <a href="#form-section" class="btn btn-cta">VERIFICAR MEU DIREITO AGORA</a>
+        <a href="#form-section" class="btn btn-cta" style="margin-top:1rem;">VERIFICAR MEU DIREITO AGORA</a>
       </div>
       <ul class="como-assim-list">
         <li>Trabalhou com carteira assinada (CLT) nos últimos anos?</li>
@@ -806,36 +744,31 @@
     </div>
   </section>
 
-  <!-- COMO FUNCIONA? (Caixas Iguais, Sem Zoom) -->
+  <!-- COMO FUNCIONA? (Caixas Iguais) -->
   <section id="como-funciona">
     <div class="como-funciona-content">
       <h2 class="section-title">Como Funciona? Veja o Passo a Passo Simples</h2>
       <div class="timeline-container">
-        <!-- Passo 1 -->
         <div class="timeline-step">
           <div class="step-circle circle-animate">1</div>
           <h3>Entramos em Contato</h3>
           <p>Nossa equipe te liga ou envia mensagem para entender sua situação.</p>
         </div>
-        <!-- Passo 2 -->
         <div class="timeline-step">
           <div class="step-circle circle-animate">2</div>
           <h3>Análise Gratuita</h3>
           <p>Avaliamos seu histórico no INSS e calculamos seu benefício.</p>
         </div>
-        <!-- Passo 3 -->
         <div class="timeline-step">
           <div class="step-circle circle-animate">3</div>
           <h3>Cuidamos de Tudo</h3>
           <p>Preparamos a documentação e fazemos o pedido no INSS.</p>
         </div>
-        <!-- Passo 4 -->
         <div class="timeline-step">
           <div class="step-circle circle-animate">4</div>
           <h3>Acompanhamos</h3>
           <p>Monitoramos cada etapa até a aprovação.</p>
         </div>
-        <!-- Passo 5 -->
         <div class="timeline-step">
           <div class="step-circle circle-animate">5</div>
           <h3>Você Recebe!</h3>
@@ -843,7 +776,7 @@
         </div>
       </div>
       <div style="margin-top:2rem;">
-        <a href="#form-section" class="btn btn-cta" style="display: inline-block; margin: 0 auto;">QUERO RECEBER MEU BENEFÍCIO</a>
+        <a href="#form-section" class="btn btn-cta">QUERO RECEBER MEU BENEFÍCIO</a>
       </div>
     </div>
   </section>
